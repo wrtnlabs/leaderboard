@@ -1,7 +1,7 @@
-import {wrtnlabs} from '@wrtnlabs/eslint-config'
+import { wrtnlabs } from "@wrtnlabs/eslint-config";
 
 export default wrtnlabs({
-  typescript:{
-    tsconfigPath: './tsconfig.json'
-  }
-})
+  typescript: {
+    tsconfigPath: "./tsconfig.json",
+  },
+});
