@@ -11,6 +11,8 @@ I made it ASAP. So LLM token costs tracing like detailed features are not yet.
 
 Try editing the properties of the `src/index.ts` file.
 
+Also, benchmark report would be written under the `reports` directory.
+
 
 
 
