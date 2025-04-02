@@ -56,7 +56,7 @@ interface ICustomer {
   member: IMember | null;
   href: string;
   referrer: string;
-  ip: string & tags.Format<"uuid">;
+  ip: string & tags.Format<"ipv4">;
   created_at: string & tags.Format<"date-time">;
 }
 interface IChannel {

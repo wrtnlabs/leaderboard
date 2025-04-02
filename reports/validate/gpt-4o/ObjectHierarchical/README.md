@@ -1,0 +1,59 @@
+# ObjectHierarchical
+## Summary
+  - Aggregation
+    - Trial: #10
+    - Success: #10
+      - 1st: #10
+      - 2nd: #0
+      - 3rd: #0
+    - Failure: #0
+    - Nothing: #0
+    - Error: 0
+    - Average Time: 3321.1 ms
+  - Token Usage:
+    - Everything
+    - Input
+      - Total
+      - Cached
+    - Output
+      - Total
+      - Reasoning
+      - Accepted Predication
+      - Rejected Predication
+
+## Scenario
+### Conversation (user)
+A customer participates in a compaign.
+
+The customer has come from a "general" channel,
+which belongs to the "wrtnlabs" enterprise.
+His referrer site is "https://wrtnlabs.com",
+and his ip address is "127.0.0.1".
+The time of the participation is "2023-10-01T08:27:31Z".
+
+For reference, the "general" channel's name is same as its code,
+and it priority is 9, and it is not exclusive. And the channel
+has been created at "2020-08-27T09:00:00Z".
+
+Also, the customer has joined to our membership with
+"samchon@wrtnlabs.io" email address since "2023-09-01T17:55:59Z".
+And he is authorized to use our service with "samchon" account
+with "Jeongho Nam" display name.
+
+Additionally, hi is belonged to the "wrtnlabs" enterprise account
+with "Wrtn Technologies Inc." display name, and it has been created at
+"2020-08-27T09:00:00Z". The enterprise has the best grade of 1.
+
+## Trials
+No | Status | Time
+---:|:-------|------:
+[1. success](./trials/1.success.json) | 1️⃣ | 3,594 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 2,589 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 3,194 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 3,483 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 4,638 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 3,149 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 3,378 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 2,559 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 2,980 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 3,647 ms

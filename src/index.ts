@@ -26,7 +26,7 @@ const main = async (): Promise<void> => {
       api: new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
       }),
-      model: "gpt-4o",
+      model: "gpt-4o-mini",
     },
     schemaModel: "chatgpt",
     retry: 5, // validation feedback retry count
@@ -38,7 +38,7 @@ const main = async (): Promise<void> => {
   });
 
   const docs: Record<string, string> = benchmark.report();
-  const root: string = `${__dirname}/../reports/validate`;
+  const root: string = `${__dirname}/../reports/validate/${benchmark.props.vendor.model}`;
 
   await rmdir(root);
   for (const [key, value] of Object.entries(docs)) {

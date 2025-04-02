@@ -140,16 +140,13 @@ const writeExperimentIndex = (
 
 const writeScenarioPrompt = (prompt: IValidateBenchmarkPrompt): string => {
   if (prompt.type === "text")
-    return trim`
-      ### Conversation (${prompt.role})
-      ${prompt.content}
-    `;
-  return trim`
-    ### Function Calling
-    \`\`\`json
-    ${JSON.stringify(prompt.arguments, null, 2)}
-    \`\`\`
-  `;
+    return [`### Conversation (${prompt.role})`, prompt.content].join("\n");
+  return [
+    `### Function Calling`,
+    "```json",
+    JSON.stringify(prompt.arguments, null, 2),
+    "```",
+  ].join("\n");
 };
 
 const getElapsedTime = (trial: IValidateBenchmarkResult.ITrial): number =>
