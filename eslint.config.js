@@ -7,5 +7,6 @@ export default wrtnlabs({
   rules: {
     "ts/no-namespace": "error",
     "no-redeclare": "error",
+    "antfu/no-top-level-await": "off",
   },
 });
