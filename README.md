@@ -4,7 +4,7 @@ mv .env.example .env
 echo "OPENAI_API_KEY=sk-..." >> .env
 pnpm install
 pnpm run build
-pnpm start
+OPENAI_MODEL="gpt-4o" pnpm start
 ```
 
 Benchmark program for Ryoppippi's paper.
