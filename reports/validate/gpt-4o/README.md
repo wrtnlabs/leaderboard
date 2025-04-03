@@ -7,13 +7,13 @@
     - Scenarios: #8
     - Trial: #80
     - Success: #80
-      - 1st: #71
-      - 2nd: #8
-      - 3rd: #1
+      - 1st: #65
+      - 2nd: #13
+      - 3rd: #2
     - Failure: #0
     - Nothing: #0
     - Error: #0
-    - Average Time: 4525.3375 ms
+    - Average Time: 8317.0875 ms
   - Token Usage:
     - Everything
     - Input
@@ -28,11 +28,11 @@
 ## Experiments
 Name | Status | Time / Avg
 :----|:-------|------------:
-[ValidateObjectConstraint](./ValidateObjectConstraint/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣2️⃣1️⃣1️⃣2️⃣1️⃣
-[ValidateObjectFunctionSchema](./ValidateObjectFunctionSchema/README.md) | 3️⃣2️⃣1️⃣2️⃣2️⃣1️⃣2️⃣1️⃣1️⃣2️⃣
+[ValidateObjectConstraint](./ValidateObjectConstraint/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣2️⃣1️⃣1️⃣1️⃣
+[ValidateObjectFunctionSchema](./ValidateObjectFunctionSchema/README.md) | 1️⃣2️⃣2️⃣2️⃣2️⃣3️⃣2️⃣3️⃣1️⃣1️⃣
 [ValidateObjectGeometry](./ValidateObjectGeometry/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
 [ObjectHierarchical](./ObjectHierarchical/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
-[ObjectJsonSchema](./ObjectJsonSchema/README.md) | 1️⃣2️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ObjectJsonSchema](./ObjectJsonSchema/README.md) | 2️⃣2️⃣2️⃣1️⃣2️⃣1️⃣1️⃣2️⃣2️⃣2️⃣
 [ObjectSimple](./ObjectSimple/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
 [ObjectUnionExplicit](./ObjectUnionExplicit/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
 [ObjectUnionImplicit](./ObjectUnionImplicit/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣

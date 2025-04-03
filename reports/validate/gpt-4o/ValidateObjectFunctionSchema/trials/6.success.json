@@ -1,6 +1,6 @@
 {
   "type": "success",
-  "id": "call_gAUwCGeE1eRM95WG55Px7UBt",
+  "id": "call_Q0zR47Ef3VSMaTEyZBaUMklQ",
   "arguments": {
     "schema": {
       "name": "drawCircle",
@@ -9,18 +9,15 @@
         "type": "object",
         "properties": {
           "props": {
-            "$defs": {},
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
                 "enum": [
                   "circle"
-                ],
-                "description": "Must be 'circle' for the type of shape"
+                ]
               },
               "center": {
-                "$defs": {},
                 "type": "object",
                 "properties": {
                   "x": {
@@ -33,18 +30,20 @@
                 "required": [
                   "x",
                   "y"
-                ]
+                ],
+                "additionalProperties": false
               },
               "radius": {
                 "type": "number",
-                "description": "@tags Minimum<0>"
+                "description": "@minimum 0"
               }
             },
             "required": [
               "type",
               "center",
               "radius"
-            ]
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
@@ -53,10 +52,9 @@
         "additionalProperties": false
       },
       "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
-      "tags": [
-        "geometry",
-        "drawing"
-      ]
+      "output": {
+        "type": "null"
+      }
     }
   },
   "result": {
@@ -69,18 +67,15 @@
           "type": "object",
           "properties": {
             "props": {
-              "$defs": {},
               "type": "object",
               "properties": {
                 "type": {
                   "type": "string",
                   "enum": [
                     "circle"
-                  ],
-                  "description": "Must be 'circle' for the type of shape"
+                  ]
                 },
                 "center": {
-                  "$defs": {},
                   "type": "object",
                   "properties": {
                     "x": {
@@ -93,18 +88,20 @@
                   "required": [
                     "x",
                     "y"
-                  ]
+                  ],
+                  "additionalProperties": false
                 },
                 "radius": {
                   "type": "number",
-                  "description": "@tags Minimum<0>"
+                  "description": "@minimum 0"
                 }
               },
               "required": [
                 "type",
                 "center",
                 "radius"
-              ]
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
@@ -113,60 +110,559 @@
           "additionalProperties": false
         },
         "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
-        "tags": [
-          "geometry",
-          "drawing"
-        ]
+        "output": {
+          "type": "null"
+        }
       }
     }
   },
   "completion": {
-    "id": "chatcmpl-BHosrkB0qUuafy2ZtKMiAgANItHqO",
+    "id": "gen-1743692151-2ScUjKfCzoztbXLMatBF",
+    "provider": "OpenAI",
+    "model": "openai/gpt-4o",
     "object": "chat.completion",
-    "created": 1743586873,
-    "model": "gpt-4o-2024-08-06",
+    "created": 1743692151,
     "choices": [
       {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
         "index": 0,
         "message": {
           "role": "assistant",
-          "content": null,
+          "content": "",
+          "refusal": null,
           "tool_calls": [
             {
-              "id": "call_gAUwCGeE1eRM95WG55Px7UBt",
+              "index": 0,
+              "id": "call_Q0zR47Ef3VSMaTEyZBaUMklQ",
               "type": "function",
               "function": {
                 "name": "enrollFunction",
-                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{},\"type\":\"object\",\"properties\":{\"props\":{\"$defs\":{},\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"],\"description\":\"Must be 'circle' for the type of shape\"},\"center\":{\"$defs\":{},\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"]},\"radius\":{\"type\":\"number\",\"description\":\"@tags Minimum<0>\"}},\"required\":[\"type\",\"center\",\"radius\"]}},\"required\":[\"props\"],\"additionalProperties\":false},\"description\":\"Draw a circle.\\n\\nDraw a circle with the given center and radius.\",\"tags\":[\"geometry\",\"drawing\"]}}"
+                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{},\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"]},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"radius\":{\"type\":\"number\",\"description\":\"@minimum 0\"}},\"required\":[\"type\",\"center\",\"radius\"],\"additionalProperties\":false}},\"required\":[\"props\"],\"additionalProperties\":false},\"description\":\"Draw a circle.\\n\\nDraw a circle with the given center and radius.\",\"output\":{\"type\":\"null\"}}}"
               }
             }
-          ],
-          "refusal": null,
-          "annotations": []
-        },
-        "logprobs": null,
-        "finish_reason": "tool_calls"
+          ]
+        }
       }
     ],
+    "system_fingerprint": "fp_898ac29719",
     "usage": {
-      "prompt_tokens": 32900,
-      "completion_tokens": 165,
-      "total_tokens": 33065,
+      "prompt_tokens": 33098,
+      "completion_tokens": 149,
+      "total_tokens": 33247,
       "prompt_tokens_details": {
-        "cached_tokens": 32896,
-        "audio_tokens": 0
+        "cached_tokens": 32896
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 0,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
+        "reasoning_tokens": 0
       }
-    },
-    "service_tier": "default",
-    "system_fingerprint": "fp_898ac29719"
+    }
   },
-  "started_at": "2025-04-02T09:41:16.269Z",
-  "completed_at": "2025-04-02T09:41:19.854Z",
-  "previous": []
+  "started_at": "2025-04-03T14:55:50.806Z",
+  "completed_at": "2025-04-03T14:55:54.510Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "call_h47fL9F9m1ZSedz8S4TeAQbe",
+      "arguments": {
+        "schema": {
+          "name": "drawCircle",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "props": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "circle"
+                    ]
+                  },
+                  "center": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ]
+                  },
+                  "radius": {
+                    "type": "number",
+                    "description": "@minimum 0"
+                  }
+                },
+                "required": [
+                  "type",
+                  "center",
+                  "radius"
+                ]
+              }
+            },
+            "required": [
+              "props"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+          "output": null
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.parameters.$defs",
+            "expected": "Record<string, IChatGptSchema>"
+          },
+          {
+            "path": "$input.schema.output",
+            "expected": "(IChatGptSchema.IAnyOf | IChatGptSchema.IArray | IChatGptSchema.IBoolean | IChatGptSchema.IInteger | IChatGptSchema.INull | IChatGptSchema.INumber | IChatGptSchema.IObject | IChatGptSchema.IReference | IChatGptSchema.IString | IChatGptSchema.IUnknown | undefined)",
+            "value": null
+          }
+        ],
+        "data": {
+          "schema": {
+            "name": "drawCircle",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "props": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "circle"
+                      ]
+                    },
+                    "center": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ]
+                    },
+                    "radius": {
+                      "type": "number",
+                      "description": "@minimum 0"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "center",
+                    "radius"
+                  ]
+                }
+              },
+              "required": [
+                "props"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+            "output": null
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1743692140-ACv72tz1k7YjcgWAimpu",
+        "provider": "OpenAI",
+        "model": "openai/gpt-4o",
+        "object": "chat.completion",
+        "created": 1743692140,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_h47fL9F9m1ZSedz8S4TeAQbe",
+                  "type": "function",
+                  "function": {
+                    "name": "enrollFunction",
+                    "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"]},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"]},\"radius\":{\"type\":\"number\",\"description\":\"@minimum 0\"}},\"required\":[\"type\",\"center\",\"radius\"]}},\"required\":[\"props\"],\"additionalProperties\":false},\"description\":\"Draw a circle.\\n\\nDraw a circle with the given center and radius.\",\"output\":null}}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "fp_898ac29719",
+        "usage": {
+          "prompt_tokens": 32900,
+          "completion_tokens": 131,
+          "total_tokens": 33031,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "started_at": "2025-04-03T14:55:39.230Z",
+      "completed_at": "2025-04-03T14:55:47.336Z",
+      "previous": []
+    },
+    {
+      "type": "failure",
+      "id": "call_sJNdRiALEUtcBQHkkQgjUMuS",
+      "arguments": {
+        "schema": {
+          "name": "drawCircle",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "props": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "circle"
+                    ]
+                  },
+                  "center": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "radius": {
+                    "type": "number",
+                    "description": "@minimum 0"
+                  }
+                },
+                "required": [
+                  "type",
+                  "center",
+                  "radius"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "props"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+          "output": {
+            "type": "null"
+          }
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.parameters.$defs",
+            "expected": "Record<string, IChatGptSchema>"
+          }
+        ],
+        "data": {
+          "schema": {
+            "name": "drawCircle",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "props": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "circle"
+                      ]
+                    },
+                    "center": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number"
+                        },
+                        "y": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "radius": {
+                      "type": "number",
+                      "description": "@minimum 0"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "center",
+                    "radius"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "props"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+            "output": {
+              "type": "null"
+            }
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1743692147-kFb51zj9cvSHR3EquFFN",
+        "provider": "OpenAI",
+        "model": "openai/gpt-4o",
+        "object": "chat.completion",
+        "created": 1743692147,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_sJNdRiALEUtcBQHkkQgjUMuS",
+                  "type": "function",
+                  "function": {
+                    "name": "enrollFunction",
+                    "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"]},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"radius\":{\"type\":\"number\",\"description\":\"@minimum 0\"}},\"required\":[\"type\",\"center\",\"radius\"],\"additionalProperties\":false}},\"required\":[\"props\"],\"additionalProperties\":false},\"description\":\"Draw a circle.\\n\\nDraw a circle with the given center and radius.\",\"output\":{\"type\":\"null\"}}}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "fp_898ac29719",
+        "usage": {
+          "prompt_tokens": 33182,
+          "completion_tokens": 144,
+          "total_tokens": 33326,
+          "prompt_tokens_details": {
+            "cached_tokens": 32896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "started_at": "2025-04-03T14:55:47.336Z",
+      "completed_at": "2025-04-03T14:55:50.805Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "call_h47fL9F9m1ZSedz8S4TeAQbe",
+          "arguments": {
+            "schema": {
+              "name": "drawCircle",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "props": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "circle"
+                        ]
+                      },
+                      "center": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number"
+                          },
+                          "y": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y"
+                        ]
+                      },
+                      "radius": {
+                        "type": "number",
+                        "description": "@minimum 0"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "center",
+                      "radius"
+                    ]
+                  }
+                },
+                "required": [
+                  "props"
+                ],
+                "additionalProperties": false
+              },
+              "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+              "output": null
+            }
+          },
+          "result": {
+            "success": false,
+            "errors": [
+              {
+                "path": "$input.schema.parameters.$defs",
+                "expected": "Record<string, IChatGptSchema>"
+              },
+              {
+                "path": "$input.schema.output",
+                "expected": "(IChatGptSchema.IAnyOf | IChatGptSchema.IArray | IChatGptSchema.IBoolean | IChatGptSchema.IInteger | IChatGptSchema.INull | IChatGptSchema.INumber | IChatGptSchema.IObject | IChatGptSchema.IReference | IChatGptSchema.IString | IChatGptSchema.IUnknown | undefined)",
+                "value": null
+              }
+            ],
+            "data": {
+              "schema": {
+                "name": "drawCircle",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "props": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "circle"
+                          ]
+                        },
+                        "center": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number"
+                            },
+                            "y": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "x",
+                            "y"
+                          ]
+                        },
+                        "radius": {
+                          "type": "number",
+                          "description": "@minimum 0"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "center",
+                        "radius"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "props"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+                "output": null
+              }
+            }
+          },
+          "completion": {
+            "id": "gen-1743692140-ACv72tz1k7YjcgWAimpu",
+            "provider": "OpenAI",
+            "model": "openai/gpt-4o",
+            "object": "chat.completion",
+            "created": 1743692140,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "tool_calls",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "call_h47fL9F9m1ZSedz8S4TeAQbe",
+                      "type": "function",
+                      "function": {
+                        "name": "enrollFunction",
+                        "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"]},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"]},\"radius\":{\"type\":\"number\",\"description\":\"@minimum 0\"}},\"required\":[\"type\",\"center\",\"radius\"]}},\"required\":[\"props\"],\"additionalProperties\":false},\"description\":\"Draw a circle.\\n\\nDraw a circle with the given center and radius.\",\"output\":null}}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "system_fingerprint": "fp_898ac29719",
+            "usage": {
+              "prompt_tokens": 32900,
+              "completion_tokens": 131,
+              "total_tokens": 33031,
+              "prompt_tokens_details": {
+                "cached_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "started_at": "2025-04-03T14:55:39.230Z",
+          "completed_at": "2025-04-03T14:55:47.336Z",
+          "previous": []
+        }
+      ]
+    }
+  ]
 }

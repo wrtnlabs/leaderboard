@@ -1,15 +1,25 @@
 {
   "type": "success",
-  "id": "call_b7q0ku0JqVEyizY2c5P068pE",
+  "id": "call_AU8ba9ZSM38uVpb5pCOt7VfL",
   "arguments": {
     "schema": {
       "name": "drawCircle",
       "parameters": {
         "$defs": {},
         "additionalProperties": false,
+        "required": [
+          "props"
+        ],
         "type": "object",
         "properties": {
           "props": {
+            "$defs": {},
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "center",
+              "radius"
+            ],
             "type": "object",
             "properties": {
               "type": {
@@ -17,45 +27,42 @@
                 "enum": [
                   "circle"
                 ],
-                "description": "Type of the shape, which is a circle."
+                "description": "The type of shape to draw, which is a circle."
               },
               "center": {
-                "type": "object",
-                "properties": {
-                  "x": {
-                    "type": "number",
-                    "description": "X coordinate of the circle's center."
-                  },
-                  "y": {
-                    "type": "number",
-                    "description": "Y coordinate of the circle's center."
-                  }
-                },
+                "$defs": {},
+                "additionalProperties": false,
                 "required": [
                   "x",
                   "y"
                 ],
-                "description": "Center coordinates of the circle."
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "The x-coordinate of the circle's center."
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "The y-coordinate of the circle's center."
+                  }
+                },
+                "description": "The center point of the circle."
               },
               "radius": {
                 "type": "number",
-                "description": "Radius of the circle.",
+                "description": "The radius of the circle. It must be a non-negative number.",
                 "example": 5
               }
             },
-            "required": [
-              "type",
-              "center",
-              "radius"
-            ]
+            "description": "Properties to draw the circle."
           }
-        },
-        "required": [
-          "props"
-        ],
-        "description": "Draw a circle with the given center and radius."
+        }
       },
-      "description": "Draw a circle with the given center and radius."
+      "description": "Draw a circle with the given center and radius.",
+      "output": {
+        "type": "null"
+      }
     }
   },
   "result": {
@@ -66,9 +73,19 @@
         "parameters": {
           "$defs": {},
           "additionalProperties": false,
+          "required": [
+            "props"
+          ],
           "type": "object",
           "properties": {
             "props": {
+              "$defs": {},
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "center",
+                "radius"
+              ],
               "type": "object",
               "properties": {
                 "type": {
@@ -76,100 +93,94 @@
                   "enum": [
                     "circle"
                   ],
-                  "description": "Type of the shape, which is a circle."
+                  "description": "The type of shape to draw, which is a circle."
                 },
                 "center": {
-                  "type": "object",
-                  "properties": {
-                    "x": {
-                      "type": "number",
-                      "description": "X coordinate of the circle's center."
-                    },
-                    "y": {
-                      "type": "number",
-                      "description": "Y coordinate of the circle's center."
-                    }
-                  },
+                  "$defs": {},
+                  "additionalProperties": false,
                   "required": [
                     "x",
                     "y"
                   ],
-                  "description": "Center coordinates of the circle."
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "The x-coordinate of the circle's center."
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "The y-coordinate of the circle's center."
+                    }
+                  },
+                  "description": "The center point of the circle."
                 },
                 "radius": {
                   "type": "number",
-                  "description": "Radius of the circle.",
+                  "description": "The radius of the circle. It must be a non-negative number.",
                   "example": 5
                 }
               },
-              "required": [
-                "type",
-                "center",
-                "radius"
-              ]
+              "description": "Properties to draw the circle."
             }
-          },
-          "required": [
-            "props"
-          ],
-          "description": "Draw a circle with the given center and radius."
+          }
         },
-        "description": "Draw a circle with the given center and radius."
+        "description": "Draw a circle with the given center and radius.",
+        "output": {
+          "type": "null"
+        }
       }
     }
   },
   "completion": {
-    "id": "chatcmpl-BHosvNqyiAuNb0sylV9SJ35xyhDZw",
+    "id": "gen-1743692146-uqKRIYLtUMpUQlqzxV1k",
+    "provider": "OpenAI",
+    "model": "openai/gpt-4o",
     "object": "chat.completion",
-    "created": 1743586877,
-    "model": "gpt-4o-2024-08-06",
+    "created": 1743692146,
     "choices": [
       {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
         "index": 0,
         "message": {
           "role": "assistant",
-          "content": null,
+          "content": "",
+          "refusal": null,
           "tool_calls": [
             {
-              "id": "call_b7q0ku0JqVEyizY2c5P068pE",
+              "index": 0,
+              "id": "call_AU8ba9ZSM38uVpb5pCOt7VfL",
               "type": "function",
               "function": {
                 "name": "enrollFunction",
-                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{},\"additionalProperties\":false,\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"],\"description\":\"Type of the shape, which is a circle.\"},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\",\"description\":\"X coordinate of the circle's center.\"},\"y\":{\"type\":\"number\",\"description\":\"Y coordinate of the circle's center.\"}},\"required\":[\"x\",\"y\"],\"description\":\"Center coordinates of the circle.\"},\"radius\":{\"type\":\"number\",\"description\":\"Radius of the circle.\",\"example\":5}},\"required\":[\"type\",\"center\",\"radius\"]}},\"required\":[\"props\"],\"description\":\"Draw a circle with the given center and radius.\"},\"description\":\"Draw a circle with the given center and radius.\"}}"
+                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{},\"additionalProperties\":false,\"required\":[\"props\"],\"type\":\"object\",\"properties\":{\"props\":{\"$defs\":{},\"additionalProperties\":false,\"required\":[\"type\",\"center\",\"radius\"],\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"],\"description\":\"The type of shape to draw, which is a circle.\"},\"center\":{\"$defs\":{},\"additionalProperties\":false,\"required\":[\"x\",\"y\"],\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\",\"description\":\"The x-coordinate of the circle's center.\"},\"y\":{\"type\":\"number\",\"description\":\"The y-coordinate of the circle's center.\"}},\"description\":\"The center point of the circle.\"},\"radius\":{\"type\":\"number\",\"description\":\"The radius of the circle. It must be a non-negative number.\",\"example\":5}},\"description\":\"Properties to draw the circle.\"}}},\"description\":\"Draw a circle with the given center and radius.\",\"output\":{\"type\":\"null\"}}}"
               }
             }
-          ],
-          "refusal": null,
-          "annotations": []
-        },
-        "logprobs": null,
-        "finish_reason": "tool_calls"
+          ]
+        }
       }
     ],
+    "system_fingerprint": "fp_898ac29719",
     "usage": {
-      "prompt_tokens": 33144,
-      "completion_tokens": 187,
-      "total_tokens": 33331,
+      "prompt_tokens": 33265,
+      "completion_tokens": 223,
+      "total_tokens": 33488,
       "prompt_tokens_details": {
-        "cached_tokens": 33024,
-        "audio_tokens": 0
+        "cached_tokens": 33024
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 0,
-        "audio_tokens": 0,
-        "accepted_prediction_tokens": 0,
-        "rejected_prediction_tokens": 0
+        "reasoning_tokens": 0
       }
-    },
-    "service_tier": "default",
-    "system_fingerprint": "fp_898ac29719"
+    }
   },
-  "started_at": "2025-04-02T09:41:20.431Z",
-  "completed_at": "2025-04-02T09:41:24.984Z",
+  "started_at": "2025-04-03T14:55:45.806Z",
+  "completed_at": "2025-04-03T14:55:49.815Z",
   "previous": [
     {
       "type": "failure",
-      "id": "call_w5nlzxPYYPm0mR8RMKBDG0jC",
+      "id": "call_gmQf1CCUFjnz4PhNIrfyK9jB",
       "arguments": {
         "schema": {
           "name": "drawCircle",
@@ -184,29 +195,25 @@
                     "enum": [
                       "circle"
                     ],
-                    "description": "Type of the shape, which is a circle."
+                    "description": "The type of shape to draw, which is a circle."
                   },
                   "center": {
                     "type": "object",
                     "properties": {
                       "x": {
                         "type": "number",
-                        "description": "X coordinate of the circle's center."
+                        "description": "The x-coordinate of the circle's center."
                       },
                       "y": {
                         "type": "number",
-                        "description": "Y coordinate of the circle's center."
+                        "description": "The y-coordinate of the circle's center."
                       }
                     },
-                    "required": [
-                      "x",
-                      "y"
-                    ],
-                    "description": "Center coordinates of the circle."
+                    "description": "The center point of the circle."
                   },
                   "radius": {
                     "type": "number",
-                    "description": "Radius of the circle.",
+                    "description": "The radius of the circle. It must be a non-negative number.",
                     "example": 5
                   }
                 },
@@ -214,15 +221,16 @@
                   "type",
                   "center",
                   "radius"
-                ]
+                ],
+                "description": "Properties to draw the circle."
               }
             },
             "required": [
               "props"
-            ],
-            "description": "Draw a circle with the given center and radius."
+            ]
           },
-          "description": "Draw a circle with the given center and radius."
+          "description": "Draw a circle with the given center and radius.",
+          "output": null
         }
       },
       "result": {
@@ -235,6 +243,15 @@
           {
             "path": "$input.schema.parameters.additionalProperties",
             "expected": "false"
+          },
+          {
+            "path": "$input.schema.parameters.properties.props.properties.center.required",
+            "expected": "Array<string>"
+          },
+          {
+            "path": "$input.schema.output",
+            "expected": "(IChatGptSchema.IAnyOf | IChatGptSchema.IArray | IChatGptSchema.IBoolean | IChatGptSchema.IInteger | IChatGptSchema.INull | IChatGptSchema.INumber | IChatGptSchema.IObject | IChatGptSchema.IReference | IChatGptSchema.IString | IChatGptSchema.IUnknown | undefined)",
+            "value": null
           }
         ],
         "data": {
@@ -251,29 +268,25 @@
                       "enum": [
                         "circle"
                       ],
-                      "description": "Type of the shape, which is a circle."
+                      "description": "The type of shape to draw, which is a circle."
                     },
                     "center": {
                       "type": "object",
                       "properties": {
                         "x": {
                           "type": "number",
-                          "description": "X coordinate of the circle's center."
+                          "description": "The x-coordinate of the circle's center."
                         },
                         "y": {
                           "type": "number",
-                          "description": "Y coordinate of the circle's center."
+                          "description": "The y-coordinate of the circle's center."
                         }
                       },
-                      "required": [
-                        "x",
-                        "y"
-                      ],
-                      "description": "Center coordinates of the circle."
+                      "description": "The center point of the circle."
                     },
                     "radius": {
                       "type": "number",
-                      "description": "Radius of the circle.",
+                      "description": "The radius of the circle. It must be a non-negative number.",
                       "example": 5
                     }
                   },
@@ -281,66 +294,64 @@
                     "type",
                     "center",
                     "radius"
-                  ]
+                  ],
+                  "description": "Properties to draw the circle."
                 }
               },
               "required": [
                 "props"
-              ],
-              "description": "Draw a circle with the given center and radius."
+              ]
             },
-            "description": "Draw a circle with the given center and radius."
+            "description": "Draw a circle with the given center and radius.",
+            "output": null
           }
         }
       },
       "completion": {
-        "id": "chatcmpl-BHosrJMzfC3THSbhPMbwIRbWzIeGw",
+        "id": "gen-1743692140-B8Q9Shw2gaugy9QnOppu",
+        "provider": "OpenAI",
+        "model": "openai/gpt-4o",
         "object": "chat.completion",
-        "created": 1743586873,
-        "model": "gpt-4o-2024-08-06",
+        "created": 1743692140,
         "choices": [
           {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
             "index": 0,
             "message": {
               "role": "assistant",
-              "content": null,
+              "content": "",
+              "refusal": null,
               "tool_calls": [
                 {
-                  "id": "call_w5nlzxPYYPm0mR8RMKBDG0jC",
+                  "index": 0,
+                  "id": "call_gmQf1CCUFjnz4PhNIrfyK9jB",
                   "type": "function",
                   "function": {
                     "name": "enrollFunction",
-                    "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"],\"description\":\"Type of the shape, which is a circle.\"},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\",\"description\":\"X coordinate of the circle's center.\"},\"y\":{\"type\":\"number\",\"description\":\"Y coordinate of the circle's center.\"}},\"required\":[\"x\",\"y\"],\"description\":\"Center coordinates of the circle.\"},\"radius\":{\"type\":\"number\",\"description\":\"Radius of the circle.\",\"example\":5}},\"required\":[\"type\",\"center\",\"radius\"]}},\"required\":[\"props\"],\"description\":\"Draw a circle with the given center and radius.\"},\"description\":\"Draw a circle with the given center and radius.\"}}"
+                    "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"type\":\"object\",\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"],\"description\":\"The type of shape to draw, which is a circle.\"},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\",\"description\":\"The x-coordinate of the circle's center.\"},\"y\":{\"type\":\"number\",\"description\":\"The y-coordinate of the circle's center.\"}},\"description\":\"The center point of the circle.\"},\"radius\":{\"type\":\"number\",\"description\":\"The radius of the circle. It must be a non-negative number.\",\"example\":5}},\"required\":[\"type\",\"center\",\"radius\"],\"description\":\"Properties to draw the circle.\"}},\"required\":[\"props\"]},\"description\":\"Draw a circle with the given center and radius.\",\"output\":null}}"
                   }
                 }
-              ],
-              "refusal": null,
-              "annotations": []
-            },
-            "logprobs": null,
-            "finish_reason": "tool_calls"
+              ]
+            }
           }
         ],
+        "system_fingerprint": "fp_898ac29719",
         "usage": {
           "prompt_tokens": 32900,
-          "completion_tokens": 177,
-          "total_tokens": 33077,
+          "completion_tokens": 183,
+          "total_tokens": 33083,
           "prompt_tokens_details": {
-            "cached_tokens": 32896,
-            "audio_tokens": 0
+            "cached_tokens": 22144
           },
           "completion_tokens_details": {
-            "reasoning_tokens": 0,
-            "audio_tokens": 0,
-            "accepted_prediction_tokens": 0,
-            "rejected_prediction_tokens": 0
+            "reasoning_tokens": 0
           }
-        },
-        "service_tier": "default",
-        "system_fingerprint": "fp_898ac29719"
+        }
       },
-      "started_at": "2025-04-02T09:41:16.269Z",
-      "completed_at": "2025-04-02T09:41:20.431Z",
+      "started_at": "2025-04-03T14:55:39.230Z",
+      "completed_at": "2025-04-03T14:55:45.806Z",
       "previous": []
     }
   ]

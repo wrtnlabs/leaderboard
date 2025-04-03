@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 2387.5 ms
+    - Average Time: 2757.9 ms
   - Token Usage:
     - Everything
     - Input
@@ -36,13 +36,13 @@
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 2,038 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 1,412 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 1,184 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 1,312 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 7,974 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 1,386 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 1,624 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 1,923 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 1,754 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 3,268 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 3,239 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 1,787 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 2,130 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 2,130 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 4,330 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 4,620 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 2,589 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 1,720 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 2,480 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 2,554 ms
