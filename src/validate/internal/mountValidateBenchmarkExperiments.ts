@@ -1,8 +1,8 @@
 import fs from "node:fs";
-import { join } from "node:path";
+import { extname, join } from "node:path";
 import typia from "typia";
 
-import { scenarioDir } from "../../constants";
+import { JS_LIKE_EXTENSIONS, scenarioDir } from "../../constants";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
 import type { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
 
@@ -11,7 +11,8 @@ export const mountValidateBenchmarkExperiments = async (): Promise<
 > => {
 	const collection: IValidateBenchmarkResult.IExperiment[] = [];
 	for (const file of await fs.promises.readdir(scenarioDir)) {
-		if (file.endsWith(".mjs") === false) {
+		const extension: string = extname(file);
+		if (JS_LIKE_EXTENSIONS.includes(extension) === false) {
 			continue;
 		}
 		const location: string = join(scenarioDir, file);

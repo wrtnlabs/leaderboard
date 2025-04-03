@@ -2,6 +2,8 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { x } from "tinyexec";
 
+export const JS_LIKE_EXTENSIONS = ["js", "mjs", "cjs"].map((ext) => `.${ext}`);
+
 /** gitRoot is the root directory of the git repository */
 export const gitRoot = await x(
 	"git",
