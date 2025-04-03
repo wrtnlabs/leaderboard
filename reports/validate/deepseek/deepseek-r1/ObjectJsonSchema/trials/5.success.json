@@ -1,0 +1,198 @@
+{
+  "type": "success",
+  "id": "call_sxupr0skjpfe3evru9sv1ldc",
+  "arguments": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "age": {
+          "type": "number",
+          "minimum": 20,
+          "exclusiveMaximum": true,
+          "maximum": 100
+        },
+        "hobbies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deleted_at": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "age",
+        "hobbies",
+        "created_at",
+        "updated_at",
+        "deleted_at"
+      ]
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "age": {
+            "type": "number",
+            "minimum": 20,
+            "exclusiveMaximum": true,
+            "maximum": 100
+          },
+          "hobbies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deleted_at": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "email",
+          "age",
+          "hobbies",
+          "created_at",
+          "updated_at",
+          "deleted_at"
+        ]
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-WKSp8Ej47QT1shh7woTT",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, I need to convert the given IMember TypeScript interface into a JSON schema using the collectSchema function. Let's break down each property step by step.\n\nStarting with the 'id' property. It's a string with a UUID format. In JSON schema, that would be a string type with a format of \"uuid\". So the schema for 'id' should have type \"string\", format \"uuid\".\n\nNext is 'name', which is a simple string without any format. That's straightforward—type \"string\".\n\nThe 'email' field is also a string but with an email format. So similar to 'id', it'll be type \"string\" with format \"email\".\n\n'age' is a number with minimum 20 and exclusive maximum 100. In JSON schema, minimum is inclusive, so we set minimum: 20. For exclusive maximum, we use exclusiveMaximum: true and maximum: 100. So the schema for 'age' will be type \"number\", minimum: 20, exclusiveMaximum: true, maximum: 100.\n\nHobbies is an array of objects. Each object has 'id' (string, uuid) and 'name' (string). So the items for the array will be an object with those properties. The array schema will have type \"array\", items pointing to this object schema.\n\n'created_at' and 'updated_at' are both date-time formatted strings. So each will be type \"string\" with format \"date-time\".\n\n'deleted_at' is a bit more complex. It's a union of null and a date-time string. In JSON schema, this can be represented using a oneOf with two options: type \"null\" and a string with format \"date-time\". Alternatively, if the schema allows nullable, but looking at the provided OpenApi schema structure, maybe using oneOf with the two types.\n\nNow, putting all these properties into the IObject schema. Each property will be added under the 'properties' key. The required array should include all property names since none are optional in the original interface.\n\nFor the hobbies array, the items are objects, so we define that under items. Each hobby object has 'id' and 'name', both required.\n\nFinally, referencing the collectSchema function with the constructed schema. The function expects the schema to be passed as a parameter. So the tool call should be collectSchema with the generated schema.\n\nNeed to ensure that all formats and constraints are correctly translated into the JSON schema structure as per the OpenApi definitions provided. Also, check for any nested structures, like the hobbies array, to make sure their schemas are properly defined.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_sxupr0skjpfe3evru9sv1ldc",
+              "type": "function",
+              "function": {
+                "name": "collectSchema",
+                "arguments": "{\n  \"schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"id\": {\n        \"type\": \"string\",\n        \"format\": \"uuid\"\n      },\n      \"name\": {\n        \"type\": \"string\"\n      },\n      \"email\": {\n        \"type\": \"string\",\n        \"format\": \"email\"\n      },\n      \"age\": {\n        \"type\": \"number\",\n        \"minimum\": 20,\n        \"exclusiveMaximum\": true,\n        \"maximum\": 100\n      },\n      \"hobbies\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            },\n            \"name\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\"id\", \"name\"]\n        }\n      },\n      \"created_at\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\"\n      },\n      \"updated_at\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\"\n      },\n      \"deleted_at\": {\n        \"oneOf\": [\n          {\n            \"type\": \"null\"\n          },\n          {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          }\n        ]\n      }\n    },\n    \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]\n  }\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 34770,
+      "completion_tokens": 895,
+      "total_tokens": 35665,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 537
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:21:16.806Z",
+  "previous": []
+}

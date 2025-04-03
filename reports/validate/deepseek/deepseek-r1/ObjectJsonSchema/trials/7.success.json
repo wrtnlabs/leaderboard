@@ -1,0 +1,198 @@
+{
+  "type": "success",
+  "id": "call_3ghadq9fmo251i9s5g47zi58",
+  "arguments": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "age": {
+          "type": "number",
+          "minimum": 20,
+          "exclusiveMaximum": true,
+          "maximum": 100
+        },
+        "hobbies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deleted_at": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "age",
+        "hobbies",
+        "created_at",
+        "updated_at",
+        "deleted_at"
+      ]
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "age": {
+            "type": "number",
+            "minimum": 20,
+            "exclusiveMaximum": true,
+            "maximum": 100
+          },
+          "hobbies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deleted_at": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "email",
+          "age",
+          "hobbies",
+          "created_at",
+          "updated_at",
+          "deleted_at"
+        ]
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-AXcD31EiyGUIONi7ZjpX",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, I need to convert the given IMember TypeScript interface into a JSON schema using the collectSchema function. Let's go step by step.\n\nFirst, looking at the IMember interface. It has several properties. Let's break down each one:\n\n1. **id**: It's a string with a UUID format. In JSON schema, that would be a string type with a format of \"uuid\".\n2. **name**: Just a string, no extra formatting. So a string type without any format.\n3. **email**: A string with an email format. So format: \"email\".\n4. **age**: A number with a minimum of 20 and exclusive maximum of 100. So minimum is 20, exclusiveMaximum is true, and maximum is 100. Wait, the tags.ExclusiveMaximum<100> probably means that the maximum value is 100 but exclusive, so in JSON schema, exclusiveMaximum would be 100 and maybe a boolean? Wait, the OpenAPI schema might handle exclusiveMaximum as a boolean alongside maximum. So for age, set minimum: 20, maximum: 100, exclusiveMaximum: true.\n5. **hobbies**: An array of objects. Each object has an id (UUID string) and name (string). So the items for the array would be an object schema with those properties.\n6. **created_at**: Date-time format string.\n7. **updated_at**: Same as created_at.\n8. **deleted_at**: Can be null or a date-time string. So this is a union type (oneOf) between null and a formatted string. But in JSON schema, maybe using \"type\": [\"null\", \"string\"] with format, but according to the OpenAPI schema provided earlier, maybe it's handled with a oneOf. Wait, looking back at the OpenApi.IJsonSchema definitions, there's a IOneOf for union types. So for deleted_at, we need a oneOf array containing a null type and a string with format date-time.\n\nNow, structuring the main object. The IMember is an object with properties. Each property corresponds to a key in the JSON schema's properties. Required fields are all except maybe deleted_at if it's nullable. Wait, in the interface, deleted_at is nullable, but in the schema, all properties are required unless marked optional with a ?. The original IMember doesn't have optional properties, so all are required except maybe deleted_at? Wait, looking at the interface:\n\ndeleted_at: null | (string & ...). So it can be null or a string. But in the interface, it's not optional. So in the JSON schema, deleted_at is required, but its type allows null. So in the required array, include \"deleted_at\".\n\nBut according to the OpenAPI schema structure, if a property can be null, it's part of the oneOf. So for deleted_at, the schema would be a oneOf between the null type and the string with format.\n\nPutting it all together:\n\n- The main schema is an object with type: \"object\".\n- Properties include each field with their respective types and validations.\n- Required array includes all the property keys.\n\nWait, let me check each property:\n\n- id: required, string, format uuid.\n- name: required, string.\n- email: required, string, format email.\n- age: required, number, minimum 20, exclusiveMaximum: true, maximum 100.\n- hobbies: required, array of objects with id (string, uuid) and name (string). Each item is an object with required [\"id\", \"name\"].\n- created_at: required, string, format date-time.\n- updated_at: same as created_at.\n- deleted_at: required, oneOf [null type, string with format date-time].\n\nNow, for the OpenAPI schema structure, looking back at the definitions provided. For example, the IString type has a format property. The IOneOf is for union types, so deleted_at would be a oneOf array with two elements: a null type and a string with format.\n\nSo the JSON schema for IMember would look like this:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": { \"type\": \"string\", \"format\": \"uuid\" },\n    \"name\": { \"type\": \"string\" },\n    \"email\": { \"type\": \"string\", \"format\": \"email\" },\n    \"age\": { \"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": true, \"maximum\": 100 },\n    \"hobbies\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"id\": { \"type\": \"string\", \"format\": \"uuid\" },\n          \"name\": { \"type\": \"string\" }\n        },\n        \"required\": [\"id\", \"name\"]\n      }\n    },\n    \"created_at\": { \"type\": \"string\", \"format\": \"date-time\" },\n    \"updated_at\": { \"type\": \"string\", \"format\": \"date-time\" },\n    \"deleted_at\": {\n      \"oneOf\": [\n        { \"type\": \"null\" },\n        { \"type\": \"string\", \"format\": \"date-time\" }\n      ]\n    }\n  },\n  \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]\n}\n\nBut wait, in the OpenAPI schema definitions provided, the IOneOf has a oneOf array. So for deleted_at, the correct structure is to use oneOf with the two types.\n\nHowever, in some JSON schema versions, \"type\" can be an array like [\"string\", \"null\"], but according to the OpenApi.IJsonSchema definitions, the way to handle unions is via oneOf. So perhaps in this case, it's better to use oneOf for the null and string combination.\n\nBut looking at the OpenApi.IJsonSchema.INull type, which has type: \"null\". So for the deleted_at, the schema would be:\n\n{\n  \"oneOf\": [\n    { \"type\": \"null\" },\n    { \"type\": \"string\", \"format\": \"date-time\" }\n  ]\n}\n\nThat's the correct approach here.\n\nNow, for the age field: the tags are Minimum<20> and ExclusiveMaximum<100>. In JSON schema, exclusiveMaximum is a boolean, and maximum is the value. So the age should have:\n\n\"minimum\": 20,\n\"exclusiveMaximum\": true,\n\"maximum\": 100\n\nThat's correct.\n\nPutting all that into the collectSchema function. The function expects a schema parameter with the JSON schema. So the call to collectSchema would pass the schema object as described.\n\nSo the tool call should be using collectSchema with the generated schema.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_3ghadq9fmo251i9s5g47zi58",
+              "type": "function",
+              "function": {
+                "name": "collectSchema",
+                "arguments": "{\n  \"schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"id\": {\n        \"type\": \"string\",\n        \"format\": \"uuid\"\n      },\n      \"name\": {\n        \"type\": \"string\"\n      },\n      \"email\": {\n        \"type\": \"string\",\n        \"format\": \"email\"\n      },\n      \"age\": {\n        \"type\": \"number\",\n        \"minimum\": 20,\n        \"exclusiveMaximum\": true,\n        \"maximum\": 100\n      },\n      \"hobbies\": {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            },\n            \"name\": {\n              \"type\": \"string\"\n            }\n          },\n          \"required\": [\"id\", \"name\"]\n        }\n      },\n      \"created_at\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\"\n      },\n      \"updated_at\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\"\n      },\n      \"deleted_at\": {\n        \"oneOf\": [\n          {\n            \"type\": \"null\"\n          },\n          {\n            \"type\": \"string\",\n            \"format\": \"date-time\"\n          }\n        ]\n      }\n    },\n    \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]\n  }\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 34769,
+      "completion_tokens": 1786,
+      "total_tokens": 36555,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1428
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:21:48.897Z",
+  "previous": []
+}

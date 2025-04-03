@@ -1,0 +1,177 @@
+{
+  "type": "error",
+  "error": {
+    "status": 500,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-ray": "92a98e60ba6eb3fe-MAN",
+      "connection": "keep-alive",
+      "content-length": "21",
+      "content-type": "text/plain; charset=UTF-8",
+      "date": "Thu, 03 Apr 2025 15:21:31 GMT",
+      "server": "cloudflare",
+      "vary": "Accept-Encoding",
+      "x-clerk-auth-message": "Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)",
+      "x-clerk-auth-reason": "token-invalid",
+      "x-clerk-auth-status": "signed-out"
+    }
+  },
+  "started_at": "2025-04-03T15:21:29.053Z",
+  "completed_at": "2025-04-03T15:21:31.105Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "call_4ewxufwjqm62a4j4l7uudd69",
+      "arguments": {
+        "schema": {
+          "name": "drawCircle",
+          "description": "Draw a circle with the given center and radius.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "circle"
+                ],
+                "description": "Type of shape to draw (must be 'circle')"
+              },
+              "center": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "X-coordinate of the circle center"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "Y-coordinate of the circle center"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "description": "Center coordinates of the circle"
+              },
+              "radius": {
+                "type": "number",
+                "description": "Radius of the circle @minimum 0"
+              }
+            },
+            "required": [
+              "type",
+              "center",
+              "radius"
+            ]
+          }
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.parameters.$defs",
+            "expected": "Record<string, IChatGptSchema>"
+          },
+          {
+            "path": "$input.schema.parameters.additionalProperties",
+            "expected": "false"
+          }
+        ],
+        "data": {
+          "schema": {
+            "name": "drawCircle",
+            "description": "Draw a circle with the given center and radius.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "circle"
+                  ],
+                  "description": "Type of shape to draw (must be 'circle')"
+                },
+                "center": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "X-coordinate of the circle center"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Y-coordinate of the circle center"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "description": "Center coordinates of the circle"
+                },
+                "radius": {
+                  "type": "number",
+                  "description": "Radius of the circle @minimum 0"
+                }
+              },
+              "required": [
+                "type",
+                "center",
+                "radius"
+              ]
+            }
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1743693612-mfqKTFniTFltJajx8e2G",
+        "provider": "Novita",
+        "model": "deepseek/deepseek-r1",
+        "object": "chat.completion",
+        "created": 1743693612,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "Okay, so the user wants to convert the given TypeScript function into a schema using the enrollFunction. Let me start by understanding the function.\n\nThe function is called drawCircle, and it takes a props object with specific properties. The props include a type set to \"circle\", a center object with x and y coordinates (both numbers), and a radius which is a number but must be at least 0. The function returns void.\n\nFirst, I need to map these parameters into the schema structure required by enrollFunction. The schema should define the parameters as an object with properties. Each property in the props object needs to be translated into the schema's properties.\n\nLooking at the function's JSDoc, there's a description: \"Draw a circle with the given center and radius.\" This should go into the schema's description field. The @param tag describes the props, so that's useful for the parameters' descriptions.\n\nBreaking down the props:\n- type: This is a literal \"circle\". In the schema, this would be an enum with the value \"circle\".\n- center: An object with x and y, both numbers. These should be required properties in the schema.\n- radius: A number with a minimum of 0. Since the schema doesn't support minimum directly, the description should mention the constraint using a comment like \"@minimum 0\".\n\nNext, the parameters object in the schema needs to have properties for each of these. The 'type' property is straightforward. The 'center' is an object with its own properties. The 'radius' will have a description indicating the minimum value.\n\nAlso, since the function returns void, the output in the schema should be undefined or omitted.\n\nNow, checking the enrollFunction's parameters, the schema must include name, description, parameters (with properties and required fields), and possibly output. The parameters should be structured according to the IChatGptSchema definitions provided.\n\nWait, the user's function has a radius that's a number with a Minimum tag. Since the schema can't use minimum directly, I need to add a description for radius mentioning \"@minimum 0\" to enforce that constraint.\n\nPutting it all together, the schema should have the name \"drawCircle\", the description from the JSDoc, parameters as an object with properties for type, center, and radius. Each property's type and description need to be correctly set. The required array should include all these properties since they're mandatory in the function's props.\n\nI also need to ensure that the center's x and y are marked as required in their own properties. Since the center is an object, its schema is nested within the parameters.\n\nFinally, since the function returns void, the output can be omitted or set to undefined in the schema.\n\nLet me structure the JSON schema accordingly, making sure all required fields are included and descriptions are properly formatted with any necessary constraints noted in the comments.\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_4ewxufwjqm62a4j4l7uudd69",
+                  "type": "function",
+                  "function": {
+                    "name": "enrollFunction",
+                    "arguments": "{\n  \"schema\": {\n    \"name\": \"drawCircle\",\n    \"description\": \"Draw a circle with the given center and radius.\",\n    \"parameters\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"type\": {\n          \"type\": \"string\",\n          \"enum\": [\"circle\"],\n          \"description\": \"Type of shape to draw (must be 'circle')\"\n        },\n        \"center\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"x\": {\n              \"type\": \"number\",\n              \"description\": \"X-coordinate of the circle center\"\n            },\n            \"y\": {\n              \"type\": \"number\",\n              \"description\": \"Y-coordinate of the circle center\"\n            }\n          },\n          \"required\": [\"x\", \"y\"],\n          \"description\": \"Center coordinates of the circle\"\n        },\n        \"radius\": {\n          \"type\": \"number\",\n          \"description\": \"Radius of the circle @minimum 0\"\n        }\n      },\n      \"required\": [\"type\", \"center\", \"radius\"]\n    }\n  }\n}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "",
+        "usage": {
+          "prompt_tokens": 48035,
+          "completion_tokens": 854,
+          "total_tokens": 48889,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 589
+          }
+        }
+      },
+      "started_at": "2025-04-03T15:20:11.861Z",
+      "completed_at": "2025-04-03T15:21:29.053Z",
+      "previous": []
+    }
+  ]
+}

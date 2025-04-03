@@ -1,0 +1,98 @@
+{
+  "type": "success",
+  "id": "call_gmmul5o4xnimi7fy0g8wll8e",
+  "arguments": {
+    "scale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotate": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "pivot": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotate": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "pivot": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-f2gBFHPzJKbcZcrSG5hz",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, the user wants me to draw a 3D box with specific properties. Let me check the function parameters. The function is drawBox3D, and the parameters required are scale, position, rotate, and pivot, each being an object with x, y, z numbers.\n\nThe user specified all properties as (0,0,0) except scale, which is (1,1,1). So I need to structure each parameter correctly. For each of scale, position, rotate, and pivot, create an object with x, y, z set to the given values. \n\nWait, the example in the tools section shows how to format the tool call. I should start with <tool_calls_begin>, then each tool_call_begin with the function name, followed by the JSON parameters. Let me make sure all required parameters are included. The schema says all four are required, so I can't omit any. \n\nSo the JSON should have scale with x:1, y:1, z:1. Position, rotate, and pivot all have x:0, y:0, z:0. Let me structure that properly. Double-checking for any typos in the keys like \"position\" or \"rotate\". Once that's done, wrap it up with the correct tool call tags. Alright, that should do it.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_gmmul5o4xnimi7fy0g8wll8e",
+              "type": "function",
+              "function": {
+                "name": "drawBox3D",
+                "arguments": "{\n    \"scale\": {\"x\": 1, \"y\": 1, \"z\": 1},\n    \"position\": {\"x\": 0, \"y\": 0, \"z\": 0},\n    \"rotate\": {\"x\": 0, \"y\": 0, \"z\": 0},\n    \"pivot\": {\"x\": 0, \"y\": 0, \"z\": 0}\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 706,
+      "completion_tokens": 406,
+      "total_tokens": 1112,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 277
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:20:27.085Z",
+  "previous": []
+}

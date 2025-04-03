@@ -1,0 +1,82 @@
+{
+  "type": "success",
+  "id": "call_04nbarb7qj7evmx9xx3x8wtp",
+  "arguments": {
+    "id": "123e4567-e89b-12d3-a456-426614174000",
+    "name": "John Doe",
+    "thumbnail": "https://example.com/images/john.jpg",
+    "age": 28,
+    "email": "john.doe@example.com",
+    "hobbies": [
+      "reading",
+      "gaming",
+      "hiking"
+    ],
+    "isActive": true,
+    "created_at": "2023-10-05T14:48:00Z"
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "name": "John Doe",
+      "thumbnail": "https://example.com/images/john.jpg",
+      "age": 28,
+      "email": "john.doe@example.com",
+      "hobbies": [
+        "reading",
+        "gaming",
+        "hiking"
+      ],
+      "isActive": true,
+      "created_at": "2023-10-05T14:48:00Z"
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-B1tycVCjs3jQXhx9Kb7l",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, I need to create a virtual person with random values and have them participate in a campaign using the 'participate' function. Let's start by looking at the parameters required for the participate function. The schema specifies that the person must have id, name, thumbnail, age, email, hobbies, isActive, and created_at fields.\n\nFirst, the id needs to be a UUID. I'll generate a random UUID, maybe something like \"123e4567-e89b-12d3-a456-426614174000\". Next, the name should be a string that matches the pattern ^[a-zA-Z\\\\s]+$. Let's pick a common name like \"John Doe\" – that fits the pattern.\n\nThumbnail is a URI pointing to an image. I can use a placeholder image URL like \"https://example.com/images/john.jpg\". Age is a number between 0 and 100, exclusive. Let's go with 28. \n\nEmail must be a valid format. Using \"john.doe@example.com\" works. Hobbies need to be an array of at least three strings. I'll list [\"reading\", \"gaming\", \"hiking\"]. \n\nisActive is a boolean, so setting it to true. Finally, created_at should be a date-time string. The current date in ISO format, like \"2023-10-05T14:48:00Z\", should be correct.\n\nWait, I need to make sure all required fields are included and meet their constraints. Let me double-check each one. The id is a UUID, name is valid, thumbnail is a URI, age is within range, email is valid, hobbies have three items, isActive is boolean, and created_at is a date-time. Everything looks good. Now, structure the JSON according to the parameters and call the participate function with this data.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_04nbarb7qj7evmx9xx3x8wtp",
+              "type": "function",
+              "function": {
+                "name": "participate",
+                "arguments": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"name\": \"John Doe\",\n  \"thumbnail\": \"https://example.com/images/john.jpg\",\n  \"age\": 28,\n  \"email\": \"john.doe@example.com\",\n  \"hobbies\": [\"reading\", \"gaming\", \"hiking\"],\n  \"isActive\": true,\n  \"created_at\": \"2023-10-05T14:48:00Z\"\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 528,
+      "total_tokens": 1069,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 382
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.861Z",
+  "completed_at": "2025-04-03T15:20:28.938Z",
+  "previous": []
+}

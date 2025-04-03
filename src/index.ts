@@ -25,7 +25,7 @@ const main = async (): Promise<void> => {
   const benchmark: ValidateBenchmark = new ValidateBenchmark({
     vendor: {
       api: openRouterClient,
-      model: process.env.OPENAI_MODEL ?? "openai/gpt-4o-mini",
+      model: process.env.OPENAI_MODEL??"",
     },
     schemaModel: "chatgpt",
     retry: 5, // validation feedback retry count

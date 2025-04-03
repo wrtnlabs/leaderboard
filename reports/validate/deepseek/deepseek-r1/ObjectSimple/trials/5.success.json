@@ -1,0 +1,64 @@
+{
+  "type": "success",
+  "id": "call_7ax8zw9i00jddvst1f64g4eh",
+  "arguments": {
+    "id": "447d9924-5dad-49ac-bcf0-84c1ada062b3",
+    "name": "Eulchan Kim",
+    "age": 20
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "id": "447d9924-5dad-49ac-bcf0-84c1ada062b3",
+      "name": "Eulchan Kim",
+      "age": 20
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-5JzGEtdYhD0k3HUjp8tR",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, let's see. The user wants to join a member to the channel. The member's details are provided: ID is \"447d9924-5dad-49ac-bcf0-84c1ada062b3\", name is \"Eulchan Kim\", and age is 20. \n\nFirst, I need to call the 'join' function. The parameters for the function require id, name, and age. The ID is a UUID, which the user provided correctly. The name is a string, \"Eulchan Kim\" fits that. The age is an integer with a minimum of 20 and exclusive maximum of 100. Here, age is 20, which meets the criteria.\n\nSo I need to structure the JSON with these values. Let me check each parameter again. The ID is in the correct format, the name is a string, and the age is 20. All required fields are present. No additional properties are allowed, so I'll make sure the JSON only includes id, name, and age. \n\nPutting it all together, the JSON should be:\n{\n  \"id\": \"447d9924-5dad-49ac-bcf0-84c1ada062b3\",\n  \"name\": \"Eulchan Kim\",\n  \"age\": 20\n}\n\nI need to wrap this in the tool call syntax as specified. Start with <tool_calls_begin>, then the function call. Make sure to use the correct separators and end tags. Let me double-check the example provided earlier to ensure the format is right. Yes, each tool call starts with <tool_call_begin>function<tool_sep>join followed by the JSON in a code block. Then close with <tool_call_end> and the final <tool_calls_end>.\n\nEverything looks good. No errors in the parameters, all validations pass. So the final tool call should be correctly formatted.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_7ax8zw9i00jddvst1f64g4eh",
+              "type": "function",
+              "function": {
+                "name": "join",
+                "arguments": "{\n  \"id\": \"447d9924-5dad-49ac-bcf0-84c1ada062b3\",\n  \"name\": \"Eulchan Kim\",\n  \"age\": 20\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 478,
+      "total_tokens": 897,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 397
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:20:29.437Z",
+  "previous": []
+}
