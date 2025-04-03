@@ -1,9 +1,9 @@
 import typia, { type tags } from "typia";
 
-import { trim } from "../../utils/trim";
-import type { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
+import { trim } from "../src/utils/trim";
+import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
-export const ObjectUnionImplicit: IValidateBenchmarkScenario = {
+export const ObjectUnionExplicit: IValidateBenchmarkScenario = {
 	application: {
 		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
 		claude: typia.llm.application<App, "claude", { reference: true }>(),
@@ -81,34 +81,41 @@ type IShape =
 	| IPolyline
 	| IPolygon;
 
-interface IPoint {
+interface IPoint extends IBase<"point"> {
 	x: number;
 	y: number;
 }
-interface ILine {
+interface ILine extends IBase<"line"> {
 	p0: IPoint;
 	p1: IPoint;
 }
-interface ICircle {
+interface ICircle extends IBase<"circle"> {
 	center: IPoint;
 	radius: number & tags.ExclusiveMinimum<0>;
 }
 
-interface ITriangle {
+interface ITriangle extends IBase<"triangle"> {
 	p0: IPoint;
 	p1: IPoint;
 	p2: IPoint;
 }
-interface IRectangle {
+interface IRectangle extends IBase<"rectangle"> {
 	p0: IPoint;
 	p1: IPoint;
 	p2: IPoint;
 	p3: IPoint;
 }
-interface IPolyline {
+interface IPolyline extends IBase<"polyline"> {
 	points: IPoint[] & tags.MinItems<3>;
 }
-interface IPolygon {
+interface IPolygon extends IBase<"polygon"> {
 	outer: IPolyline;
 	inner: IPolyline[];
+}
+
+interface IBase<Type extends string> {
+	/**
+	 * Discriminator.
+	 */
+	type: Type;
 }

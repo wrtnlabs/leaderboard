@@ -10,11 +10,13 @@ export const gitRoot = await x(
 	"rev-parse --show-toplevel".split(" "),
 ).then((r) => r.stdout.trim());
 
+export const distDir = join(gitRoot, "dist");
+
 /** reportDir is the directory where the reports are stored */
 export const reportsDir = join(gitRoot, "reports");
 
 /** scenarioDir is the directory where the scenarios are stored */
-export const scenarioDir = join(gitRoot, "dist", "validate", "scenarios");
+export const scenarioDir = join(distDir, "scenarios");
 
 if (!existsSync(reportsDir)) {
 	throw new Error(`reportsDir not found: ${reportsDir}`);

@@ -4,7 +4,7 @@ import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
 	outDir: "dist",
-	entries: ["./src/index.ts", ...globSync("./src/validate/scenarios/**/*.ts")],
+	entries: ["./src/index.ts", ...globSync("./scenarios/**/*.ts")],
 	declaration: false,
 	clean: true,
 	hooks: {

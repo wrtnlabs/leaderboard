@@ -1,7 +1,7 @@
 import typia, { type tags } from "typia";
 
-import { trim } from "../../utils/trim";
-import type { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
+import { trim } from "../src/utils/trim";
+import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
 export const ObjectSimple: IValidateBenchmarkScenario = {
 	application: {
