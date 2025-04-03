@@ -1,7 +1,6 @@
-import * as process from "node:process";
-import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
+import * as process from "node:process";
 
 import { reportsDir } from "./constants";
 import { openRouterClient } from "./utils/client";
