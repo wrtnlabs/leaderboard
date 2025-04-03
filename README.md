@@ -1,5 +1,7 @@
 ## Benchmark
 ```bash
+mv .env.example .env
+echo "OPENAI_API_KEY=sk-..." >> .env
 pnpm install
 pnpm run build
 pnpm start
