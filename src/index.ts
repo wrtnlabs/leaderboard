@@ -1,9 +1,9 @@
 import "dotenv/config";
 import fs from "fs";
-import OpenAI from "openai";
 import path from "path";
 
 import { ValidateBenchmark } from "./validate/ValidateBenchmark";
+import { openRouterClient } from "./utils/client";
 
 const mkdir = async (str: string) => {
   try {
@@ -23,9 +23,7 @@ const rmdir = async (str: string) => {
 const main = async (): Promise<void> => {
   const benchmark: ValidateBenchmark = new ValidateBenchmark({
     vendor: {
-      api: new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY,
-      }),
+      api: openRouterClient,
       model: "gpt-4o-mini",
     },
     schemaModel: "chatgpt",
