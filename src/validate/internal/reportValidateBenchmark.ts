@@ -1,40 +1,53 @@
 import { trim } from "../../utils/trim";
-import { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
-import { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
+import type { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
+import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
+
+const NUMERIC_EMOJIS = [
+	"0️⃣",
+	"1️⃣",
+	"2️⃣",
+	"3️⃣",
+	"4️⃣",
+	"5️⃣",
+	"6️⃣",
+	"7️⃣",
+	"8️⃣",
+	"9️⃣",
+] as const;
 
 export const reportValidateBenchmark = (
-  result: IValidateBenchmarkResult,
+	result: IValidateBenchmarkResult,
 ): Record<string, string> =>
-  Object.fromEntries([
-    ["./README.md", writeIndex(result)],
-    ...result.experiments
-      .map((exp) => Object.entries(reportExperiment(exp)))
-      .flat(),
-  ]);
+	Object.fromEntries([
+		["./README.md", writeIndex(result)],
+		...result.experiments.flatMap((exp) =>
+			Object.entries(reportExperiment(exp)),
+		),
+	]);
 
 const reportExperiment = (
-  experiment: IValidateBenchmarkResult.IExperiment,
+	experiment: IValidateBenchmarkResult.IExperiment,
 ): Record<string, string> => {
-  return Object.fromEntries([
-    [`./${experiment.name}/README.md`, writeExperimentIndex(experiment)],
-    ...experiment.trials.map((trial, i) => [
-      `./${experiment.name}/trials/${i + 1}.${trial.type}.json`,
-      JSON.stringify(trial, null, 2),
-    ]),
-  ]);
+	return Object.fromEntries([
+		[`./${experiment.name}/README.md`, writeExperimentIndex(experiment)],
+		...experiment.trials.map((trial, i) => [
+			`./${experiment.name}/trials/${i + 1}.${trial.type}.json`,
+			JSON.stringify(trial, null, 2),
+		]),
+	]);
 };
 
 const writeIndex = (result: IValidateBenchmarkResult): string => {
-  const countTrials = (
-    result: IValidateBenchmarkResult,
-    filter: (trial: IValidateBenchmarkResult.ITrial) => boolean,
-  ): string =>
-    result.experiments
-      .map((exp) => exp.trials.filter(filter).length)
-      .reduce((a, b) => a + b, 0)
-      .toLocaleString();
-  return (
-    trim`
+	const countTrials = (
+		result: IValidateBenchmarkResult,
+		filter: (trial: IValidateBenchmarkResult.ITrial) => boolean,
+	): string =>
+		result.experiments
+			.map((exp) => exp.trials.filter(filter).length)
+			.reduce((a, b) => a + b, 0)
+			.toLocaleString();
+	return (
+		trim`
     # Validate Benchmark
     ## Summary
       - Model
@@ -51,12 +64,11 @@ const writeIndex = (result: IValidateBenchmarkResult): string => {
         - Nothing: #${countTrials(result, (e) => e.type === "nothing")}
         - Error: #${countTrials(result, (e) => e.type === "error")}
         - Average Time: ${
-          result.experiments
-            .map((exp) => exp.trials.map(getElapsedTime))
-            .flat()
-            .reduce((a, b) => a + b, 0) /
-          (result.experiments.length * result.config.repeat)
-        } ms
+					result.experiments
+						.flatMap((exp) => exp.trials.map(getElapsedTime))
+						.reduce((a, b) => a + b, 0) /
+					(result.experiments.length * result.config.repeat)
+				} ms
       - Token Usage:
         - Everything
         - Input
@@ -72,23 +84,23 @@ const writeIndex = (result: IValidateBenchmarkResult): string => {
     Name | Status | Time / Avg
     :----|:-------|------------:
   ` +
-    "\n" +
-    result.experiments
-      .map((exp) =>
-        [
-          `[${exp.name}](./${exp.name}/README.md)`,
-          exp.trials.map(getTrialStatus).join(""),
-        ].join(" | "),
-      )
-      .join("\n")
-  );
+		"\n" +
+		result.experiments
+			.map((exp) =>
+				[
+					`[${exp.name}](./${exp.name}/README.md)`,
+					exp.trials.map(getTrialStatus).join(""),
+				].join(" | "),
+			)
+			.join("\n")
+	);
 };
 
 const writeExperimentIndex = (
-  exp: IValidateBenchmarkResult.IExperiment,
+	exp: IValidateBenchmarkResult.IExperiment,
 ): string => {
-  return (
-    trim`
+	return (
+		trim`
     # ${exp.name}
     ## Summary
       - Aggregation
@@ -101,9 +113,9 @@ const writeExperimentIndex = (
         - Nothing: #${exp.trials.filter((e) => e.type === "nothing").length}
         - Error: ${exp.trials.filter((e) => e.type === "error").length}
         - Average Time: ${
-          exp.trials.map(getElapsedTime).reduce((a, b) => a + b, 0) /
-          exp.trials.length
-        } ms
+					exp.trials.map(getElapsedTime).reduce((a, b) => a + b, 0) /
+					exp.trials.length
+				} ms
       - Token Usage:
         - Everything
         - Input
@@ -117,61 +129,55 @@ const writeExperimentIndex = (
 
     ## Scenario
   ` +
-    "\n" +
-    exp.scenario.prompts.map(writeScenarioPrompt).join("\n\n") +
-    "\n\n" +
-    trim`
+		"\n" +
+		exp.scenario.prompts.map(writeScenarioPrompt).join("\n\n") +
+		"\n\n" +
+		trim`
       ## Trials
       No | Status | Time
       ---:|:-------|------:
     ` +
-    "\n" +
-    exp.trials
-      .map((t, i) =>
-        [
-          `[${i + 1}. ${t.type}](./trials/${i + 1}.${t.type}.json)`,
-          getTrialStatus(t),
-          getElapsedTime(t).toLocaleString() + " ms",
-        ].join(" | "),
-      )
-      .join("\n")
-  );
+		"\n" +
+		exp.trials
+			.map((t, i) =>
+				[
+					`[${i + 1}. ${t.type}](./trials/${i + 1}.${t.type}.json)`,
+					getTrialStatus(t),
+					getElapsedTime(t).toLocaleString() + " ms",
+				].join(" | "),
+			)
+			.join("\n")
+	);
 };
 
 const writeScenarioPrompt = (prompt: IValidateBenchmarkPrompt): string => {
-  if (prompt.type === "text")
-    return [`### Conversation (${prompt.role})`, prompt.content].join("\n");
-  return [
-    `### Function Calling`,
-    "```json",
-    JSON.stringify(prompt.arguments, null, 2),
-    "```",
-  ].join("\n");
+	if (prompt.type === "text")
+		return [`### Conversation (${prompt.role})`, prompt.content].join("\n");
+	return [
+		"### Function Calling",
+		"```json",
+		JSON.stringify(prompt.arguments, null, 2),
+		"```",
+	].join("\n");
 };
 
 const getElapsedTime = (trial: IValidateBenchmarkResult.ITrial): number =>
-  trial.completed_at.getTime() -
-  (trial.previous[0]?.started_at ?? trial.started_at).getTime();
+	trial.completed_at.getTime() -
+	(trial.previous[0]?.started_at ?? trial.started_at).getTime();
 
 const getTrialStatus = (trial: IValidateBenchmarkResult.ITrial): string => {
-  if (trial.type === "success")
-    return (
-      NUMERIC_EMOJIS[trial.previous.length + 1]?.toString() ??
-      (trial.previous.length + 1).toString()
-    );
-  else if (trial.type === "failure") return "❌";
-  return "⚠️";
+	if (trial.type === "success") {
+		return (
+			NUMERIC_EMOJIS[trial.previous.length + 1]?.toString() ??
+			(trial.previous.length + 1).toString()
+		);
+	}
+	if (trial.type === "failure") {
+		return "❌";
+	}
+	if (trial.type === "nothing" || trial.type === "error") {
+		return "⚠️";
+	}
+	trial satisfies never;
+	throw new Error("Invalid trial type");
 };
-
-const NUMERIC_EMOJIS = [
-  "0️⃣",
-  "1️⃣",
-  "2️⃣",
-  "3️⃣",
-  "4️⃣",
-  "5️⃣",
-  "6️⃣",
-  "7️⃣",
-  "8️⃣",
-  "9️⃣",
-];

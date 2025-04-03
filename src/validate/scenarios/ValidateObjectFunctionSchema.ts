@@ -1,23 +1,23 @@
-import { ILlmFunction } from "@samchon/openapi";
+import type { ILlmFunction } from "@samchon/openapi";
 import typia from "typia";
 
 import { trim } from "../../utils/trim";
-import { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
+import type { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
 
 export const ValidateObjectFunctionSchema: IValidateBenchmarkScenario = {
-  application: {
-    chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
-    claude: typia.llm.application<App, "claude", { reference: true }>(),
-    llama: typia.llm.application<App, "llama", { reference: true }>(),
-    gemini: null,
-    "3.0": null,
-    "3.1": typia.llm.application<App, "3.1", { reference: true }>(),
-  },
-  prompts: [
-    {
-      type: "text",
-      role: "user",
-      content: trim`
+	application: {
+		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
+		claude: typia.llm.application<App, "claude", { reference: true }>(),
+		llama: typia.llm.application<App, "llama", { reference: true }>(),
+		gemini: null,
+		"3.0": null,
+		"3.1": typia.llm.application<App, "3.1", { reference: true }>(),
+	},
+	prompts: [
+		{
+			type: "text",
+			role: "user",
+			content: trim`
         Convert below function to schema, so that enroll to the application.
 
         \`\`\`ts
@@ -38,20 +38,20 @@ export const ValidateObjectFunctionSchema: IValidateBenchmarkScenario = {
         }): void;
         \`\`\`
       `,
-    },
-  ],
+		},
+	],
 };
 
 interface App {
-  /**
-   * Enroll a function to the application with the given schema.
-   *
-   * @param p Properties to enroll the function.
-   */
-  enrollFunction(p: {
-    /**
-     * Function schema to enroll.
-     */
-    schema: ILlmFunction<"chatgpt">;
-  }): void;
+	/**
+	 * Enroll a function to the application with the given schema.
+	 *
+	 * @param p Properties to enroll the function.
+	 */
+	enrollFunction(p: {
+		/**
+		 * Function schema to enroll.
+		 */
+		schema: ILlmFunction<"chatgpt">;
+	}): void;
 }

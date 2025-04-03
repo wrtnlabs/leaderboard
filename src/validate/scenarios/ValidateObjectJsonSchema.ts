@@ -1,23 +1,23 @@
-import { OpenApi } from "@samchon/openapi";
+import type { OpenApi } from "@samchon/openapi";
 import typia from "typia";
 
 import { trim } from "../../utils/trim";
-import { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
+import type { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";
 
 export const ObjectJsonSchema: IValidateBenchmarkScenario = {
-  application: {
-    chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
-    claude: typia.llm.application<App, "claude", { reference: true }>(),
-    llama: typia.llm.application<App, "llama", { reference: true }>(),
-    gemini: null,
-    "3.0": null,
-    "3.1": typia.llm.application<App, "3.1", { reference: true }>(),
-  },
-  prompts: [
-    {
-      type: "text",
-      role: "user",
-      content: trim`
+	application: {
+		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
+		claude: typia.llm.application<App, "claude", { reference: true }>(),
+		llama: typia.llm.application<App, "llama", { reference: true }>(),
+		gemini: null,
+		"3.0": null,
+		"3.1": typia.llm.application<App, "3.1", { reference: true }>(),
+	},
+	prompts: [
+		{
+			type: "text",
+			role: "user",
+			content: trim`
         Convert below "IMember" type to JSON schema, and collect it for reusing.
         
         \`\`\`ts
@@ -36,20 +36,20 @@ export const ObjectJsonSchema: IValidateBenchmarkScenario = {
         }
         \`\`\`
 `,
-    },
-  ],
+		},
+	],
 };
 
 interface App {
-  /**
-   * Collect a JSON schema for reusing.
-   *
-   * @param info
-   */
-  collectSchema(info: {
-    /**
-     * JSON schema information.
-     */
-    schema: Exclude<OpenApi.IJsonSchema, OpenApi.IJsonSchema.IReference>;
-  }): void;
+	/**
+	 * Collect a JSON schema for reusing.
+	 *
+	 * @param info
+	 */
+	collectSchema(info: {
+		/**
+		 * JSON schema information.
+		 */
+		schema: Exclude<OpenApi.IJsonSchema, OpenApi.IJsonSchema.IReference>;
+	}): void;
 }

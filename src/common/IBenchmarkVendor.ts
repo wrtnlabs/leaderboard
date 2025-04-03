@@ -1,7 +1,7 @@
-import OpenAI from "openai";
+import type OpenAI from "openai";
 
 export interface IBenchmarkVendor {
-  api: OpenAI;
-  model: string; // originally OpenAI.ChatModel but we use openrouter
-  options?: OpenAI.RequestOptions | undefined;
+	api: OpenAI;
+	model: string; // originally OpenAI.ChatModel but we use openrouter
+	options?: OpenAI.RequestOptions | undefined;
 }

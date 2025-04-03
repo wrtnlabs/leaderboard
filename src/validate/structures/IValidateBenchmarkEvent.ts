@@ -1,8 +1,8 @@
-import { IValidateBenchmarkResult } from "./IValidateBenchmarkResult";
-import { IValidateBenchmarkScenario } from "./IValidateBenchmarkScenario";
+import type { IValidateBenchmarkResult } from "./IValidateBenchmarkResult";
+import type { IValidateBenchmarkScenario } from "./IValidateBenchmarkScenario";
 
 export interface IValidateBenchmarkEvent {
-  name: string;
-  scenario: IValidateBenchmarkScenario;
-  trial: IValidateBenchmarkResult.ITrial;
+	name: string;
+	scenario: IValidateBenchmarkScenario;
+	trial: IValidateBenchmarkResult.ITrial;
 }
