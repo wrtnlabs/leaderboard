@@ -1,20 +1,20 @@
 {
+  "name": "benchmark",
   "private": true,
-  "name": "@wrtnlabs/paper-benchmark",
-  "version": "0.1.0",
-  "description": "Benchmark for Paper of Ryoppippi",
-  "main": "bin/index.js",
+  "packageManager": "pnpm@10.7.0",
+  "main": "dist/index.mjs",
   "scripts": {
-    "build": "rm -rf bin && tsc",
-    "dev": "pnpm run build --watch",
-    "start": "node bin",
-    "prepare": "ts-patch install && ts-node build/env.ts"
+    "build": "unbuild",
+    "start": "node --env-file=.env ./dist/index.mjs",
+    "lint": "eslint --cache .",
+    "format": "nr lint --fix",
+    "prepare": "husky && ts-patch"
   },
-  "keywords": [],
-  "author": "Wrtn Technologies",
-  "license": "MIT",
-  "packageManager": "pnpm@10.6.5",
+  "peerDependencies": {
+    "typescript": "^5"
+  },
   "dependencies": {
+    "@agentica/core": "^0.13.4",
     "@samchon/openapi": "^3.2.3",
     "dotenv": "^16.4.7",
     "openai": "^4.91.1",
@@ -24,12 +24,23 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "@types/node": "^22.13.17",
-    "@types/uuid": "^10.0.0",
-    "prettier": "^3.5.3",
+    "@antfu/ni": "^24.3.0",
+    "@ryoppippi/unplugin-typia": "^2.1.4",
+    "@secretlint/quick-start": "^9.2.0",
+    "@types/node": "^22.13.14",
+    "@wrtnlabs/eslint-config": "^0.4.0",
+    "eslint": "^9.23.0",
+    "eslint-plugin-format": "^1.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "secretlint": "^9.2.0",
     "ts-patch": "^3.3.0",
-    "typescript": "~5.8.2"
+    "unbuild": "^3.5.0"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --cache --fix",
+      "secretlint"
+    ]
   }
 }
-
