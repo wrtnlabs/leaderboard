@@ -15,10 +15,14 @@ Try editing the properties of the `src/index.ts` file.
 
 Also, benchmark report would be written under the `reports` directory.
 
+## Structure
 
+```bash
+.
+├── README.md
+├── dist // executable files
+├── reports // benchmark reports
+├── scenarios // benchmark scenarios
+└── src // source code
+```
 
-
-## Adding Scenario
-Just add scenario file in the `src/validate/scnearios` directory.
-
-I'll add more scenarios about e-commerce at tomorrow.
