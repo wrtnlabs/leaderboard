@@ -1,0 +1,158 @@
+{
+  "type": "success",
+  "id": "call_jwfl92atxc4fvbf4inesr4o1",
+  "arguments": {
+    "schema": {
+      "name": "drawCircle",
+      "description": "Draw a circle with the given center and radius.",
+      "parameters": {
+        "$defs": {
+          "Center": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "circle"
+            ],
+            "description": "Must be 'circle'"
+          },
+          "center": {
+            "$ref": "#/$defs/Center"
+          },
+          "radius": {
+            "type": "number",
+            "description": "Radius of the circle @minimum 0"
+          }
+        },
+        "required": [
+          "type",
+          "center",
+          "radius"
+        ],
+        "additionalProperties": false
+      },
+      "output": {
+        "type": "null"
+      }
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "schema": {
+        "name": "drawCircle",
+        "description": "Draw a circle with the given center and radius.",
+        "parameters": {
+          "$defs": {
+            "Center": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "circle"
+              ],
+              "description": "Must be 'circle'"
+            },
+            "center": {
+              "$ref": "#/$defs/Center"
+            },
+            "radius": {
+              "type": "number",
+              "description": "Radius of the circle @minimum 0"
+            }
+          },
+          "required": [
+            "type",
+            "center",
+            "radius"
+          ],
+          "additionalProperties": false
+        },
+        "output": {
+          "type": "null"
+        }
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-yQftpS1uA6MQygZmDYYP",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, let's tackle this problem. The user wants to convert the given TypeScript function into a schema using the enrollFunction tool. The function is drawCircle, which takes an object with specific properties.\n\nFirst, I need to understand the structure of the function's parameters. The props object has a type set to \"circle\", a center with x and y coordinates (both numbers), and a radius which is a number with a minimum value of 0. The output is void, so the output schema might be undefined or not included.\n\nNext, I need to map these TypeScript types to the IChatGptSchema. The main parameters are an object, so I'll start with the IObject type. Each property (type, center, radius) needs to be defined in the properties section.\n\nThe 'type' property is a string with an enum value of [\"circle\"], so that's straightforward. The 'center' is another object with x and y as numbers, which means another IObject schema. The 'radius' is a number with a minimum constraint. However, according to the schema restrictions, constraints like minimum are not allowed directly. Instead, they should be mentioned in the description using a comment like \"@minimum 0\".\n\nI also need to ensure all object properties are required, as per the strict mode. So, the required array for each object must include all keys. Additionally, the parameters should be structured under the parameters.$defs and properties, with references where necessary.\n\nFinally, the enrollFunction requires the schema to be structured with $defs for any nested objects. So, the center object would be a reference to a defined schema in $defs.\n\nPutting it all together, the schema should have the main parameters object, define the nested center in $defs, set the radius's description with the minimum constraint, and ensure all required fields are marked. The output is void, so the output schema can be omitted or set to undefined.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_jwfl92atxc4fvbf4inesr4o1",
+              "type": "function",
+              "function": {
+                "name": "enrollFunction",
+                "arguments": "{\n  \"schema\": {\n    \"name\": \"drawCircle\",\n    \"description\": \"Draw a circle with the given center and radius.\",\n    \"parameters\": {\n      \"$defs\": {\n        \"Center\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"x\": { \"type\": \"number\" },\n            \"y\": { \"type\": \"number\" }\n          },\n          \"required\": [\"x\", \"y\"],\n          \"additionalProperties\": false\n        }\n      },\n      \"type\": \"object\",\n      \"properties\": {\n        \"type\": {\n          \"type\": \"string\",\n          \"enum\": [\"circle\"],\n          \"description\": \"Must be 'circle'\"\n        },\n        \"center\": {\n          \"$ref\": \"#/$defs/Center\"\n        },\n        \"radius\": {\n          \"type\": \"number\",\n          \"description\": \"Radius of the circle @minimum 0\"\n        }\n      },\n      \"required\": [\"type\", \"center\", \"radius\"],\n      \"additionalProperties\": false\n    },\n    \"output\": {\n      \"type\": \"null\"\n    }\n  }\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 48036,
+      "completion_tokens": 670,
+      "total_tokens": 48706,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 398
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:21:14.073Z",
+  "previous": []
+}

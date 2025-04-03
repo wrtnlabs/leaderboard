@@ -1,0 +1,64 @@
+{
+  "type": "success",
+  "id": "call_mb21jlh8z9uiq63jnfstyp9s",
+  "arguments": {
+    "id": "447d9924-5dad-49ac-bcf0-84c1ada062b3",
+    "name": "Eulchan Kim",
+    "age": 20
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "id": "447d9924-5dad-49ac-bcf0-84c1ada062b3",
+      "name": "Eulchan Kim",
+      "age": 20
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-Qu3w1MK5ZDp3SelaUa7p",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, let's tackle this problem step by step. The user wants to join a member to the channel using the `join` function. Let me check the parameters required for this function.\n\nFirst, looking at the function's parameters: it needs an object with `id`, `name`, and `age`. All three are required. The `id` must be in UUID format, the `name` is a string, and the `age` is an integer with a minimum of 20 and exclusive maximum of 100. \n\nThe user provided the member's details: id is \"447d9924-5dad-49ac-bcf0-84c1ada062b3\", name is \"Eulchan Kim\", and age is 20. Let's verify each field. \n\nThe `id` looks like a valid UUID, which matches the format requirement. The `name` is a string, so that's good. The `age` is exactly 20, which meets the minimum requirement of 20. However, I need to confirm if 20 is acceptable. The description says \"@minimum 20\", so 20 is allowed. The exclusive maximum of 100 means the age must be less than 100, which is also satisfied here.\n\nEverything seems to fit the parameters correctly. No optional fields are mentioned, so I don't need to include anything else. \n\nNow, structuring the tool call. The function name is \"join\", and the parameters should be a JSON object with the given id, name, and age. Make sure the JSON keys are correct and the values are properly quoted. \n\nDouble-checking the JSON syntax to avoid any errors. The age should be an integer without quotes. The id and name are strings in quotes. \n\nPutting it all together, the tool call should look correct. I don't see any issues here. Ready to output the tool call as specified in the format.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_mb21jlh8z9uiq63jnfstyp9s",
+              "type": "function",
+              "function": {
+                "name": "join",
+                "arguments": "{\n  \"id\": \"447d9924-5dad-49ac-bcf0-84c1ada062b3\",\n  \"name\": \"Eulchan Kim\",\n  \"age\": 20\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 419,
+      "completion_tokens": 473,
+      "total_tokens": 892,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 392
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:20:25.769Z",
+  "previous": []
+}

@@ -1,0 +1,171 @@
+{
+  "type": "error",
+  "error": {
+    "status": 500,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-ray": "92a98e78a955ed04-LHR",
+      "connection": "keep-alive",
+      "content-length": "21",
+      "content-type": "text/plain; charset=UTF-8",
+      "date": "Thu, 03 Apr 2025 15:21:34 GMT",
+      "server": "cloudflare",
+      "vary": "Accept-Encoding",
+      "x-clerk-auth-message": "Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)",
+      "x-clerk-auth-reason": "token-invalid",
+      "x-clerk-auth-status": "signed-out"
+    }
+  },
+  "started_at": "2025-04-03T15:21:33.063Z",
+  "completed_at": "2025-04-03T15:21:34.920Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "call_bjavjf9n0hrd2cwpe8tcz6il",
+      "arguments": {
+        "schema": {
+          "name": "drawCircle",
+          "description": "Draw a circle with the given center and radius.",
+          "parameters": {
+            "$defs": {},
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "circle"
+                ],
+                "description": "Shape type discriminator"
+              },
+              "center": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "description": "Center coordinates of the circle"
+              },
+              "radius": {
+                "type": "number",
+                "description": "Radius length @minimum 0"
+              }
+            },
+            "required": [
+              "type",
+              "center",
+              "radius"
+            ]
+          }
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.parameters.type",
+            "expected": "\"object\""
+          }
+        ],
+        "data": {
+          "schema": {
+            "name": "drawCircle",
+            "description": "Draw a circle with the given center and radius.",
+            "parameters": {
+              "$defs": {},
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "circle"
+                  ],
+                  "description": "Shape type discriminator"
+                },
+                "center": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "description": "Center coordinates of the circle"
+                },
+                "radius": {
+                  "type": "number",
+                  "description": "Radius length @minimum 0"
+                }
+              },
+              "required": [
+                "type",
+                "center",
+                "radius"
+              ]
+            }
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1743693612-PwX9qZbGNBsSolMUoTPx",
+        "provider": "Novita",
+        "model": "deepseek/deepseek-r1",
+        "object": "chat.completion",
+        "created": 1743693612,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "Okay, let's tackle this problem. The user wants to convert a TypeScript function into a schema using the enrollFunction tool. The function in question is drawCircle, which takes an object with specific properties. \n\nFirst, I need to understand the function's structure. The function has a parameter called props, which is an object. The props object has three properties: type, center, and radius. The type is a string literal \"circle\", center is an object with x and y numbers, and radius is a number that must be at least 0.\n\nNow, looking at the enrollFunction parameters, it expects a schema in a specific JSON format based on the IChatGptSchema. The schema needs to define the parameters and their types. \n\nStarting with the top-level object, the function's parameters are under props. So the schema should have a properties object with type, center, and radius. Each of these needs their own schema definitions.\n\nThe type property is straightforward—it's a string enum with only \"circle\". So in the schema, type will be a string with enum [\"circle\"].\n\nThe center property is an object with x and y, both numbers. So in the schema, center will be an object type with properties x (number) and y (number), both required.\n\nRadius is a number with a minimum of 0. However, according to the IChatGptSchema description, certain constraints like minimum are not allowed. Instead, they should be noted in the description. So for radius, the description will include \"@minimum 0\" to indicate the constraint.\n\nNext, the $defs section. Since there are no recursive or complex types beyond what's already defined, maybe $defs can be left empty, but looking at the example, sometimes even if not used, it's included. However, in this case, the parameters are all inline, so maybe $defs isn't needed. Wait, the example schema for enrollFunction includes $defs as a Record of IChatGptSchema, so perhaps it's required but can be empty. However, looking at the parameters, the center is an inline object. In the IChatGptSchema, if there are nested objects, they might need to be defined in $defs. But the example provided in the function's parameters doesn't use $defs for nested objects. Wait, the user's function has the center as an inline object. So in the schema, the center's type is an object with properties x and y, both numbers, and required x and y. So no need for $defs here unless the schema requires all nested types to be in $defs. But according to the IChatGptSchema description, it seems that nested objects are allowed without references. So perhaps the schema can define center as an object without a $ref.\n\nPutting it all together, the parameters schema will have properties for type, center, and radius. Each with their respective types. The required array will include all three properties since they are mandatory.\n\nAdditionally, the function's description needs to be included in the schema's description field. The original comment says \"Draw a circle with the given center and radius.\" So that goes into the description.\n\nFor the radius, since it's a number with a minimum of 0, the description should include \"@minimum 0\" as per the IChatGptSchema guidelines that constraints are noted in the description.\n\nNow, checking against the enrollFunction's parameters structure. The function schema requires name, parameters (which is an object with $defs, properties, required, etc.), and other fields like description, deprecated, etc. But in the given example, the main parameters are under parameters.properties, and $defs can be an empty object if there are no referenced types.\n\nWait, looking at the enrollFunction example, the parameters have $defs as a RecordstringIChatGptSchema. In this case, since all types are inline, maybe $defs can be an empty object. Let me check the example again. The example parameters for enrollFunction have a $defs object that's empty? Or maybe not. The example might have $defs if there are referenced types. Since in this case, there are no $ref usages, $defs can be an empty object.\n\nPutting it all together, the final schema should have the parameters as an object with properties type, center, radius, all required. Each with their respective types, and the radius's description including the minimum constraint.\n\nI need to ensure that the JSON structure matches the IChatGptSchema requirements, especially regarding enums, types, and descriptions. Also, the additionalProperties should be set to false as per the schema's configuration.\n\nSo the final schema should look something like this:\n\nparameters: {\n  $defs: {},\n  additionalProperties: false,\n  properties: {\n    type: { type: \"string\", enum: [\"circle\"] },\n    center: {\n      type: \"object\",\n      properties: {\n        x: { type: \"number\" },\n        y: { type: \"number\" }\n      },\n      required: [\"x\", \"y\"]\n    },\n    radius: { \n      type: \"number\",\n      description: \"@minimum 0\"\n    }\n  },\n  required: [\"type\", \"center\", \"radius\"]\n}\n\nAnd the function's description is included in the schema's description field.\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_bjavjf9n0hrd2cwpe8tcz6il",
+                  "type": "function",
+                  "function": {
+                    "name": "enrollFunction",
+                    "arguments": "{\n  \"schema\": {\n    \"name\": \"drawCircle\",\n    \"description\": \"Draw a circle with the given center and radius.\",\n    \"parameters\": {\n      \"$defs\": {},\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"type\": {\n          \"type\": \"string\",\n          \"enum\": [\"circle\"],\n          \"description\": \"Shape type discriminator\"\n        },\n        \"center\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"x\": { \"type\": \"number\" },\n            \"y\": { \"type\": \"number\" }\n          },\n          \"required\": [\"x\", \"y\"],\n          \"description\": \"Center coordinates of the circle\"\n        },\n        \"radius\": {\n          \"type\": \"number\",\n          \"description\": \"Radius length @minimum 0\"\n        }\n      },\n      \"required\": [\"type\", \"center\", \"radius\"]\n    }\n  }\n}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "",
+        "usage": {
+          "prompt_tokens": 48036,
+          "completion_tokens": 1341,
+          "total_tokens": 49377,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1109
+          }
+        }
+      },
+      "started_at": "2025-04-03T15:20:11.861Z",
+      "completed_at": "2025-04-03T15:21:33.063Z",
+      "previous": []
+    }
+  ]
+}

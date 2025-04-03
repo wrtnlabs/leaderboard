@@ -1,0 +1,181 @@
+{
+  "type": "error",
+  "error": {
+    "status": 500,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-ray": "92a98f17ed4b2dd9-MAN",
+      "connection": "keep-alive",
+      "content-length": "21",
+      "content-type": "text/plain; charset=UTF-8",
+      "date": "Thu, 03 Apr 2025 15:22:00 GMT",
+      "server": "cloudflare",
+      "vary": "Accept-Encoding",
+      "x-clerk-auth-message": "Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)",
+      "x-clerk-auth-reason": "token-invalid",
+      "x-clerk-auth-status": "signed-out"
+    }
+  },
+  "started_at": "2025-04-03T15:21:58.615Z",
+  "completed_at": "2025-04-03T15:22:00.431Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "call_qxc1eic8ubvv6tsrplt7ewqu",
+      "arguments": {
+        "schema": {
+          "name": "drawCircle",
+          "description": "Draw a circle with the given center and radius.",
+          "parameters": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "circle"
+                ],
+                "description": "The type of the shape, must be 'circle'."
+              },
+              "center": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "description": "The center coordinates of the circle."
+              },
+              "radius": {
+                "type": "number",
+                "description": "The radius of the circle. @minimum 0"
+              }
+            },
+            "required": [
+              "type",
+              "center",
+              "radius"
+            ],
+            "description": "Properties to draw the circle."
+          },
+          "output": {
+            "type": "null"
+          }
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.parameters.$defs",
+            "expected": "Record<string, IChatGptSchema>"
+          }
+        ],
+        "data": {
+          "schema": {
+            "name": "drawCircle",
+            "description": "Draw a circle with the given center and radius.",
+            "parameters": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "circle"
+                  ],
+                  "description": "The type of the shape, must be 'circle'."
+                },
+                "center": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "description": "The center coordinates of the circle."
+                },
+                "radius": {
+                  "type": "number",
+                  "description": "The radius of the circle. @minimum 0"
+                }
+              },
+              "required": [
+                "type",
+                "center",
+                "radius"
+              ],
+              "description": "Properties to draw the circle."
+            },
+            "output": {
+              "type": "null"
+            }
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1743693612-QQLEZcY9ug7RAMbQUwrw",
+        "provider": "Novita",
+        "model": "deepseek/deepseek-r1",
+        "object": "chat.completion",
+        "created": 1743693612,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "Okay, let's tackle this problem. The user wants to convert the given TypeScript function into a schema using the enrollFunction. The function is drawCircle, which takes an object with specific properties.\n\nFirst, I need to understand the parameters of the function. The props object has a type \"circle\", a center with x and y coordinates (both numbers), and a radius that's a number with a minimum of 0. \n\nThe schema needs to be in the format required by enrollFunction. Looking at the example provided, the enrollFunction's parameters expect a schema that follows the IChatGptSchema structure. \n\nStarting with the parameters. The props object is an object type. Each property needs to be defined. The 'type' is a string enum with only \"circle\". The 'center' is another object with x and y as numbers. The 'radius' is a number, but since there's a Minimum tag, I should note that in the description because OpenAI doesn't support minimum constraints directly. \n\nI remember that in the IChatGptSchema, constraints like minimum are not allowed, so they should be mentioned in the description. For example, adding \"@minimum 0\" to the radius's description. \n\nAlso, all properties in the object must be required if strict mode is enabled. The given function's props have all required properties, so the required array should include \"type\", \"center\", and \"radius\".\n\nNow, structuring the schema. The main object is of type \"object\" with properties. Each property is defined with their respective types. The $defs section might not be necessary here unless there are nested structures that need referencing, but in this case, the center is inline, so maybe no $defs needed. \n\nWait, the center is an object with x and y. So in the schema, the center property will have its own object definition. But since it's inline, we can define it directly under the center property without a $ref. \n\nPutting it all together: the parameters schema will be an object with properties type, center, and radius. Each of these is defined with their types, and the required array lists all three. The radius's description includes the minimum constraint note.\n\nFor the output, since the function returns void, the output schema can be omitted or set to undefined. But the example shows that the output is part of the schema. However, in the given enrollFunction parameters, the schema includes parameters and possibly output. Since the function returns void, maybe the output is not included. But looking at the function definition, the return type is void, so output might be left out or set to a null type.\n\nWait, the function returns void, which in TypeScript means no return value. So in the schema, the output would be a null type or undefined. But according to the IChatGptSchema, if the output is void, the output property can be undefined. So in the schema for enrollFunction, the output might not be present.\n\nBut checking the enrollFunction's parameters, the schema property is of type IChatGptSchema, which includes parameters and output. However, in the example, the function get_weather has parameters but no output. Wait, the example given in the tools section shows that the function schema includes parameters. The output is part of the function schema but optional. Since drawCircle returns void, the output can be omitted or set to a null type.\n\nIn the given example of enrollFunction, the schema has parameters and output. But for this case, since it's void, maybe output is not needed. However, to be precise, maybe set output to a null type with \"type\": \"null\".\n\nPutting it all together, the schema for drawCircle would have parameters as an object with the required properties, and output as a null type. But I need to check the function's schema structure again.\n\nLooking back at the enrollFunction's parameters, the schema is of type IChatGptSchema, which includes parameters and output. The output is part of the function's schema. So even if it's void, maybe we should define it as a null type.\n\nSo in the schema, the output would be:\n\n\"output\": {\n  \"type\": \"null\"\n}\n\nBut in the function definition, the return is void, which is equivalent to undefined in JavaScript. However, in JSON schema, null is a separate type. So perhaps using \"type\": \"null\" is appropriate here.\n\nNow, assembling the entire schema. The parameters are an object with type, center, and radius. Each has their respective types. The radius's description includes the minimum constraint note.\n\nAlso, the function's description is important. The provided function has a comment: \"Draw a circle with the given center and radius.\" This should be included in the schema's description.\n\nThe function's name is drawCircle, so the schema's name property is \"drawCircle\".\n\nPutting all together, the enrollFunction call would have the schema with the parameters as described, output as null, and the name, description, etc.\n\nWait, the enrollFunction's parameters expect a schema that includes name, parameters, etc. Wait, no, the enrollFunction's parameters are the schema itself. Wait, looking back:\n\nThe enrollFunction is called with a schema parameter. The schema is of type IChatGptSchema, which for a function includes name, description, parameters, output, etc.\n\nWait, no. The enrollFunction's parameters are the function schema, which includes name, description, parameters, and output. For example, in the example, the function has a name, description, parameters, etc.\n\nWait, looking at the function schema provided in the enrollFunction's parameters, it's an object with name, description, parameters (which is the parameters schema), and output (which is the output schema).\n\nWait, the example in the tools section shows that the function schema for enrollFunction has properties like name, description, parameters, output, etc. So the schema passed to enrollFunction is the function's metadata, including its parameters and output.\n\nSo for drawCircle, the schema should have:\n\n- name: \"drawCircle\"\n- description: \"Draw a circle with the given center and radius.\"\n- parameters: the object schema for the props\n- output: { type: \"null\" }\n\nSo putting this all together, the parameters part of the schema is the props object, which is an object with properties type, center, and radius.\n\nThe center is an object with x and y, both numbers.\n\nThe radius is a number with a description noting the minimum.\n\nSo the parameters schema would be:\n\n\"parameters\": {\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\"circle\"],\n      \"description\": \"The type of the shape, must be 'circle'.\"\n    },\n    \"center\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"x\": { \"type\": \"number\" },\n        \"y\": { \"type\": \"number\" }\n      },\n      \"required\": [\"x\", \"y\"],\n      \"description\": \"The center coordinates of the circle.\"\n    },\n    \"radius\": {\n      \"type\": \"number\",\n      \"description\": \"The radius of the circle. @minimum 0\"\n    }\n  },\n  \"required\": [\"type\", \"center\", \"radius\"],\n  \"description\": \"Properties to draw the circle.\"\n}\n\nAnd the output schema would be:\n\n\"output\": {\n  \"type\": \"null\"\n}\n\nBut in the IChatGptSchema, the output is part of the function schema. So the complete function schema for enrollFunction would be:\n\n{\n  \"name\": \"drawCircle\",\n  \"description\": \"Draw a circle with the given center and radius.\",\n  \"parameters\": {\n    // the parameters schema as above\n  },\n  \"output\": {\n    \"type\": \"null\"\n  }\n}\n\nBut wait, looking at the IChatGptSchema definition in the parameters of enrollFunction, the parameters are under the parameters property, which is of type IChatGptSchema.IParameters. So the parameters schema is nested under parameters.\n\nWait, the enrollFunction's schema parameter is of type IChatGptSchema, which is the function schema. But in the example provided, the parameters are structured as per the IChatGptSchema.IParameters.\n\nWait, perhaps I'm overcomplicating. Let me refer back to the example given in the tools section.\n\nThe example for enrollFunction shows that the parameters are a JSON schema object. For instance, the get_weather function has a parameter \"location\" of type string.\n\nIn the given problem, the function's parameters are an object, so the parameters schema is an object type with the properties defined.\n\nSo, the final schema for enrollFunction would be:\n\n{\n  \"name\": \"drawCircle\",\n  \"description\": \"Draw a circle with the given center and radius.\",\n  \"parameters\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"type\": {\n        \"type\": \"string\",\n        \"enum\": [\"circle\"],\n        \"description\": \"The type of the shape, must be 'circle'.\"\n      },\n      \"center\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"x\": { \"type\": \"number\" },\n          \"y\": { \"type\": \"number\" }\n        },\n        \"required\": [\"x\", \"y\"],\n        \"description\": \"The center coordinates of the circle.\"\n      },\n      \"radius\": {\n        \"type\": \"number\",\n        \"description\": \"The radius of the circle. @minimum 0\"\n      }\n    },\n    \"required\": [\"type\", \"center\", \"radius\"],\n    \"description\": \"Properties to draw the circle.\"\n  },\n  \"output\": {\n    \"type\": \"null\"\n  }\n}\n\nBut I need to ensure that this fits into the IChatGptSchema structure, which might have $defs if there are references. However, in this case, there are no referenced types, so $defs can be omitted.\n\nAlso, in the parameters, the additionalProperties is set to false in strict mode. But since the example doesn't mention it, perhaps it's okay to leave it out, but according to the IChatGptSchema definition, in strict mode, additionalProperties is false. So maybe include \"additionalProperties\": false.\n\nWait, looking at the IChatGptSchema.IObject definition, in strict mode, additionalProperties is false. So to be compliant, the parameters object should have \"additionalProperties\": false.\n\nSo adding that:\n\n\"parameters\": {\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"properties\": {\n    ...\n  },\n  ...\n}\n\nBut in the example provided in the tools, when they call get_weather, the parameters are a simple object without additionalProperties. However, according to the schema definition, maybe it's required.\n\nSo including \"additionalProperties\": false in the parameters object.\n\nPutting it all together, the final schema for enrollFunction would be as follows.\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_qxc1eic8ubvv6tsrplt7ewqu",
+                  "type": "function",
+                  "function": {
+                    "name": "enrollFunction",
+                    "arguments": "{\n  \"schema\": {\n    \"name\": \"drawCircle\",\n    \"description\": \"Draw a circle with the given center and radius.\",\n    \"parameters\": {\n      \"type\": \"object\",\n      \"additionalProperties\": false,\n      \"properties\": {\n        \"type\": {\n          \"type\": \"string\",\n          \"enum\": [\"circle\"],\n          \"description\": \"The type of the shape, must be 'circle'.\"\n        },\n        \"center\": {\n          \"type\": \"object\",\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"x\": { \"type\": \"number\" },\n            \"y\": { \"type\": \"number\" }\n          },\n          \"required\": [\"x\", \"y\"],\n          \"description\": \"The center coordinates of the circle.\"\n        },\n        \"radius\": {\n          \"type\": \"number\",\n          \"description\": \"The radius of the circle. @minimum 0\"\n        }\n      },\n      \"required\": [\"type\", \"center\", \"radius\"],\n      \"description\": \"Properties to draw the circle.\"\n    },\n    \"output\": {\n      \"type\": \"null\"\n    }\n  }\n}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "",
+        "usage": {
+          "prompt_tokens": 48035,
+          "completion_tokens": 2572,
+          "total_tokens": 50607,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2295
+          }
+        }
+      },
+      "started_at": "2025-04-03T15:20:11.862Z",
+      "completed_at": "2025-04-03T15:21:58.615Z",
+      "previous": []
+    }
+  ]
+}

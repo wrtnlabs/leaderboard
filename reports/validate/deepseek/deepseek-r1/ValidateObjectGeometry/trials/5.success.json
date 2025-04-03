@@ -1,0 +1,98 @@
+{
+  "type": "success",
+  "id": "call_8ot5mh1ou19ziwtys2nwcdf5",
+  "arguments": {
+    "scale": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotate": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "pivot": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotate": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "pivot": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-Grg55He9lzJIfah3DAfv",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, let's tackle this problem. The user wants me to draw a 3D box with specific properties. The function provided is drawBox3D, and I need to structure the parameters correctly.\n\nFirst, looking at the parameters required for the function: scale, position, rotate, and pivot. Each of these is an object with x, y, z coordinates. The user specified all these properties as (0,0,0) except scale, which is (1,1,1). \n\nSo I need to create a JSON object for each property. For scale, set x, y, z to 1. For position, rotate, and pivot, set all to 0. Then, combine them into the main box object as per the schema. \n\nWait, the parameters schema mentions that all four properties are required. I need to make sure each is included. Also, the order in the JSON doesn't matter as long as all required fields are present. \n\nDouble-checking the example provided in the tools section. The tool call format requires using the function name and then the JSON parameters. So the correct structure would be to call drawBox3D with the specified properties in a JSON object. \n\nPutting it all together, the JSON should have each property as an object with x, y, z. Scale is 1s, the others are 0s. That should meet the user's request. No other parameters needed since they're all set to default values. \n\nI think that's all. Just need to format it correctly within the tool call tags.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_8ot5mh1ou19ziwtys2nwcdf5",
+              "type": "function",
+              "function": {
+                "name": "drawBox3D",
+                "arguments": "{\n    \"scale\": {\"x\": 1, \"y\": 1, \"z\": 1},\n    \"position\": {\"x\": 0, \"y\": 0, \"z\": 0},\n    \"rotate\": {\"x\": 0, \"y\": 0, \"z\": 0},\n    \"pivot\": {\"x\": 0, \"y\": 0, \"z\": 0}\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 706,
+      "completion_tokens": 451,
+      "total_tokens": 1157,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 322
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.862Z",
+  "completed_at": "2025-04-03T15:20:26.870Z",
+  "previous": []
+}

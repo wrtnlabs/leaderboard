@@ -1,0 +1,82 @@
+{
+  "type": "success",
+  "id": "call_5ujo09us22ptgpf5xi9824z7",
+  "arguments": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "Emma Johnson",
+    "thumbnail": "https://picsum.photos/200/300?random=1",
+    "age": 28,
+    "email": "emma.johnson@example.com",
+    "hobbies": [
+      "reading",
+      "hiking",
+      "photography"
+    ],
+    "isActive": true,
+    "created_at": "2024-02-15T09:30:00Z"
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "Emma Johnson",
+      "thumbnail": "https://picsum.photos/200/300?random=1",
+      "age": 28,
+      "email": "emma.johnson@example.com",
+      "hobbies": [
+        "reading",
+        "hiking",
+        "photography"
+      ],
+      "isActive": true,
+      "created_at": "2024-02-15T09:30:00Z"
+    }
+  },
+  "completion": {
+    "id": "gen-1743693612-WyGq0bz4IiCYnMy9f4Iv",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1743693612,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, the user wants me to create a virtual person with random values and have them participate in a campaign using the 'participate' function. Let me start by understanding the parameters required for the participate function.\n\nLooking at the parameters schema, the required fields are id, name, thumbnail, age, email, hobbies, isActive, and created_at. Each has specific formats. \n\nFirst, the id needs to be a UUID. I'll generate a random UUID. For the name, I should come up with a plausible name that matches the pattern of letters and spaces. Maybe \"Emma Johnson\". Thumbnail should be a URI pointing to an image. I can use a placeholder image service like picsum.photos with a random ID. \n\nAge is a number between 0 and 100. Let's pick 28. Email has to be a valid format, so emma.johnson@example.com works. Hobbies need to be an array of at least three strings. Reading, hiking, and photography would do. isActive can be true. Created_at is a date-time, so current ISO timestamp is good.\n\nI need to make sure all required fields are included and formatted correctly. Let me double-check each one against the schema. The name pattern allows letters and spaces, which \"Emma Johnson\" fits. Thumbnail is a URI with image/* content type, which the placeholder link satisfies. Age is within the specified range. Email is valid. Hobbies array has three items. Created_at is a valid date-time string.\n\nEverything seems to check out. Now I'll structure the tool call using the specified format with <tool_calls_begin> and <tool_calls_end> tags. Each parameter is correctly placed in the JSON object. Alright, ready to put it all together.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_5ujo09us22ptgpf5xi9824z7",
+              "type": "function",
+              "function": {
+                "name": "participate",
+                "arguments": "{\n  \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"name\": \"Emma Johnson\",\n  \"thumbnail\": \"https://picsum.photos/200/300?random=1\",\n  \"age\": 28,\n  \"email\": \"emma.johnson@example.com\",\n  \"hobbies\": [\"reading\", \"hiking\", \"photography\"],\n  \"isActive\": true,\n  \"created_at\": \"2024-02-15T09:30:00Z\"\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 541,
+      "completion_tokens": 522,
+      "total_tokens": 1063,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 367
+      }
+    }
+  },
+  "started_at": "2025-04-03T15:20:11.861Z",
+  "completed_at": "2025-04-03T15:20:26.554Z",
+  "previous": []
+}
