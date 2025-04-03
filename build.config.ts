@@ -1,9 +1,10 @@
 import UnpluginTypia from "@ryoppippi/unplugin-typia/rollup";
+import { globSync } from "tinyglobby";
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
 	outDir: "dist",
-	entries: ["src/index.ts"],
+	entries: ["./src/index.ts", ...globSync("./src/validate/scenarios/**/*.ts")],
 	declaration: false,
 	clean: true,
 	hooks: {
@@ -13,6 +14,6 @@ export default defineBuildConfig({
 		},
 	},
 	rollup: {
-		inlineDependencies: true,
+		inlineDependencies: false,
 	},
 });

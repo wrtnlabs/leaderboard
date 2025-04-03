@@ -3,6 +3,7 @@ import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 
+import { reportsDir } from "./constants";
 import { openRouterClient } from "./utils/client";
 import { ValidateBenchmark } from "./validate/ValidateBenchmark";
 
@@ -32,16 +33,19 @@ const main = async (): Promise<void> => {
 		repeat: 10, // how many times to repeat the experiment
 		simultaneous: 100, // multi-threading like
 	});
+	if (benchmark.props.vendor.model === "") {
+		console.error("Please set the OPENAI_MODEL environment variable.");
+		process.exit(1);
+	}
+
 	await benchmark.execute((event) => {
 		console.log(event.name, event.trial.type);
 	});
 
 	const docs: Record<string, string> = benchmark.report();
-	const root = path.join(
-		import.meta.dirname,
-		"../reports/validate",
-		benchmark.props.vendor.model,
-	);
+	const root = path.join(reportsDir, "validate", benchmark.props.vendor.model);
+
+	console.log({ docs });
 
 	await rmdir(root);
 	for (const [key, value] of Object.entries(docs)) {
@@ -49,7 +53,5 @@ const main = async (): Promise<void> => {
 		await fs.promises.writeFile(path.join(root, key), value, "utf8");
 	}
 };
-main().catch((error) => {
-	console.error(error);
-	process.exit(-1);
-});
+
+await main();
