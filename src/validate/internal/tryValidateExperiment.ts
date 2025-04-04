@@ -47,10 +47,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 				model: props.vendor.model,
 				messages: [
 					...(props.scenario.prompts.flatMap((prompt) =>
-						decodeValidatePrompt({
-							function: props.function,
-							prompt,
-						}),
+						decodeValidatePrompt(prompt),
 					) satisfies OpenAI.ChatCompletionMessageParam[]),
 					...(failure !== null
 						? [

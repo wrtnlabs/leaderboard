@@ -16,7 +16,7 @@ export const ValidateObjectGeometry: IValidateBenchmarkScenario = {
 		{
 			type: "text",
 			role: "user",
-			content: `
+			content: trim`
         Draw a 3D box in the scene.
 
         Properties of the box is:

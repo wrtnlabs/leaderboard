@@ -1,19 +1,21 @@
-import type { ILlmFunction } from "@samchon/openapi";
+import type {
+	IHttpLlmFunction,
+	ILlmFunction,
+	ILlmSchema,
+} from "@samchon/openapi";
 import type OpenAI from "openai";
 import { v4 } from "uuid";
 
 import type { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
 
-export const decodeValidatePrompt = (props: {
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	function: ILlmFunction<any>;
-	prompt: IValidateBenchmarkPrompt;
-}): OpenAI.ChatCompletionMessageParam[] => {
-	if (props.prompt.type === "text")
+export const decodeValidatePrompt = (
+	prompt: IValidateBenchmarkPrompt,
+): OpenAI.ChatCompletionMessageParam[] => {
+	if (prompt.type === "text")
 		return [
 			{
-				role: props.prompt.role,
-				content: props.prompt.content,
+				role: prompt.role,
+				content: prompt.content,
 			},
 		];
 
@@ -26,8 +28,8 @@ export const decodeValidatePrompt = (props: {
 					type: "function",
 					id,
 					function: {
-						name: props.function.name,
-						arguments: JSON.stringify(props.prompt.arguments),
+						name: prompt.function.name,
+						arguments: JSON.stringify(prompt.arguments),
 					},
 				},
 			],
@@ -37,11 +39,14 @@ export const decodeValidatePrompt = (props: {
 			tool_call_id: id,
 			content: JSON.stringify({
 				function: {
-					description: props.function.description,
-					parameters: props.function.parameters,
-					output: props.function.output,
+					method: (prompt.function as IHttpLlmFunction<ILlmSchema.Model>)
+						.method,
+					path: (prompt.function as IHttpLlmFunction<ILlmSchema.Model>).path,
+					description: prompt.function.description,
+					parameters: prompt.function.parameters,
+					output: prompt.function.output,
 				},
-				value: props.prompt.value,
+				value: prompt.value,
 			}),
 		},
 	];
