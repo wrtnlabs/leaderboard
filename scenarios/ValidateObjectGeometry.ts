@@ -3,7 +3,7 @@ import typia from "typia";
 import { trim } from "../src/utils/trim";
 import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
-export const ValidateObjectGeometry: IValidateBenchmarkScenario = {
+export const ObjectGeometry: IValidateBenchmarkScenario = {
 	application: {
 		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
 		claude: typia.llm.application<App, "claude", { reference: true }>(),

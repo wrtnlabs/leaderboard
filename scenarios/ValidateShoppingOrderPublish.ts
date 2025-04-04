@@ -2,11 +2,11 @@ import type { IValidateBenchmarkScenario } from "../src/validate/structures/IVal
 import { getShoppingApplication } from "./internal/getShoppingApplication";
 import { prepareShoppingHistories } from "./internal/prepareShoppingHistories";
 
-export const ValidateShoppingOrderPublish =
+export const ShoppingOrderPublish =
 	async (): Promise<IValidateBenchmarkScenario> => {
 		const endpoint = {
 			method: "post",
-			path: "/shoppings/customers/orders/publish",
+			path: "/shoppings/customers/orders/{orderId}/publish",
 		} as const;
 		return {
 			application: {

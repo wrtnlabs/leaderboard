@@ -4,7 +4,7 @@ import { application } from "typia/lib/llm";
 import { trim } from "../src/utils/trim";
 import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
-export const ValidateObjectConstraint = (): IValidateBenchmarkScenario => ({
+export const ObjectConstraint = (): IValidateBenchmarkScenario => ({
 	application: {
 		chatgpt: application<App, "chatgpt", { reference: true }>(),
 		claude: application<App, "claude", { reference: true }>(),
