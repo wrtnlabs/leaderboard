@@ -1,19 +1,19 @@
 # Validate Benchmark
 ## Summary
   - Model
-    - schema: chatgpt
+    - schema: llama
     - vendor: meta-llama/llama-3.3-70b-instruct
   - Aggregation
-    - Scenarios: #8
-    - Trial: #80
-    - Success: #68
-      - 1st: #59
-      - 2nd: #8
-      - 3rd: #0
-    - Failure: #3
-    - Nothing: #9
-    - Error: #0
-    - Average Time: 14233.2125 ms
+    - Scenarios: #12
+    - Trial: #120
+    - Success: #108
+      - 1st: #94
+      - 2nd: #12
+      - 3rd: #2
+    - Failure: #1
+    - Nothing: #10
+    - Error: #1
+    - Average Time: 30024.575 ms
   - Token Usage:
     - Everything
     - Input
@@ -28,11 +28,15 @@
 ## Experiments
 Name | Status | Time / Avg
 :----|:-------|------------:
-[ValidateObjectConstraint](./ValidateObjectConstraint/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
-[ValidateObjectFunctionSchema](./ValidateObjectFunctionSchema/README.md) | ⚠️⚠️⚠️⚠️❌❌⚠️4️⃣❌⚠️
-[ValidateObjectGeometry](./ValidateObjectGeometry/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣2️⃣1️⃣1️⃣
-[ObjectHierarchical](./ObjectHierarchical/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
-[ObjectJsonSchema](./ObjectJsonSchema/README.md) | 2️⃣2️⃣2️⃣2️⃣⚠️1️⃣⚠️2️⃣2️⃣2️⃣
-[ObjectSimple](./ObjectSimple/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
-[ObjectUnionExplicit](./ObjectUnionExplicit/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣⚠️1️⃣
-[ObjectUnionImplicit](./ObjectUnionImplicit/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ObjectConstraint](./ObjectConstraint/README.md) | 🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇
+[ObjectFunctionSchema](./ObjectFunctionSchema/README.md) | ⚠️⚠️2️⃣2️⃣2️⃣3️⃣3️⃣⚠️⚠️❌
+[ObjectHierarchical](./ObjectHierarchical/README.md) | 🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇
+[ObjectJsonSchema](./ObjectJsonSchema/README.md) | ⚠️2️⃣2️⃣2️⃣2️⃣⚠️2️⃣🥇2️⃣2️⃣
+[ObjectSimple](./ObjectSimple/README.md) | 🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇
+[ObjectUnionExplicit](./ObjectUnionExplicit/README.md) | 🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇
+[ObjectUnionImplicit](./ObjectUnionImplicit/README.md) | 🥇🥇🥇🥇🥇🥇🥇⚠️🥇🥇
+[ShoppingCartCommodity](./ShoppingCartCommodity/README.md) | 🥇🥇🥇🥇🥇2️⃣🥇🥇🥇🥇
+[ShoppingOrderCreate](./ShoppingOrderCreate/README.md) | 🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇
+[ShoppingOrderPublish](./ShoppingOrderPublish/README.md) | 🥇🥇🥇🥇⚠️🥇🥇🥇2️⃣🥇
+[ShoppingSaleDetail](./ShoppingSaleDetail/README.md) | 🥇⚠️🥇⚠️🥇⚠️🥇🥇🥇🥇
+[ShoppingSalePage](./ShoppingSalePage/README.md) | 🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇

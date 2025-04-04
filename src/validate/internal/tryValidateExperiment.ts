@@ -117,8 +117,9 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 		const parameterValues: Record<string, unknown> = JSON.parse(
 			toolCall.function.arguments,
 		);
-		const result: IValidation<unknown> =
-			props.function.validate(parameterValues);
+		let result: IValidation<unknown> = props.function.validate(parameterValues);
+		if (result.success === true && props.scenario.validate !== undefined)
+			result = props.scenario.validate(parameterValues) ?? result;
 		if (result.success === true)
 			return {
 				type: "success",
@@ -144,7 +145,14 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 	} catch (error) {
 		return {
 			type: "error",
-			error: error as Error,
+			error:
+				error instanceof Error
+					? {
+							...error,
+							name: error.name,
+							message: error.message,
+						}
+					: error,
 			started_at,
 			completed_at: new Date(),
 			previous: props.previous,

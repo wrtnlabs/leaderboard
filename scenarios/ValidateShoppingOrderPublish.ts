@@ -17,6 +17,6 @@ export const ShoppingOrderPublish =
 				"3.0": await getShoppingApplication("3.0")(endpoint),
 				"3.1": await getShoppingApplication("3.1")(endpoint),
 			},
-			prompts: await prepareShoppingHistories("orders.publish"),
+			...(await prepareShoppingHistories("orders.publish")),
 		};
 	};
