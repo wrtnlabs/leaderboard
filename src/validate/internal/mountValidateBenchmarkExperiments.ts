@@ -18,10 +18,10 @@ export const mountValidateBenchmarkExperiments = async (): Promise<
 		const location: string = join(scenarioDir, file);
 		const modulo: IModulo = await import(location);
 		for (const [key, value] of Object.entries(modulo))
-			if (typia.is<IValidateBenchmarkScenario>(value))
+			if (typeof value === "function")
 				collection.push({
 					name: key,
-					scenario: value,
+					scenario: await value(),
 					trials: [],
 				});
 	}
