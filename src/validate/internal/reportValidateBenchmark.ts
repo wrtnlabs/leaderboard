@@ -4,7 +4,7 @@ import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkR
 
 const NUMERIC_EMOJIS = [
 	"0️⃣",
-	"🥇",
+	"1️⃣",
 	"2️⃣",
 	"3️⃣",
 	"4️⃣",
