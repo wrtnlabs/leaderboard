@@ -151,6 +151,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 							...error,
 							name: error.name,
 							message: error.message,
+							stack: error.stack,
 						}
 					: error,
 			started_at,

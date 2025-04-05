@@ -4,6 +4,7 @@ import {
 	type IHttpLlmFunction,
 	type ILlmSchema,
 	type OpenApi,
+	type OpenApiV3_1,
 } from "@samchon/openapi";
 import { Singleton, VariadicSingleton } from "tstl";
 import typia from "typia";
@@ -28,7 +29,7 @@ export const getShoppingFunction =
 
 const getApplication = new VariadicSingleton(
 	async (model: ILlmSchema.Model) => {
-		const document: OpenApi.IDocument = await getDocument.get();
+		const document: OpenApiV3_1.IDocument = await getDocument.get();
 		return HttpLlm.application({
 			model,
 			document,
@@ -40,7 +41,7 @@ const getApplication = new VariadicSingleton(
 );
 
 const getDocument = new Singleton(async () => {
-	const document: OpenApi.IDocument = typia.assert<OpenApi.IDocument>(
+	const document: OpenApiV3_1.IDocument = typia.assert<OpenApiV3_1.IDocument>(
 		await fetch(
 			"https://raw.githubusercontent.com/samchon/shopping-backend/refs/heads/master/packages/api/swagger.json",
 		).then((r) => r.json()),

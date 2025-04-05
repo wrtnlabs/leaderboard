@@ -44,8 +44,6 @@ const main = async (): Promise<void> => {
 	const docs: Record<string, string> = benchmark.report();
 	const root = path.join(reportsDir, "validate", benchmark.props.vendor.model);
 
-	console.log({ docs });
-
 	await rmdir(root);
 	for (const [key, value] of Object.entries(docs)) {
 		await mkdir(path.join(root, key.split("/").slice(0, -1).join("/")));
