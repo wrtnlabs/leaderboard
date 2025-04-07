@@ -1,8 +1,8 @@
 import type { tags } from "typia";
 import { application } from "typia/lib/llm";
 
-import { trim } from "../src/utils/trim";
-import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
+import { trim } from "benchmark/src/utils/trim";
+import type { IValidateBenchmarkScenario } from "benchmark/src/validate/structures/IValidateBenchmarkScenario";
 
 export const ObjectConstraint = (): IValidateBenchmarkScenario => ({
 	application: {
