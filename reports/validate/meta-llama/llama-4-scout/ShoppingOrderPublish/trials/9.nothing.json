@@ -1,0 +1,295 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1744013437-2HPCrTCnT4DP3OjnMjNF",
+    "provider": "Together",
+    "model": "meta-llama/llama-4-scout",
+    "object": "chat.completion",
+    "created": 1744013437,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "name\": \"shoppings_customers_orders_publish_create\", \"parameters\": {\"orderId\": \"bbd17d73-8dfc-4d9b-9596-e45765e04589\", \"body\": {\"address\": {\"mobile\": \"01012345678\", \"name\": \"Robot\", \"country\": \"South Korea\", \"province\": \"Seoul\", \"city\": \"Seoul\", \"department\": \"Wrtn Apartment\", \"possession\": \"101-1411\", \"zip_code\": \"12345\", \"special_note\": null}}}}<|python_end|>",
+          "refusal": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 69905,
+      "completion_tokens": 121,
+      "total_tokens": 70026
+    }
+  },
+  "started_at": "2025-04-07T08:10:38.644Z",
+  "completed_at": "2025-04-07T08:10:43.340Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "call_v4bj",
+      "arguments": {
+        "body": {
+          "address": {
+            "country": "South Korea",
+            "province": "Seoul",
+            "city": "Seoul",
+            "department": "Wrtn Apartment",
+            "possession": "101-1411",
+            "zip_code": "12345",
+            "special_note": null
+          },
+          "vendor": null
+        }
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": {
+            "address": {
+              "country": "South Korea",
+              "province": "Seoul",
+              "city": "Seoul",
+              "department": "Wrtn Apartment",
+              "possession": "101-1411",
+              "zip_code": "12345",
+              "special_note": null
+            },
+            "vendor": null
+          }
+        },
+        "errors": [
+          {
+            "path": "$input.orderId",
+            "expected": "string & tags.Format<\"uuid\">"
+          },
+          {
+            "path": "$input.body.address.mobile",
+            "expected": "string & tags.Pattern<\"^[0-9]*$\">"
+          },
+          {
+            "path": "$input.body.address.name",
+            "expected": "string"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1744013406-AYCH5EvOo9CExusHr4fw",
+        "provider": "Groq",
+        "model": "meta-llama/llama-4-scout",
+        "object": "chat.completion",
+        "created": 1744013406,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "tool_calls": [
+                {
+                  "id": "call_v4bj",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_orders_publish_create",
+                    "arguments": "{\"body\":{\"address\":{\"country\":\"South Korea\",\"province\":\"Seoul\",\"city\":\"Seoul\",\"department\":\"Wrtn Apartment\",\"possession\":\"101-1411\",\"zip_code\":\"12345\",\"special_note\":null},\"vendor\":null}}"
+                  },
+                  "index": 0
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "fp_699032b16f",
+        "usage": {
+          "prompt_tokens": 62381,
+          "completion_tokens": 59,
+          "total_tokens": 62440
+        }
+      },
+      "started_at": "2025-04-07T08:10:05.988Z",
+      "completed_at": "2025-04-07T08:10:33.433Z",
+      "previous": []
+    },
+    {
+      "type": "failure",
+      "id": "call_1eh7cesxbhzaswnzxs331d1a",
+      "arguments": {
+        "orderId": "bbd17d73-8dfc-4d9b-9596-e45765e04589",
+        "body": {
+          "address": {
+            "mobile": "01012345678",
+            "name": "Robot",
+            "country": "South Korea",
+            "province": "Seoul",
+            "city": "Seoul",
+            "department": "Wrtn Apartment",
+            "possession": "101-1411",
+            "zip_code": "12345",
+            "special_note": null
+          }
+        }
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "orderId": "bbd17d73-8dfc-4d9b-9596-e45765e04589",
+          "body": {
+            "address": {
+              "mobile": "01012345678",
+              "name": "Robot",
+              "country": "South Korea",
+              "province": "Seoul",
+              "city": "Seoul",
+              "department": "Wrtn Apartment",
+              "possession": "101-1411",
+              "zip_code": "12345",
+              "special_note": null
+            }
+          }
+        },
+        "errors": [
+          {
+            "path": "$input.body.vendor",
+            "expected": "null | IShoppingOrderPublish.IPaymentIdentifier"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1744013432-RuZ4Suq7xR6aekB6g1Tf",
+        "provider": "Together",
+        "model": "meta-llama/llama-4-scout",
+        "object": "chat.completion",
+        "created": 1744013432,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_1eh7cesxbhzaswnzxs331d1a",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_orders_publish_create",
+                    "arguments": "{\"orderId\":\"bbd17d73-8dfc-4d9b-9596-e45765e04589\",\"body\":{\"address\":{\"mobile\":\"01012345678\",\"name\":\"Robot\",\"country\":\"South Korea\",\"province\":\"Seoul\",\"city\":\"Seoul\",\"department\":\"Wrtn Apartment\",\"possession\":\"101-1411\",\"zip_code\":\"12345\",\"special_note\":null}}}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 69863,
+          "completion_tokens": 119,
+          "total_tokens": 69982
+        }
+      },
+      "started_at": "2025-04-07T08:10:33.433Z",
+      "completed_at": "2025-04-07T08:10:38.643Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "call_v4bj",
+          "arguments": {
+            "body": {
+              "address": {
+                "country": "South Korea",
+                "province": "Seoul",
+                "city": "Seoul",
+                "department": "Wrtn Apartment",
+                "possession": "101-1411",
+                "zip_code": "12345",
+                "special_note": null
+              },
+              "vendor": null
+            }
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": {
+                "address": {
+                  "country": "South Korea",
+                  "province": "Seoul",
+                  "city": "Seoul",
+                  "department": "Wrtn Apartment",
+                  "possession": "101-1411",
+                  "zip_code": "12345",
+                  "special_note": null
+                },
+                "vendor": null
+              }
+            },
+            "errors": [
+              {
+                "path": "$input.orderId",
+                "expected": "string & tags.Format<\"uuid\">"
+              },
+              {
+                "path": "$input.body.address.mobile",
+                "expected": "string & tags.Pattern<\"^[0-9]*$\">"
+              },
+              {
+                "path": "$input.body.address.name",
+                "expected": "string"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1744013406-AYCH5EvOo9CExusHr4fw",
+            "provider": "Groq",
+            "model": "meta-llama/llama-4-scout",
+            "object": "chat.completion",
+            "created": 1744013406,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "tool_calls",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "tool_calls": [
+                    {
+                      "id": "call_v4bj",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_orders_publish_create",
+                        "arguments": "{\"body\":{\"address\":{\"country\":\"South Korea\",\"province\":\"Seoul\",\"city\":\"Seoul\",\"department\":\"Wrtn Apartment\",\"possession\":\"101-1411\",\"zip_code\":\"12345\",\"special_note\":null},\"vendor\":null}}"
+                      },
+                      "index": 0
+                    }
+                  ]
+                }
+              }
+            ],
+            "system_fingerprint": "fp_699032b16f",
+            "usage": {
+              "prompt_tokens": 62381,
+              "completion_tokens": 59,
+              "total_tokens": 62440
+            }
+          },
+          "started_at": "2025-04-07T08:10:05.988Z",
+          "completed_at": "2025-04-07T08:10:33.433Z",
+          "previous": []
+        }
+      ]
+    }
+  ]
+}

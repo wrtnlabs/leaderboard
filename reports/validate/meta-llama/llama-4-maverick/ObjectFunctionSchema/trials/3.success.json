@@ -1,0 +1,224 @@
+{
+  "type": "success",
+  "id": "call_eqi0g40cch0a4f6vtxmzm82q",
+  "arguments": {
+    "schema": {
+      "name": "drawCircle",
+      "parameters": {
+        "$defs": {
+          "Circle": {
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "type": "object",
+            "title": "Circle",
+            "description": "Circle type.\n\nRepresents a circle type with x and y coordinates."
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "props": {
+            "$ref": "#/$defs/CircleProps"
+          }
+        },
+        "required": [
+          "props"
+        ],
+        "type": "object"
+      },
+      "separated": {
+        "llm": {
+          "$defs": {
+            "Circle": {
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "The x-coordinate of the center."
+                },
+                "y": {
+                  "type": "number",
+                  "description": "The y-coordinate of the center."
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "type": "object",
+              "title": "Circle",
+              "description": "The center of the circle."
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "circle"
+              ],
+              "type": "string"
+            },
+            "center": {
+              "$ref": "#/$defs/Circle"
+            },
+            "radius": {
+              "type": "number",
+              "description": "The radius of the circle."
+            }
+          },
+          "required": [
+            "type",
+            "center",
+            "radius"
+          ],
+          "type": "object"
+        },
+        "human": null
+      },
+      "output": {
+        "type": "null"
+      },
+      "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+      "tags": []
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "schema": {
+        "name": "drawCircle",
+        "parameters": {
+          "$defs": {
+            "Circle": {
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "type": "object",
+              "title": "Circle",
+              "description": "Circle type.\n\nRepresents a circle type with x and y coordinates."
+            }
+          },
+          "additionalProperties": false,
+          "properties": {
+            "props": {
+              "$ref": "#/$defs/CircleProps"
+            }
+          },
+          "required": [
+            "props"
+          ],
+          "type": "object"
+        },
+        "separated": {
+          "llm": {
+            "$defs": {
+              "Circle": {
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "The x-coordinate of the center."
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "The y-coordinate of the center."
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "type": "object",
+                "title": "Circle",
+                "description": "The center of the circle."
+              }
+            },
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "circle"
+                ],
+                "type": "string"
+              },
+              "center": {
+                "$ref": "#/$defs/Circle"
+              },
+              "radius": {
+                "type": "number",
+                "description": "The radius of the circle."
+              }
+            },
+            "required": [
+              "type",
+              "center",
+              "radius"
+            ],
+            "type": "object"
+          },
+          "human": null
+        },
+        "output": {
+          "type": "null"
+        },
+        "description": "Draw a circle.\n\nDraw a circle with the given center and radius.",
+        "tags": []
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1744013195-BtN2XIE9r0UQmtm4jvVT",
+    "provider": "Together",
+    "model": "meta-llama/llama-4-maverick",
+    "object": "chat.completion",
+    "created": 1744013195,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_eqi0g40cch0a4f6vtxmzm82q",
+              "type": "function",
+              "function": {
+                "name": "enrollFunction",
+                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{\"Circle\":{\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"type\":\"object\",\"title\":\"Circle\",\"description\":\"Circle type.\\n\\nRepresents a circle type with x and y coordinates.\"}},\"additionalProperties\":false,\"properties\":{\"props\":{\"$ref\":\"#/$defs/CircleProps\"}},\"required\":[\"props\"],\"type\":\"object\"},\"separated\":{\"llm\":{\"$defs\":{\"Circle\":{\"properties\":{\"x\":{\"type\":\"number\",\"description\":\"The x-coordinate of the center.\"},\"y\":{\"type\":\"number\",\"description\":\"The y-coordinate of the center.\"}},\"required\":[\"x\",\"y\"],\"type\":\"object\",\"title\":\"Circle\",\"description\":\"The center of the circle.\"}},\"additionalProperties\":false,\"properties\":{\"type\":{\"enum\":[\"circle\"],\"type\":\"string\"},\"center\":{\"$ref\":\"#/$defs/Circle\"},\"radius\":{\"type\":\"number\",\"description\":\"The radius of the circle.\"}},\"required\":[\"type\",\"center\",\"radius\"],\"type\":\"object\"},\"human\":null},\"output\":{\"type\":\"null\"},\"description\":\"Draw a circle.\\n\\nDraw a circle with the given center and radius.\",\"tags\":[]}}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 50023,
+      "completion_tokens": 338,
+      "total_tokens": 50361
+    }
+  },
+  "started_at": "2025-04-07T08:06:35.538Z",
+  "completed_at": "2025-04-07T08:06:44.108Z",
+  "previous": []
+}
