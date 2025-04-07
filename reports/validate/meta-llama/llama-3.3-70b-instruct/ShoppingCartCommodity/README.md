@@ -48,13 +48,13 @@ Select the (silver, 16gb, 1tb, English) stock and put it to the shopping cart
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 🥇 | 42,520 ms
-[2. success](./trials/2.success.json) | 🥇 | 38,345 ms
-[3. success](./trials/3.success.json) | 🥇 | 40,115 ms
-[4. success](./trials/4.success.json) | 🥇 | 28,641 ms
-[5. success](./trials/5.success.json) | 🥇 | 40,621 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 42,520 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 38,345 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 40,115 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 28,641 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 40,621 ms
 [6. success](./trials/6.success.json) | 2️⃣ | 70,648 ms
-[7. success](./trials/7.success.json) | 🥇 | 37,719 ms
-[8. success](./trials/8.success.json) | 🥇 | 29,874 ms
-[9. success](./trials/9.success.json) | 🥇 | 33,722 ms
-[10. success](./trials/10.success.json) | 🥇 | 44,238 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 37,719 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 29,874 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 33,722 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 44,238 ms

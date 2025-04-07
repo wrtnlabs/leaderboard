@@ -104,13 +104,13 @@ I'll pay it with cash, and my address is:
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 🥇 | 36,651 ms
-[2. success](./trials/2.success.json) | 🥇 | 25,890 ms
-[3. success](./trials/3.success.json) | 🥇 | 36,850 ms
-[4. success](./trials/4.success.json) | 🥇 | 36,998 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 36,651 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 25,890 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 36,850 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 36,998 ms
 [5. nothing](./trials/5.nothing.json) | ⚠️ | 36,643 ms
-[6. success](./trials/6.success.json) | 🥇 | 38,049 ms
-[7. success](./trials/7.success.json) | 🥇 | 36,654 ms
-[8. success](./trials/8.success.json) | 🥇 | 36,947 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 38,049 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 36,654 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 36,947 ms
 [9. success](./trials/9.success.json) | 2️⃣ | 57,163 ms
-[10. success](./trials/10.success.json) | 🥇 | 38,177 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 38,177 ms

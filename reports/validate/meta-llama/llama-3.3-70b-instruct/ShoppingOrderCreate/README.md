@@ -82,13 +82,13 @@ Take the shopping cart to the order
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 🥇 | 16,440 ms
-[2. success](./trials/2.success.json) | 🥇 | 30,307 ms
-[3. success](./trials/3.success.json) | 🥇 | 26,664 ms
-[4. success](./trials/4.success.json) | 🥇 | 33,999 ms
-[5. success](./trials/5.success.json) | 🥇 | 33,833 ms
-[6. success](./trials/6.success.json) | 🥇 | 31,035 ms
-[7. success](./trials/7.success.json) | 🥇 | 28,446 ms
-[8. success](./trials/8.success.json) | 🥇 | 34,395 ms
-[9. success](./trials/9.success.json) | 🥇 | 33,680 ms
-[10. success](./trials/10.success.json) | 🥇 | 34,305 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 16,440 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 30,307 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 26,664 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 33,999 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 33,833 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 31,035 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 28,446 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 34,395 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 33,680 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 34,305 ms

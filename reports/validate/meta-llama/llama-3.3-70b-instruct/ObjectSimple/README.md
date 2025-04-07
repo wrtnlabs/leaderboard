@@ -31,13 +31,13 @@ and his name is "Eulchan Kim". His age is 20.
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 🥇 | 4,665 ms
-[2. success](./trials/2.success.json) | 🥇 | 6,445 ms
-[3. success](./trials/3.success.json) | 🥇 | 10,337 ms
-[4. success](./trials/4.success.json) | 🥇 | 14,189 ms
-[5. success](./trials/5.success.json) | 🥇 | 4,632 ms
-[6. success](./trials/6.success.json) | 🥇 | 4,620 ms
-[7. success](./trials/7.success.json) | 🥇 | 6,643 ms
-[8. success](./trials/8.success.json) | 🥇 | 8,691 ms
-[9. success](./trials/9.success.json) | 🥇 | 3,161 ms
-[10. success](./trials/10.success.json) | 🥇 | 19,689 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 4,665 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 6,445 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 10,337 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 14,189 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 4,632 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 4,620 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 6,643 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 8,691 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 3,161 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 19,689 ms

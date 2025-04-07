@@ -47,13 +47,13 @@ with "Wrtn Technologies Inc." display name, and it has been created at
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 🥇 | 25,370 ms
-[2. success](./trials/2.success.json) | 🥇 | 24,988 ms
-[3. success](./trials/3.success.json) | 🥇 | 22,605 ms
-[4. success](./trials/4.success.json) | 🥇 | 25,271 ms
-[5. success](./trials/5.success.json) | 🥇 | 30,711 ms
-[6. success](./trials/6.success.json) | 🥇 | 33,676 ms
-[7. success](./trials/7.success.json) | 🥇 | 25,036 ms
-[8. success](./trials/8.success.json) | 🥇 | 24,993 ms
-[9. success](./trials/9.success.json) | 🥇 | 34,408 ms
-[10. success](./trials/10.success.json) | 🥇 | 28,964 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 25,370 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 24,988 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 22,605 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 25,271 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 30,711 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 33,676 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 25,036 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 24,993 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 34,408 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 28,964 ms

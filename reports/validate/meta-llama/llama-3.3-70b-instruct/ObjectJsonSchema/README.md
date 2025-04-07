@@ -51,6 +51,6 @@ No | Status | Time
 [5. success](./trials/5.success.json) | 2️⃣ | 60,404 ms
 [6. nothing](./trials/6.nothing.json) | ⚠️ | 38,346 ms
 [7. success](./trials/7.success.json) | 2️⃣ | 41,416 ms
-[8. success](./trials/8.success.json) | 🥇 | 26,372 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 26,372 ms
 [9. success](./trials/9.success.json) | 2️⃣ | 47,749 ms
 [10. success](./trials/10.success.json) | 2️⃣ | 46,884 ms

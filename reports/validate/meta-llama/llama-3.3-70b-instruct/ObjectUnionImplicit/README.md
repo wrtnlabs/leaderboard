@@ -58,13 +58,13 @@ At last, draw a polygon with below points:
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 🥇 | 32,276 ms
-[2. success](./trials/2.success.json) | 🥇 | 32,195 ms
-[3. success](./trials/3.success.json) | 🥇 | 51,075 ms
-[4. success](./trials/4.success.json) | 🥇 | 32,339 ms
-[5. success](./trials/5.success.json) | 🥇 | 47,717 ms
-[6. success](./trials/6.success.json) | 🥇 | 32,227 ms
-[7. success](./trials/7.success.json) | 🥇 | 31,676 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 32,276 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 32,195 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 51,075 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 32,339 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 47,717 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 32,227 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 31,676 ms
 [8. nothing](./trials/8.nothing.json) | ⚠️ | 32,253 ms
-[9. success](./trials/9.success.json) | 🥇 | 51,013 ms
-[10. success](./trials/10.success.json) | 🥇 | 32,426 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 51,013 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 32,426 ms
