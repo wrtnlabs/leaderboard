@@ -3,7 +3,7 @@ import typia, { type tags } from "typia";
 import { trim } from "../src/utils/trim";
 import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
-export const ObjectHierarchical: IValidateBenchmarkScenario = {
+export const ObjectHierarchical = (): IValidateBenchmarkScenario => ({
 	application: {
 		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
 		claude: typia.llm.application<App, "claude", { reference: true }>(),
@@ -27,20 +27,20 @@ export const ObjectHierarchical: IValidateBenchmarkScenario = {
 
         For reference, the "general" channel's name is same as its code,
         and it priority is 9, and it is not exclusive. And the channel
-        has been created at "2020-08-27T09:00:00Z".
+        has been created at "2020-08-27 09:00:00 (in Korea)".
 
         Also, the customer has joined to our membership with 
-        "samchon@wrtnlabs.io" email address since "2023-09-01T17:55:59Z".
+        "samchon@wrtnlabs.io" email address since "2023-09-01 17:55:59".
         And he is authorized to use our service with "samchon" account
         with "Jeongho Nam" display name.
 
         Additionally, hi is belonged to the "wrtnlabs" enterprise account
         with "Wrtn Technologies Inc." display name, and it has been created at
-        "2020-08-27T09:00:00Z". The enterprise has the best grade of 1.
+        "2020-08-27 09:00:00". The enterprise has the best grade of 1.
       `,
 		},
 	],
-};
+});
 
 interface App {
 	/**

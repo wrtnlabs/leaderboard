@@ -45,7 +45,7 @@ export namespace IValidateBenchmarkResult {
 			completion: OpenAI.ChatCompletion;
 		}
 		export interface IError extends IBase<"error"> {
-			error: Error;
+			error: unknown;
 		}
 
 		interface IBase<Type extends string> {

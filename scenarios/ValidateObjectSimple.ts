@@ -3,7 +3,7 @@ import typia, { type tags } from "typia";
 import { trim } from "../src/utils/trim";
 import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
-export const ObjectSimple: IValidateBenchmarkScenario = {
+export const ObjectSimple = (): IValidateBenchmarkScenario => ({
 	application: {
 		chatgpt: typia.llm.application<App, "chatgpt">(),
 		claude: typia.llm.application<App, "claude">(),
@@ -24,7 +24,7 @@ export const ObjectSimple: IValidateBenchmarkScenario = {
       `,
 		},
 	],
-};
+});
 
 interface App {
 	/**

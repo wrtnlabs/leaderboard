@@ -27,7 +27,7 @@ const main = async (): Promise<void> => {
 			api: openRouterClient,
 			model: process.env.OPENAI_MODEL ?? "",
 		},
-		schemaModel: "chatgpt",
+		schemaModel: (process.env.SCHEMA_MODEL as "chatgpt") ?? "chatgpt",
 		retry: 5, // validation feedback retry count
 		repeat: 10, // how many times to repeat the experiment
 		simultaneous: 100, // multi-threading like
@@ -43,8 +43,6 @@ const main = async (): Promise<void> => {
 
 	const docs: Record<string, string> = benchmark.report();
 	const root = path.join(reportsDir, "validate", benchmark.props.vendor.model);
-
-	console.log({ docs });
 
 	await rmdir(root);
 	for (const [key, value] of Object.entries(docs)) {

@@ -21,7 +21,7 @@ export class ValidateBenchmark {
 	): Promise<IValidateBenchmarkResult> {
 		const semaphore: Semaphore = new Semaphore(this.props.simultaneous);
 		const experiments: IValidateBenchmarkResult.IExperiment[] =
-			await mountValidateBenchmarkExperiments();
+			await mountValidateBenchmarkExperiments(this.props.schemaModel);
 
 		const started_at: Date = new Date();
 		await Promise.all(

@@ -3,7 +3,7 @@ import typia, { type tags } from "typia";
 import { trim } from "../src/utils/trim";
 import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
 
-export const ObjectUnionImplicit: IValidateBenchmarkScenario = {
+export const ObjectUnionImplicit = (): IValidateBenchmarkScenario => ({
 	application: {
 		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
 		claude: typia.llm.application<App, "claude", { reference: true }>(),
@@ -51,7 +51,7 @@ export const ObjectUnionImplicit: IValidateBenchmarkScenario = {
         `,
 		},
 	],
-};
+});
 
 interface App {
 	/**

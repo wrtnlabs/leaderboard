@@ -7,6 +7,7 @@ export default defineBuildConfig({
 	entries: ["./src/index.ts", ...globSync("./scenarios/**/*.ts")],
 	declaration: false,
 	clean: true,
+	sourcemap: true,
 	hooks: {
 		"rollup:options": (_, options) => {
 			// plugin should be added to the first

@@ -47,10 +47,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 				model: props.vendor.model,
 				messages: [
 					...(props.scenario.prompts.flatMap((prompt) =>
-						decodeValidatePrompt({
-							function: props.function,
-							prompt,
-						}),
+						decodeValidatePrompt(prompt),
 					) satisfies OpenAI.ChatCompletionMessageParam[]),
 					...(failure !== null
 						? [
@@ -120,8 +117,9 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 		const parameterValues: Record<string, unknown> = JSON.parse(
 			toolCall.function.arguments,
 		);
-		const result: IValidation<unknown> =
-			props.function.validate(parameterValues);
+		let result: IValidation<unknown> = props.function.validate(parameterValues);
+		if (result.success === true && props.scenario.validate !== undefined)
+			result = props.scenario.validate(parameterValues) ?? result;
 		if (result.success === true)
 			return {
 				type: "success",
@@ -147,7 +145,15 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 	} catch (error) {
 		return {
 			type: "error",
-			error: error as Error,
+			error:
+				error instanceof Error
+					? {
+							...error,
+							name: error.name,
+							message: error.message,
+							stack: error.stack,
+						}
+					: error,
 			started_at,
 			completed_at: new Date(),
 			previous: props.previous,
