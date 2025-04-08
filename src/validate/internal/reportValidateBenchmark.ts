@@ -2,6 +2,7 @@ import { trim } from "../../utils/trim";
 import type { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
 
+// biome-ignore format: noMisleadingCharacterClass
 const NUMERIC_EMOJIS = [
 	"0️⃣",
 	"1️⃣",
@@ -14,6 +15,7 @@ const NUMERIC_EMOJIS = [
 	"8️⃣",
 	"9️⃣",
 ] as const;
+// biome-ignore format: noMisleadingCharacterClass
 
 export const reportValidateBenchmark = (
 	result: IValidateBenchmarkResult,
