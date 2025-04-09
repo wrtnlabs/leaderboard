@@ -1,31 +1,8 @@
 import path from "node:path";
 import { outputJsonSync } from "fs-extra/esm";
 import { reportsDir } from "../../constants";
-import type { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
+import type { JsonReport, TrialStatus } from "../structures/IReport";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
-
-export type TrialStatus = number | "success" | "failure" | "nothing" | "error";
-
-interface JsonReport {
-	config: {
-		schemaModel: string;
-		vendorModel: string;
-		repeat: number;
-	};
-	experiments: Array<{
-		name: string;
-		scenario: {
-			prompts: IValidateBenchmarkPrompt[];
-		};
-		trials: Array<{
-			type: string;
-			status: TrialStatus;
-			timeMs: number;
-			startedAt: Date;
-			completedAt: Date;
-		}>;
-	}>;
-}
 
 /**
  * Calculates the elapsed time for a trial in milliseconds
