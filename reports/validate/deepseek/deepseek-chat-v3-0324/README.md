@@ -1,19 +1,19 @@
 # Validate Benchmark
 ## Summary
   - Model
-    - schema: chatgpt
+    - schema: llama
     - vendor: deepseek/deepseek-chat-v3-0324
   - Aggregation
-    - Scenarios: #8
-    - Trial: #80
-    - Success: #76
-      - 1st: #56
-      - 2nd: #16
-      - 3rd: #2
+    - Scenarios: #12
+    - Trial: #120
+    - Success: #113
+      - 1st: #103
+      - 2nd: #9
+      - 3rd: #0
     - Failure: #0
-    - Nothing: #3
-    - Error: #1
-    - Average Time: 19897.8375 ms
+    - Nothing: #2
+    - Error: #5
+    - Average Time: 15954.533333333333 ms
   - Token Usage:
     - Everything
     - Input
@@ -28,11 +28,15 @@
 ## Experiments
 Name | Status | Time / Avg
 :----|:-------|------------:
-[ValidateObjectConstraint](./ValidateObjectConstraint/README.md) | 1️⃣1️⃣1️⃣1️⃣2️⃣1️⃣1️⃣1️⃣1️⃣2️⃣
-[ValidateObjectFunctionSchema](./ValidateObjectFunctionSchema/README.md) | 2️⃣2️⃣⚠️4️⃣3️⃣⚠️3️⃣⚠️⚠️4️⃣
-[ValidateObjectGeometry](./ValidateObjectGeometry/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
-[ObjectHierarchical](./ObjectHierarchical/README.md) | 1️⃣1️⃣1️⃣2️⃣2️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
-[ObjectJsonSchema](./ObjectJsonSchema/README.md) | 2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣
+[ObjectConstraint](./ObjectConstraint/README.md) | 1️⃣2️⃣1️⃣1️⃣1️⃣1️⃣1️⃣2️⃣2️⃣2️⃣
+[ObjectFunctionSchema](./ObjectFunctionSchema/README.md) | 😱⚠️⚠️2️⃣😱😱5️⃣😱😱2️⃣
+[ObjectHierarchical](./ObjectHierarchical/README.md) | 2️⃣1️⃣1️⃣1️⃣2️⃣1️⃣1️⃣1️⃣2️⃣1️⃣
+[ObjectJsonSchema](./ObjectJsonSchema/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
 [ObjectSimple](./ObjectSimple/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
 [ObjectUnionExplicit](./ObjectUnionExplicit/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
 [ObjectUnionImplicit](./ObjectUnionImplicit/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ShoppingCartCommodity](./ShoppingCartCommodity/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ShoppingOrderCreate](./ShoppingOrderCreate/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ShoppingOrderPublish](./ShoppingOrderPublish/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ShoppingSaleDetail](./ShoppingSaleDetail/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣
+[ShoppingSalePage](./ShoppingSalePage/README.md) | 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣

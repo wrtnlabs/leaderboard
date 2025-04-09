@@ -1,10 +1,11 @@
 {
   "type": "success",
-  "id": "call_aH9DZNT43yBOVQGSww7azBPw",
+  "id": "call_2scIYCM4Nm9OewD3qDJSCcNm",
   "arguments": {
     "schema": {
-      "type": "object",
+      "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "IMember",
+      "type": "object",
       "properties": {
         "id": {
           "type": "string",
@@ -20,14 +21,12 @@
         "age": {
           "type": "number",
           "minimum": 20,
-          "maximum": 100,
-          "exclusiveMaximum": true
+          "exclusiveMaximum": 100
         },
         "hobbies": {
           "type": "array",
           "items": {
             "type": "object",
-            "title": "Hobby",
             "properties": {
               "id": {
                 "type": "string",
@@ -52,7 +51,7 @@
           "format": "date-time"
         },
         "deleted_at": {
-          "oneOf": [
+          "anyOf": [
             {
               "type": "null"
             },
@@ -72,17 +71,16 @@
         "created_at",
         "updated_at",
         "deleted_at"
-      ],
-      "description": "JSON Schema for IMember interface"
-    },
-    "examples": {}
+      ]
+    }
   },
   "result": {
     "success": true,
     "data": {
       "schema": {
-        "type": "object",
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "IMember",
+        "type": "object",
         "properties": {
           "id": {
             "type": "string",
@@ -98,14 +96,12 @@
           "age": {
             "type": "number",
             "minimum": 20,
-            "maximum": 100,
-            "exclusiveMaximum": true
+            "exclusiveMaximum": 100
           },
           "hobbies": {
             "type": "array",
             "items": {
               "type": "object",
-              "title": "Hobby",
               "properties": {
                 "id": {
                   "type": "string",
@@ -130,7 +126,7 @@
             "format": "date-time"
           },
           "deleted_at": {
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "null"
               },
@@ -150,18 +146,16 @@
           "created_at",
           "updated_at",
           "deleted_at"
-        ],
-        "description": "JSON Schema for IMember interface"
-      },
-      "examples": {}
+        ]
+      }
     }
   },
   "completion": {
-    "id": "gen-1743693170-VCyhMsFkeWI75Zgg5HVD",
+    "id": "gen-1744174567-fQuCoPSCVkxAP0xkqPoj",
     "provider": "OpenAI",
     "model": "openai/o3-mini",
     "object": "chat.completion",
-    "created": 1743693170,
+    "created": 1744174567,
     "choices": [
       {
         "logprobs": null,
@@ -172,14 +166,15 @@
           "role": "assistant",
           "content": "",
           "refusal": null,
+          "reasoning": null,
           "tool_calls": [
             {
               "index": 0,
-              "id": "call_aH9DZNT43yBOVQGSww7azBPw",
+              "id": "call_2scIYCM4Nm9OewD3qDJSCcNm",
               "type": "function",
               "function": {
                 "name": "collectSchema",
-                "arguments": "{\"schema\": {\"type\": \"object\", \"title\": \"IMember\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"maximum\": 100, \"exclusiveMaximum\": true}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"title\": \"Hobby\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"oneOf\": [{\"type\": \"null\"}, {\"type\": \"string\", \"format\": \"date-time\"}]}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"], \"description\": \"JSON Schema for IMember interface\"}, \"examples\": {}}"
+                "arguments": "{\"schema\": {\"$schema\": \"http://json-schema.org/draft-07/schema#\", \"title\": \"IMember\", \"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"anyOf\": [{\"type\": \"null\"}, {\"type\": \"string\", \"format\": \"date-time\"}]}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]}}"
               }
             }
           ]
@@ -188,229 +183,18 @@
     ],
     "system_fingerprint": "fp_617f206dd9",
     "usage": {
-      "prompt_tokens": 55166,
-      "completion_tokens": 1172,
-      "total_tokens": 56338,
+      "prompt_tokens": 52434,
+      "completion_tokens": 777,
+      "total_tokens": 53211,
       "prompt_tokens_details": {
-        "cached_tokens": 54784
+        "cached_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 896
+        "reasoning_tokens": 512
       }
     }
   },
-  "started_at": "2025-04-03T15:12:50.621Z",
-  "completed_at": "2025-04-03T15:13:05.819Z",
-  "previous": [
-    {
-      "type": "failure",
-      "id": "call_ACBxJJxZil2yH43igdtvbj1T",
-      "arguments": {
-        "schema": {
-          "type": "object",
-          "title": "IMember",
-          "properties": {
-            "id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "age": {
-              "type": "number",
-              "minimum": 20,
-              "exclusiveMaximum": 100
-            },
-            "hobbies": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "title": "Hobby",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "format": "uuid"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "id",
-                  "name"
-                ]
-              }
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "deleted_at": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              ]
-            }
-          },
-          "required": [
-            "id",
-            "name",
-            "email",
-            "age",
-            "hobbies",
-            "created_at",
-            "updated_at",
-            "deleted_at"
-          ],
-          "description": "JSON Schema for IMember interface"
-        },
-        "examples": {}
-      },
-      "result": {
-        "success": false,
-        "errors": [
-          {
-            "path": "$input.schema.properties.age.exclusiveMaximum",
-            "expected": "(boolean | undefined)",
-            "value": 100
-          }
-        ],
-        "data": {
-          "schema": {
-            "type": "object",
-            "title": "IMember",
-            "properties": {
-              "id": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "name": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string",
-                "format": "email"
-              },
-              "age": {
-                "type": "number",
-                "minimum": 20,
-                "exclusiveMaximum": 100
-              },
-              "hobbies": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "title": "Hobby",
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "name"
-                  ]
-                }
-              },
-              "created_at": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "updated_at": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "deleted_at": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "string",
-                    "format": "date-time"
-                  }
-                ]
-              }
-            },
-            "required": [
-              "id",
-              "name",
-              "email",
-              "age",
-              "hobbies",
-              "created_at",
-              "updated_at",
-              "deleted_at"
-            ],
-            "description": "JSON Schema for IMember interface"
-          },
-          "examples": {}
-        }
-      },
-      "completion": {
-        "id": "gen-1743693157-9RbtPwQofdH3agsJrnNU",
-        "provider": "OpenAI",
-        "model": "openai/o3-mini",
-        "object": "chat.completion",
-        "created": 1743693157,
-        "choices": [
-          {
-            "logprobs": null,
-            "finish_reason": "tool_calls",
-            "native_finish_reason": "tool_calls",
-            "index": 0,
-            "message": {
-              "role": "assistant",
-              "content": "",
-              "refusal": null,
-              "tool_calls": [
-                {
-                  "index": 0,
-                  "id": "call_ACBxJJxZil2yH43igdtvbj1T",
-                  "type": "function",
-                  "function": {
-                    "name": "collectSchema",
-                    "arguments": "{\"schema\": {\"type\": \"object\", \"title\": \"IMember\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"title\": \"Hobby\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"oneOf\": [{\"type\": \"null\"}, {\"type\": \"string\", \"format\": \"date-time\"}]}},\"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"], \"description\": \"JSON Schema for IMember interface\"},\"examples\": {}}"
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "system_fingerprint": "fp_617f206dd9",
-        "usage": {
-          "prompt_tokens": 54918,
-          "completion_tokens": 1103,
-          "total_tokens": 56021,
-          "prompt_tokens_details": {
-            "cached_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 832
-          }
-        }
-      },
-      "started_at": "2025-04-03T15:12:36.764Z",
-      "completed_at": "2025-04-03T15:12:50.620Z",
-      "previous": []
-    }
-  ]
+  "started_at": "2025-04-09T04:56:07.558Z",
+  "completed_at": "2025-04-09T04:56:23.543Z",
+  "previous": []
 }

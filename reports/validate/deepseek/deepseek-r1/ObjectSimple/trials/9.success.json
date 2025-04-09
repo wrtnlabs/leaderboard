@@ -1,6 +1,6 @@
 {
   "type": "success",
-  "id": "call_fdyd2e544a67gkkgsi3s1kn6",
+  "id": "call_qmowoujtvhnfmwvxqs319kme",
   "arguments": {
     "id": "447d9924-5dad-49ac-bcf0-84c1ada062b3",
     "name": "Eulchan Kim",
@@ -15,11 +15,11 @@
     }
   },
   "completion": {
-    "id": "gen-1743693612-uZPtDMu5EXGtoyNLNqyv",
+    "id": "gen-1744174137-zV4mSu0RrbonIYLSZjem",
     "provider": "Novita",
     "model": "deepseek/deepseek-r1",
     "object": "chat.completion",
-    "created": 1743693612,
+    "created": 1744174137,
     "choices": [
       {
         "logprobs": null,
@@ -30,11 +30,11 @@
           "role": "assistant",
           "content": "",
           "refusal": null,
-          "reasoning": "Okay, let me try to figure out how to handle this. The user wants to join a member to the channel. The member has an ID, name, and age. The function provided is called \"join\", and the parameters require an object with those properties.\n\nFirst, I need to check the parameters for the join function. The schema says the parameters are an object with id (string, UUID format), name (string), and age (integer, minimum 20, exclusive maximum 100). \n\nThe user provided the ID as \"447d9924-5dad-49ac-bcf0-84c1ada062b3\", which looks like a valid UUID. The name is \"Eulchan Kim\", which is a string. The age is 20, which meets the minimum of 20 and is less than 100. \n\nSo all the required fields are present and meet the validation criteria. I should structure the JSON according to the parameters. The order of properties doesn't matter in JSON, but it's good to list them as required. The required fields are id, name, and age, so all are there.\n\nI need to make sure the JSON is correctly formatted. The age is an integer, so no quotes around it. The id and name are strings, so they need quotes. \n\nPutting it all together, the tool call should use the join function with the provided member details. I'll structure the JSON accordingly and make sure there are no syntax errors.\n",
+          "reasoning": "Okay, let's see. The user wants to join a member to the channel. The member's details are provided: id is \"447d9924-5dad-49ac-bcf0-84c1ada062b3\", name is \"Eulchan Kim\", and age is 20.\n\nFirst, I need to use the 'join' function. Let me check the parameters required. The schema mentions an object with id, name, and age. The id must be a UUID, the name a string, and age an integer between 20 and 100 (exclusive maximum 100). The given age is 20, which is the minimum allowed. That's valid.\n\nSo, I need to structure the JSON with these three fields. The id is correct as a UUID. Name is a valid string. Age is 20, which meets the criteria. No issues here. Just need to format the tool call correctly.\n\nWait, the example shows using <tool_calls_begin> and <tool_call_begin> with function name. So the syntax should be:\n\n<tool_calls_begin>\n<tool_call_begin>function<tool_sep>join\n```json\n{\"id\": \"447d9924-5dad-49ac-bcf0-84c1ada062b3\", \"name\": \"Eulchan Kim\", \"age\": 20}\n```\n<tool_call_end>\n<tool_calls_end>\n\nI should make sure the JSON keys are correct and the values match the required types. Let me double-check. The parameters are id (string), name (string), age (integer). All look good. The age is 20, which is exactly the minimum, so that's acceptable. No typos in the id or name. \n\nEverything seems in order. Time to put it all together in the specified format.\n",
           "tool_calls": [
             {
               "index": 0,
-              "id": "call_fdyd2e544a67gkkgsi3s1kn6",
+              "id": "call_qmowoujtvhnfmwvxqs319kme",
               "type": "function",
               "function": {
                 "name": "join",
@@ -47,18 +47,18 @@
     ],
     "system_fingerprint": "",
     "usage": {
-      "prompt_tokens": 418,
-      "completion_tokens": 384,
-      "total_tokens": 802,
+      "prompt_tokens": 411,
+      "completion_tokens": 466,
+      "total_tokens": 877,
       "prompt_tokens_details": {
         "cached_tokens": 0
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 303
+        "reasoning_tokens": 383
       }
     }
   },
-  "started_at": "2025-04-03T15:20:11.862Z",
-  "completed_at": "2025-04-03T15:20:23.860Z",
+  "started_at": "2025-04-09T04:48:58.142Z",
+  "completed_at": "2025-04-09T04:49:08.696Z",
   "previous": []
 }

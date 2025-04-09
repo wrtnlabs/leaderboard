@@ -1,0 +1,35 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1744174158-y0rq6pSAkBs9dA7cVn78",
+    "provider": "Lambda",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1744174158,
+    "choices": [
+      {
+        "logprobs": {
+          "content": [],
+          "refusal": []
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's the JSON Schema representation of the `drawCircle` function's parameters:\n\n```json\n{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"const\": \"circle\"\n    },\n    \"center\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"x\": { \"type\": \"number\" },\n        \"y\": { \"type\": \"number\" }\n      },\n      \"required\": [\"x\", \"y\"],\n      \"additionalProperties\": false\n    },\n    \"radius\": {\n      \"type\": \"number\",\n      \"minimum\": 0\n    }\n  },\n  \"required\": [\"type\", \"center\", \"radius\"],\n  \"additionalProperties\": false\n}\n```\n\nKey elements:\n1. Fixed `type` property with value \"circle\"\n2. Strictly typed `center` object with numeric coordinates\n3. `radius` field with minimum value constraint (>= 0)\n4. Explicit required properties list\n5. Prohibits additional properties to ensure strict input validation\n\nThis schema maintains the same validation rules as the TypeScript type declaration, including the numeric constraints and structural validation of nested objects.",
+          "refusal": null,
+          "reasoning": "Okay, let's see. I need to convert this TypeScript function definition into a JSON schema so that the function can enroll to an application. Hmm. The original function is called drawCircle and it takes a props object with specific properties. The schema should define the structure of these props so that the application understands how to validate or handle them.\n\nFirst, I'll start by recalling what a JSON schema structure looks like. It's usually a JSON object with properties like type, properties, required, etc. The function's parameters are defined in the props object. Let's break down the props:\n\nThe props has a 'type' property which is set to \"circle\". That's a fixed value, so in the schema, it should be an enum with only \"circle\" as the allowed value. Then, there's a 'center' object with x and y, both numbers. So in the schema, center would be an object with properties x and y of type number. Then 'radius' is a number but it also has a tag Minimum<0>, which probably means it's a positive number. So the radius should have a minimum value of 0, but wait, in JSON schema, to ensure it's a positive number greater than zero, we might set exclusiveMinimum: 0. Because the original says number & tags.Minimum<0> which in TypeScript usually means the value can be 0 or higher? Wait, no. The tag Minimum<0> might actually be from a library like io-ts which uses the tag to denote validation. If it's Minimum with 0, then radius must be at least 0. But perhaps the user intended radius to be a positive number greater than zero. Wait, the original code says radius: number & tags.Minimum<0>. The tags.Minimum might enforce that the number is greater than or equal to 0. But maybe in practice, the radius can't be zero, because a circle with radius zero is a point. So maybe it's meant to have a minimum of 0? Or is there a translation error. Let me check the original code.\n\nLooking back, the comment says \"radius: number & tags.Minimum<0>\". The annotation Minimum<0>—but in some libraries, like io-ts, Minimum is inclusive. So radius must be greater than or equal to 0. So in JSON schema, we can set \"minimum\": 0. Even if it's supposed to be exclusive (like greater than 0), but the tags.Minimum is often inclusive. So probably in the schema, the radius has a minimum of 0.\n\nSo putting it all together, the schema will have type object, with required properties: type, center, radius.\n\nProperties:\n\ntype: enum [\"circle\"]\n\ncenter: object with properties x (number) and y (number), required.\n\nradius: number with minimum 0.\n\nSo the JSON schema would be something like:\n\n{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"const\": \"circle\"\n    },\n    \"center\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"x\": { \"type\": \"number\" },\n        \"y\": { \"type\": \"number\" }\n      },\n      \"required\": [\"x\", \"y\"]\n    },\n    \"radius\": {\n      \"type\": \"number\",\n      \"minimum\": 0\n    }\n  },\n  \"required\": [\"type\", \"center\", \"radius\"]\n}\n\nBut wait, in JSON schema, using \"const\": \"circle\" is better here than \"enum\" because it's specifically only allowing \"circle\". The original function's props has type: \"circle\", which is fixed.\n\nI think that's the correct approach. Also, making sure all required properties are marked as required in the schema. Since the original TypeScript code includes all these properties (type, center, radius) in the props object without optional modifiers, they're all required. So \"required\" should include those three keys.\n\nAnother thing to check is the schema draft. If unspecified, maybe just use the latest or the most commonly used, but the user hasn't specified, so perhaps draft-07 is acceptable.\n\nHmm. I think that should be it. Let me verify: the original function parameter is an object with type (fixed to \"circle\"), center (an object with x and y numbers), and radius (a number with a minimum of 0). Translated into JSON schema as above. Looks correct.\n"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 554,
+      "completion_tokens": 1193,
+      "total_tokens": 1747
+    }
+  },
+  "started_at": "2025-04-09T04:48:58.141Z",
+  "completed_at": "2025-04-09T04:49:56.290Z",
+  "previous": []
+}

@@ -177,8 +177,11 @@ const getTrialStatus = (trial: IValidateBenchmarkResult.ITrial): string => {
 	if (trial.type === "failure") {
 		return "❌";
 	}
-	if (trial.type === "nothing" || trial.type === "error") {
+	if (trial.type === "nothing") {
 		return "⚠️";
+	}
+	if (trial.type === "error") {
+		return "😱";
 	}
 	trial satisfies never;
 	throw new Error("Invalid trial type");

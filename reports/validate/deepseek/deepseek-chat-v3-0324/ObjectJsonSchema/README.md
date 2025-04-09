@@ -3,13 +3,13 @@
   - Aggregation
     - Trial: #10
     - Success: #10
-      - 1st: #0
-      - 2nd: #10
+      - 1st: #10
+      - 2nd: #0
       - 3rd: #0
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 40885.3 ms
+    - Average Time: 16473.3 ms
   - Token Usage:
     - Everything
     - Input
@@ -44,13 +44,13 @@ interface IMember {
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 2️⃣ | 35,471 ms
-[2. success](./trials/2.success.json) | 2️⃣ | 38,367 ms
-[3. success](./trials/3.success.json) | 2️⃣ | 43,887 ms
-[4. success](./trials/4.success.json) | 2️⃣ | 47,558 ms
-[5. success](./trials/5.success.json) | 2️⃣ | 44,859 ms
-[6. success](./trials/6.success.json) | 2️⃣ | 42,968 ms
-[7. success](./trials/7.success.json) | 2️⃣ | 37,084 ms
-[8. success](./trials/8.success.json) | 2️⃣ | 41,914 ms
-[9. success](./trials/9.success.json) | 2️⃣ | 35,984 ms
-[10. success](./trials/10.success.json) | 2️⃣ | 40,761 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 18,297 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 16,698 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 19,007 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 16,988 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 11,233 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 18,114 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 14,208 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 11,689 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 22,407 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 16,092 ms

@@ -3,13 +3,13 @@
   - Aggregation
     - Trial: #10
     - Success: #10
-      - 1st: #8
-      - 2nd: #2
+      - 1st: #7
+      - 2nd: #3
       - 3rd: #0
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 10969.9 ms
+    - Average Time: 12868 ms
   - Token Usage:
     - Everything
     - Input
@@ -33,27 +33,27 @@ The time of the participation is "2023-10-01T08:27:31Z".
 
 For reference, the "general" channel's name is same as its code,
 and it priority is 9, and it is not exclusive. And the channel
-has been created at "2020-08-27T09:00:00Z".
+has been created at "2020-08-27 09:00:00 (in Korea)".
 
 Also, the customer has joined to our membership with
-"samchon@wrtnlabs.io" email address since "2023-09-01T17:55:59Z".
+"samchon@wrtnlabs.io" email address since "2023-09-01 17:55:59".
 And he is authorized to use our service with "samchon" account
 with "Jeongho Nam" display name.
 
 Additionally, hi is belonged to the "wrtnlabs" enterprise account
 with "Wrtn Technologies Inc." display name, and it has been created at
-"2020-08-27T09:00:00Z". The enterprise has the best grade of 1.
+"2020-08-27 09:00:00". The enterprise has the best grade of 1.
 
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 11,135 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 8,627 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 8,748 ms
-[4. success](./trials/4.success.json) | 2️⃣ | 17,161 ms
-[5. success](./trials/5.success.json) | 2️⃣ | 18,063 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 9,437 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 8,502 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 9,415 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 8,965 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 9,646 ms
+[1. success](./trials/1.success.json) | 2️⃣ | 20,009 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 9,941 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 10,019 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 10,576 ms
+[5. success](./trials/5.success.json) | 2️⃣ | 20,831 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 8,296 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 9,946 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 8,943 ms
+[9. success](./trials/9.success.json) | 2️⃣ | 20,915 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 9,204 ms

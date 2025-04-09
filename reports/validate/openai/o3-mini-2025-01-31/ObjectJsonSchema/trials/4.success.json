@@ -1,55 +1,64 @@
 {
   "type": "success",
-  "id": "call_fbf2uccMGB0zzzOwz41H6Hem",
+  "id": "call_gVYThUc3ouFoL7H6l0lnp6Ue",
   "arguments": {
     "schema": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "IMember",
       "type": "object",
+      "title": "IMember",
+      "description": "Schema for IMember interface",
       "properties": {
         "id": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "description": "Unique identifier in UUID format"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the member"
         },
         "email": {
           "type": "string",
-          "format": "email"
+          "format": "email",
+          "description": "Email address of the member"
         },
         "age": {
           "type": "number",
           "minimum": 20,
-          "maximum": 100,
-          "exclusiveMaximum": true
+          "exclusiveMaximum": 100,
+          "description": "Age of the member, minimum 20 and less than 100"
         },
         "hobbies": {
           "type": "array",
           "items": {
             "type": "object",
+            "title": "Hobby",
             "properties": {
               "id": {
                 "type": "string",
-                "format": "uuid"
+                "format": "uuid",
+                "description": "Unique identifier for the hobby"
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "Name of the hobby"
               }
             },
             "required": [
               "id",
               "name"
             ]
-          }
+          },
+          "description": "List of hobbies"
         },
         "created_at": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Timestamp of when the member was created"
         },
         "updated_at": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Timestamp of the last update of the member"
         },
         "deleted_at": {
           "oneOf": [
@@ -60,7 +69,8 @@
               "type": "string",
               "format": "date-time"
             }
-          ]
+          ],
+          "description": "Either null or a date-time string indicating deletion time"
         }
       },
       "required": [
@@ -79,53 +89,62 @@
     "success": true,
     "data": {
       "schema": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "IMember",
         "type": "object",
+        "title": "IMember",
+        "description": "Schema for IMember interface",
         "properties": {
           "id": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique identifier in UUID format"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the member"
           },
           "email": {
             "type": "string",
-            "format": "email"
+            "format": "email",
+            "description": "Email address of the member"
           },
           "age": {
             "type": "number",
             "minimum": 20,
-            "maximum": 100,
-            "exclusiveMaximum": true
+            "exclusiveMaximum": 100,
+            "description": "Age of the member, minimum 20 and less than 100"
           },
           "hobbies": {
             "type": "array",
             "items": {
               "type": "object",
+              "title": "Hobby",
               "properties": {
                 "id": {
                   "type": "string",
-                  "format": "uuid"
+                  "format": "uuid",
+                  "description": "Unique identifier for the hobby"
                 },
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Name of the hobby"
                 }
               },
               "required": [
                 "id",
                 "name"
               ]
-            }
+            },
+            "description": "List of hobbies"
           },
           "created_at": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Timestamp of when the member was created"
           },
           "updated_at": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Timestamp of the last update of the member"
           },
           "deleted_at": {
             "oneOf": [
@@ -136,7 +155,8 @@
                 "type": "string",
                 "format": "date-time"
               }
-            ]
+            ],
+            "description": "Either null or a date-time string indicating deletion time"
           }
         },
         "required": [
@@ -153,11 +173,11 @@
     }
   },
   "completion": {
-    "id": "gen-1743693174-PirgMQhSpWexVmu9uaaK",
+    "id": "gen-1744174567-7A1mcMoqVa4iCVUAvrXn",
     "provider": "OpenAI",
     "model": "openai/o3-mini",
     "object": "chat.completion",
-    "created": 1743693174,
+    "created": 1744174567,
     "choices": [
       {
         "logprobs": null,
@@ -168,14 +188,15 @@
           "role": "assistant",
           "content": "",
           "refusal": null,
+          "reasoning": null,
           "tool_calls": [
             {
               "index": 0,
-              "id": "call_fbf2uccMGB0zzzOwz41H6Hem",
+              "id": "call_gVYThUc3ouFoL7H6l0lnp6Ue",
               "type": "function",
               "function": {
                 "name": "collectSchema",
-                "arguments": "{\"schema\": {\"$schema\": \"http://json-schema.org/draft-07/schema#\", \"title\": \"IMember\", \"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"maximum\": 100, \"exclusiveMaximum\": true}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"oneOf\": [{\"type\": \"null\"}, {\"type\": \"string\", \"format\": \"date-time\"}]}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]}}"
+                "arguments": "{\"schema\": {\"type\": \"object\", \"title\": \"IMember\", \"description\": \"Schema for IMember interface\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\", \"description\": \"Unique identifier in UUID format\"}, \"name\": {\"type\": \"string\", \"description\": \"Name of the member\"}, \"email\": {\"type\": \"string\", \"format\": \"email\", \"description\": \"Email address of the member\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100, \"description\": \"Age of the member, minimum 20 and less than 100\"}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"title\": \"Hobby\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\", \"description\": \"Unique identifier for the hobby\"}, \"name\": {\"type\": \"string\", \"description\": \"Name of the hobby\"}}, \"required\": [\"id\", \"name\"]}, \"description\": \"List of hobbies\"}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\", \"description\": \"Timestamp of when the member was created\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\", \"description\": \"Timestamp of the last update of the member\"}, \"deleted_at\": {\"oneOf\": [{\"type\": \"null\"}, {\"type\": \"string\", \"format\": \"date-time\"}], \"description\": \"Either null or a date-time string indicating deletion time\"}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]}}"
               }
             }
           ]
@@ -184,225 +205,18 @@
     ],
     "system_fingerprint": "fp_617f206dd9",
     "usage": {
-      "prompt_tokens": 55162,
-      "completion_tokens": 974,
-      "total_tokens": 56136,
+      "prompt_tokens": 52434,
+      "completion_tokens": 1020,
+      "total_tokens": 53454,
       "prompt_tokens_details": {
-        "cached_tokens": 54784
+        "cached_tokens": 52352
       },
       "completion_tokens_details": {
-        "reasoning_tokens": 704
+        "reasoning_tokens": 640
       }
     }
   },
-  "started_at": "2025-04-03T15:12:54.287Z",
-  "completed_at": "2025-04-03T15:13:04.316Z",
-  "previous": [
-    {
-      "type": "failure",
-      "id": "call_6nAK5wdmIoAbPWKxsLwcBlM7",
-      "arguments": {
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "title": "IMember",
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string",
-              "format": "email"
-            },
-            "age": {
-              "type": "number",
-              "minimum": 20,
-              "exclusiveMaximum": 100
-            },
-            "hobbies": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "format": "uuid"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "id",
-                  "name"
-                ]
-              }
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "deleted_at": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              ]
-            }
-          },
-          "required": [
-            "id",
-            "name",
-            "email",
-            "age",
-            "hobbies",
-            "created_at",
-            "updated_at",
-            "deleted_at"
-          ]
-        }
-      },
-      "result": {
-        "success": false,
-        "errors": [
-          {
-            "path": "$input.schema.properties.age.exclusiveMaximum",
-            "expected": "(boolean | undefined)",
-            "value": 100
-          }
-        ],
-        "data": {
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "title": "IMember",
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "name": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string",
-                "format": "email"
-              },
-              "age": {
-                "type": "number",
-                "minimum": 20,
-                "exclusiveMaximum": 100
-              },
-              "hobbies": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid"
-                    },
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "name"
-                  ]
-                }
-              },
-              "created_at": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "updated_at": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "deleted_at": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "string",
-                    "format": "date-time"
-                  }
-                ]
-              }
-            },
-            "required": [
-              "id",
-              "name",
-              "email",
-              "age",
-              "hobbies",
-              "created_at",
-              "updated_at",
-              "deleted_at"
-            ]
-          }
-        }
-      },
-      "completion": {
-        "id": "gen-1743693157-OSl886nd79Nj8S3zwSGu",
-        "provider": "OpenAI",
-        "model": "openai/o3-mini",
-        "object": "chat.completion",
-        "created": 1743693157,
-        "choices": [
-          {
-            "logprobs": null,
-            "finish_reason": "tool_calls",
-            "native_finish_reason": "tool_calls",
-            "index": 0,
-            "message": {
-              "role": "assistant",
-              "content": "",
-              "refusal": null,
-              "tool_calls": [
-                {
-                  "index": 0,
-                  "id": "call_6nAK5wdmIoAbPWKxsLwcBlM7",
-                  "type": "function",
-                  "function": {
-                    "name": "collectSchema",
-                    "arguments": "{\"schema\": {\"$schema\": \"http://json-schema.org/draft-07/schema#\", \"title\": \"IMember\", \"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"oneOf\": [{\"type\": \"null\"}, {\"type\": \"string\", \"format\": \"date-time\"}]}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]}}"
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "system_fingerprint": "fp_617f206dd9",
-        "usage": {
-          "prompt_tokens": 54918,
-          "completion_tokens": 1289,
-          "total_tokens": 56207,
-          "prompt_tokens_details": {
-            "cached_tokens": 0
-          },
-          "completion_tokens_details": {
-            "reasoning_tokens": 1024
-          }
-        }
-      },
-      "started_at": "2025-04-03T15:12:36.764Z",
-      "completed_at": "2025-04-03T15:12:54.286Z",
-      "previous": []
-    }
-  ]
+  "started_at": "2025-04-09T04:56:07.558Z",
+  "completed_at": "2025-04-09T04:56:25.030Z",
+  "previous": []
 }
