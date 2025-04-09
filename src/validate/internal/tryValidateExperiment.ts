@@ -95,20 +95,22 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 				parallel_tool_calls: false,
 			});
 
-		const toolCall: OpenAI.ChatCompletionMessageToolCall | undefined =
-			completion.choices
-				.flatMap((choice) => choice.message.tool_calls ?? [])
-				.find(
-					(tc) =>
-						tc.type === "function" && tc.function.name === props.function.name,
-				);
+		const { usage, choices } = completion;
+
+		const toolCall: OpenAI.ChatCompletionMessageToolCall | undefined = choices
+			.flatMap((choice) => choice.message.tool_calls ?? [])
+			.find(
+				(tc) =>
+					tc.type === "function" && tc.function.name === props.function.name,
+			);
 
 		const base = {
 			completion,
 			started_at,
 			completed_at: new Date(),
 			previous: props.previous,
-		};
+			usage,
+		} as const;
 		if (toolCall === undefined)
 			return {
 				type: "nothing",
@@ -156,6 +158,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 					: error,
 			started_at,
 			completed_at: new Date(),
+			usage: undefined,
 			previous: props.previous,
 		};
 	}

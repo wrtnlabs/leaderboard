@@ -62,10 +62,14 @@ export class ValidateBenchmark {
 		return this.result_;
 	}
 
-	public report(): Record<string, string> {
-		if (this.result_ === null)
+	/**
+	 * save reports in ./reports/ as a json file
+	 */
+	public report(): void {
+		if (this.result_ === null) {
 			throw new Error("Run the execute() method first.");
-		return reportValidateBenchmark(this.result_);
+		}
+		reportValidateBenchmark(this.result_);
 	}
 }
 export namespace ValidateBenchmark {
