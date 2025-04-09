@@ -1,9 +1,9 @@
 import typia from "typia";
 
-import { trim } from "benchmark/src/utils/trim";
 import type { IValidateBenchmarkScenario } from "benchmark/src/validate/structures/IValidateBenchmarkScenario";
+import { trim } from "./trim";
 
-export const ObjectGeometry: IValidateBenchmarkScenario = {
+export const ObjectGeometry = (): IValidateBenchmarkScenario => ({
 	application: {
 		chatgpt: typia.llm.application<App, "chatgpt", { reference: true }>(),
 		claude: typia.llm.application<App, "claude", { reference: true }>(),
@@ -27,7 +27,7 @@ export const ObjectGeometry: IValidateBenchmarkScenario = {
       `,
 		},
 	],
-};
+});
 
 interface App {
 	/**

@@ -1,8 +1,8 @@
 import type { ILlmFunction } from "@samchon/openapi";
 import typia from "typia";
 
-import { trim } from "benchmark/src/utils/trim";
 import type { IValidateBenchmarkScenario } from "benchmark/src/validate/structures/IValidateBenchmarkScenario";
+import { trim } from "./trim";
 
 export const ObjectFunctionSchema = (): IValidateBenchmarkScenario => ({
 	application: {

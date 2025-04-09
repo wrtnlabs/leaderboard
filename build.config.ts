@@ -4,7 +4,7 @@ import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
 	outDir: "dist",
-	entries: ["./src/index.ts", ...globSync("./scenarios/**/*.ts")],
+	entries: ["./src/index.ts"],
 	declaration: false,
 	clean: true,
 	sourcemap: true,
@@ -15,6 +15,6 @@ export default defineBuildConfig({
 		},
 	},
 	rollup: {
-		inlineDependencies: false,
+		inlineDependencies: ["@benchmark/scenarios"],
 	},
 });
