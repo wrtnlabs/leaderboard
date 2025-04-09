@@ -3,7 +3,7 @@ import path from "node:path";
 import * as process from "node:process";
 
 import { reportsDir } from "./constants";
-import { openRouterClient } from "./utils/client";
+import { openRouterClient } from "./openai";
 import { ValidateBenchmark } from "./validate/ValidateBenchmark";
 
 const main = async (): Promise<void> => {
