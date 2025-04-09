@@ -1,188 +1,117 @@
-import { trim } from "@benchmark/scenarios/trim";
+import path from "node:path";
+import { outputJsonSync } from "fs-extra/esm";
+import { reportsDir } from "../../constants";
 import type { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
 
-// biome-ignore format: noMisleadingCharacterClass
-const NUMERIC_EMOJIS = [
-	"0",
-	"1",
-	"2",
-	"3",
-	"4",
-	"5",
-	"6",
-	"7",
-	"8",
-	"9",
-] as const;
-// biome-ignore format: noMisleadingCharacterClass
+export type TrialStatus = number | "success" | "failure" | "nothing" | "error";
 
-export const reportValidateBenchmark = (
-	result: IValidateBenchmarkResult,
-): Record<string, string> =>
-	Object.fromEntries([
-		["./README.md", writeIndex(result)],
-		...result.experiments.flatMap((exp) =>
-			Object.entries(reportExperiment(exp)),
-		),
-	]);
+interface JsonReport {
+	config: {
+		schemaModel: string;
+		vendorModel: string;
+		repeat: number;
+	};
+	experiments: Array<{
+		name: string;
+		scenario: {
+			prompts: IValidateBenchmarkPrompt[];
+		};
+		trials: Array<{
+			type: string;
+			status: TrialStatus;
+			timeMs: number;
+			startedAt: Date;
+			completedAt: Date;
+		}>;
+	}>;
+}
 
-const reportExperiment = (
-	experiment: IValidateBenchmarkResult.IExperiment,
-): Record<string, string> => {
-	return Object.fromEntries([
-		[`./${experiment.name}/README.md`, writeExperimentIndex(experiment)],
-		...experiment.trials.map((trial, i) => [
-			`./${experiment.name}/trials/${i + 1}.${trial.type}.json`,
-			JSON.stringify(trial, null, 2),
-		]),
-	]);
-};
-
-const writeIndex = (result: IValidateBenchmarkResult): string => {
-	const countTrials = (
-		result: IValidateBenchmarkResult,
-		filter: (trial: IValidateBenchmarkResult.ITrial) => boolean,
-	): string =>
-		result.experiments
-			.map((exp) => exp.trials.filter(filter).length)
-			.reduce((a, b) => a + b, 0)
-			.toLocaleString();
-	return (
-		trim`
-    # Validate Benchmark
-    ## Summary
-      - Model
-        - schema: ${result.config.schemaModel}
-        - vendor: ${result.config.vendorModel}
-      - Aggregation
-        - Scenarios: #${result.experiments.length.toLocaleString()}
-        - Trial: #${(result.experiments.length * result.config.repeat).toLocaleString()}
-        - Success: #${countTrials(result, (e) => e.type === "success")}
-          - 1st: #${countTrials(result, (e) => e.type === "success" && e.previous.length === 0)}
-          - 2nd: #${countTrials(result, (e) => e.type === "success" && e.previous.length === 1)}
-          - 3rd: #${countTrials(result, (e) => e.type === "success" && e.previous.length === 2)}
-        - Failure: #${countTrials(result, (e) => e.type === "failure")}
-        - Nothing: #${countTrials(result, (e) => e.type === "nothing")}
-        - Error: #${countTrials(result, (e) => e.type === "error")}
-        - Average Time: ${
-					result.experiments
-						.flatMap((exp) => exp.trials.map(getElapsedTime))
-						.reduce((a, b) => a + b, 0) /
-					(result.experiments.length * result.config.repeat)
-				} ms
-      - Token Usage:
-        - Everything
-        - Input
-          - Total
-          - Cached
-        - Output
-          - Total
-          - Reasoning
-          - Accepted Predication
-          - Rejected Predication
-    
-    ## Experiments
-    Name | Status | Time / Avg
-    :----|:-------|------------:
-  ` +
-		"\n" +
-		result.experiments
-			.map((exp) =>
-				[
-					`[${exp.name}](./${exp.name}/README.md)`,
-					exp.trials.map(getTrialStatus).join(""),
-				].join(" | "),
-			)
-			.join("\n")
-	);
-};
-
-const writeExperimentIndex = (
-	exp: IValidateBenchmarkResult.IExperiment,
-): string => {
-	return (
-		trim`
-    # ${exp.name}
-    ## Summary
-      - Aggregation
-        - Trial: #${exp.trials.length.toLocaleString()}
-        - Success: #${exp.trials.filter((e) => e.type === "success").length}
-          - 1st: #${exp.trials.filter((e) => e.type === "success" && e.previous.length === 0).length}
-          - 2nd: #${exp.trials.filter((e) => e.type === "success" && e.previous.length === 1).length}
-          - 3rd: #${exp.trials.filter((e) => e.type === "success" && e.previous.length === 2).length}
-        - Failure: #${exp.trials.filter((e) => e.type === "failure").length}
-        - Nothing: #${exp.trials.filter((e) => e.type === "nothing").length}
-        - Error: ${exp.trials.filter((e) => e.type === "error").length}
-        - Average Time: ${
-					exp.trials.map(getElapsedTime).reduce((a, b) => a + b, 0) /
-					exp.trials.length
-				} ms
-      - Token Usage:
-        - Everything
-        - Input
-          - Total
-          - Cached
-        - Output
-          - Total
-          - Reasoning
-          - Accepted Predication
-          - Rejected Predication
-
-    ## Scenario
-  ` +
-		"\n" +
-		exp.scenario.prompts.map(writeScenarioPrompt).join("\n\n") +
-		"\n\n" +
-		trim`
-      ## Trials
-      No | Status | Time
-      ---:|:-------|------:
-    ` +
-		"\n" +
-		exp.trials
-			.map((t, i) =>
-				[
-					`[${i + 1}. ${t.type}](./trials/${i + 1}.${t.type}.json)`,
-					getTrialStatus(t),
-					getElapsedTime(t).toLocaleString() + " ms",
-				].join(" | "),
-			)
-			.join("\n")
-	);
-};
-
-const writeScenarioPrompt = (prompt: IValidateBenchmarkPrompt): string => {
-	if (prompt.type === "text")
-		return [`### Conversation (${prompt.role})`, prompt.content].join("\n");
-	return [
-		"### Function Calling",
-		"```json",
-		JSON.stringify(prompt.arguments, null, 2),
-		"```",
-	].join("\n");
-};
-
+/**
+ * Calculates the elapsed time for a trial in milliseconds
+ * Uses either the first previous attempt or the trial's start time as the reference point
+ * @param trial - The trial to calculate time for
+ * @returns The elapsed time in milliseconds
+ */
 const getElapsedTime = (trial: IValidateBenchmarkResult.ITrial): number =>
 	trial.completed_at.getTime() -
 	(trial.previous[0]?.started_at ?? trial.started_at).getTime();
 
-const getTrialStatus = (trial: IValidateBenchmarkResult.ITrial): string => {
+/**
+ * Determines the status of a trial
+ * For successful trials, returns the number of attempts (including the successful one)
+ * For other trial types, returns the type itself
+ * @param trial - The trial to determine status for
+ * @returns The trial's status (number or string)
+ */
+const getTrialStatus = (
+	trial: IValidateBenchmarkResult.ITrial,
+): TrialStatus => {
 	if (trial.type === "success") {
-		return (
-			NUMERIC_EMOJIS[trial.previous.length + 1]?.toString() ??
-			(trial.previous.length + 1).toString()
-		);
+		return trial.previous.length + 1;
 	}
-	if (trial.type === "failure") {
-		return "❌";
-	}
-	if (trial.type === "nothing") {
-		return "!";
-	}
-	if (trial.type === "error") {
-		return "😱";
-	}
-	trial satisfies never;
-	throw new Error("Invalid trial type");
+	return trial.type;
+};
+
+/**
+ * Sanitizes model names for use in filenames
+ * Replaces slashes and colons with hyphens
+ * @param modelName - The model name to sanitize
+ * @returns A filename-safe version of the model name
+ */
+const sanitizeModelName = (modelName: string): string => {
+	return modelName.replace(/\//g, "-").replace(/:/g, "-");
+};
+
+/**
+ * Generates the output file path for the benchmark report
+ * Creates a JSON filename based on the sanitized model name
+ * @param modelName - The name of the model being benchmarked
+ * @returns The full path where the report will be saved
+ */
+const getOutputFilePath = (modelName: string): string => {
+	const sanitizedName = sanitizeModelName(modelName);
+	return path.join(reportsDir, `${sanitizedName}.json`);
+};
+
+/**
+ * Main function to generate and save a benchmark report as JSON
+ * Takes benchmark result data and writes it to a JSON file
+ * @param result - The benchmark test result to be reported
+ */
+export const reportValidateBenchmark = (
+	result: IValidateBenchmarkResult,
+): void => {
+	const jsonData = convertToJsonFormat(result);
+	const outputFilePath = getOutputFilePath(result.config.vendorModel);
+	outputJsonSync(outputFilePath, jsonData, { spaces: 2 });
+};
+
+/**
+ * Converts the benchmark result to a simplified JSON format
+ * Extracts and structures the most relevant data for reporting
+ * @param result - The full benchmark result
+ * @returns A simplified JSON structure with the essential benchmark data
+ */
+const convertToJsonFormat = (result: IValidateBenchmarkResult): JsonReport => {
+	return {
+		config: {
+			schemaModel: result.config.schemaModel,
+			vendorModel: result.config.vendorModel,
+			repeat: result.config.repeat,
+		},
+		experiments: result.experiments.map((exp) => ({
+			name: exp.name,
+			scenario: {
+				prompts: exp.scenario.prompts,
+			},
+			trials: exp.trials.map((trial) => ({
+				type: trial.type,
+				status: getTrialStatus(trial),
+				timeMs: getElapsedTime(trial),
+				startedAt: trial.started_at,
+				completedAt: trial.completed_at,
+			})),
+		})),
+	};
 };
