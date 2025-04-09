@@ -5,8 +5,8 @@ import type { IShoppingCartCommodity } from "@samchon/shopping-api/lib/structure
 import type { IShoppingOrder } from "@samchon/shopping-api/lib/structures/shoppings/orders/IShoppingOrder";
 import type { IShoppingSale } from "@samchon/shopping-api/lib/structures/shoppings/sales/IShoppingSale";
 import typia from "typia";
-import { trim } from "../../src/utils/trim";
 import type { IValidateBenchmarkPrompt } from "../../src/validate/structures/IValidateBenchmarkPrompt";
+import { trim } from "../trim";
 import { getShoppingConnection } from "./getShoppingConnection";
 import { getShoppingFunction } from "./getShoppingFunction";
 

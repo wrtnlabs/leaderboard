@@ -1,4 +1,4 @@
-import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
+import type { IValidateBenchmarkScenario } from "benchmark/src/validate/structures/IValidateBenchmarkScenario";
 import { getShoppingApplication } from "./internal/getShoppingApplication";
 import { prepareShoppingHistories } from "./internal/prepareShoppingHistories";
 

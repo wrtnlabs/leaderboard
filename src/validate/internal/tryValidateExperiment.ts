@@ -1,8 +1,8 @@
 import type { ILlmFunction, ILlmSchema, IValidation } from "@samchon/openapi";
 import type OpenAI from "openai";
 
+import { trim } from "@benchmark/scenarios/trim";
 import type { IBenchmarkVendor } from "../../common/IBenchmarkVendor";
-import { trim } from "../../utils/trim";
 import type { IValidateBenchmarkEvent } from "../structures/IValidateBenchmarkEvent";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
 import type { IValidateBenchmarkScenario } from "../structures/IValidateBenchmarkScenario";

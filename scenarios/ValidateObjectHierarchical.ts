@@ -1,7 +1,7 @@
 import typia, { type tags } from "typia";
 
-import { trim } from "../src/utils/trim";
-import type { IValidateBenchmarkScenario } from "../src/validate/structures/IValidateBenchmarkScenario";
+import type { IValidateBenchmarkScenario } from "benchmark/src/validate/structures/IValidateBenchmarkScenario";
+import { trim } from "./trim";
 
 export const ObjectHierarchical = (): IValidateBenchmarkScenario => ({
 	application: {

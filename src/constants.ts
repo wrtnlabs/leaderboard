@@ -16,12 +16,7 @@ export const distDir = join(gitRoot, "dist");
 export const reportsDir = join(gitRoot, "reports");
 
 /** scenarioDir is the directory where the scenarios are stored */
-export const scenarioDir = join(distDir, "scenarios");
 
 if (!existsSync(reportsDir)) {
 	throw new Error(`reportsDir not found: ${reportsDir}`);
-}
-
-if (!existsSync(scenarioDir)) {
-	throw new Error(`scenarioDir not found: ${scenarioDir}`);
 }

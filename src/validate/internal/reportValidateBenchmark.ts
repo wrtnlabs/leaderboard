@@ -1,19 +1,19 @@
-import { trim } from "../../utils/trim";
+import { trim } from "@benchmark/scenarios/trim";
 import type { IValidateBenchmarkPrompt } from "../structures/IValidateBenchmarkPrompt";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
 
 // biome-ignore format: noMisleadingCharacterClass
 const NUMERIC_EMOJIS = [
-	"0️⃣",
-	"1️⃣",
-	"2️⃣",
-	"3️⃣",
-	"4️⃣",
-	"5️⃣",
-	"6️⃣",
-	"7️⃣",
-	"8️⃣",
-	"9️⃣",
+	"0",
+	"1",
+	"2",
+	"3",
+	"4",
+	"5",
+	"6",
+	"7",
+	"8",
+	"9",
 ] as const;
 // biome-ignore format: noMisleadingCharacterClass
 
@@ -178,7 +178,7 @@ const getTrialStatus = (trial: IValidateBenchmarkResult.ITrial): string => {
 		return "❌";
 	}
 	if (trial.type === "nothing") {
-		return "⚠️";
+		return "!";
 	}
 	if (trial.type === "error") {
 		return "😱";
