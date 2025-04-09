@@ -1,0 +1,82 @@
+{
+  "type": "success",
+  "id": "call_ozbjani7crt6ff1k0j5dbnly",
+  "arguments": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "John Doe",
+    "thumbnail": "https://picsum.photos/200/300?random=1",
+    "age": 28,
+    "email": "john.doe@example.com",
+    "hobbies": [
+      "reading",
+      "hiking",
+      "gaming"
+    ],
+    "isActive": true,
+    "created_at": "2024-02-05T15:30:00Z"
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "name": "John Doe",
+      "thumbnail": "https://picsum.photos/200/300?random=1",
+      "age": 28,
+      "email": "john.doe@example.com",
+      "hobbies": [
+        "reading",
+        "hiking",
+        "gaming"
+      ],
+      "isActive": true,
+      "created_at": "2024-02-05T15:30:00Z"
+    }
+  },
+  "completion": {
+    "id": "gen-1744174137-chRcRi8lHNFoxvjcrEPV",
+    "provider": "Novita",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1744174137,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "Okay, the user wants me to create a virtual person with random values and have them participate in a campaign. Let me start by understanding the tools I have. The `participate` function requires an object that conforms to the specified schema.\n\nFirst, I need to generate each required field. The 'id' must be a UUID. I can generate a random UUID version 4. For the 'name', I'll pick a common first and last name, maybe \"John Doe\". The 'thumbnail' needs a URL pointing to an image. I'll use a placeholder image service like picsum.photos with a random ID.\n\nNext, 'age' should be a number between 0 and 100. Let's go with 28. The 'email' has to be a valid email address. Using john.doe@example.com works. For 'hobbies', the array must have at least three strings. I'll list a few hobbies like reading, hiking, and gaming. 'isActive' is a boolean; setting it to true makes sense. 'created_at' requires a date-time in ISO format. I'll use the current date and time.\n\nNow, I need to ensure all required fields are present and meet the validation rules. The name has a regex pattern allowing letters and spaces, which \"John Doe\" satisfies. The thumbnail URL is a valid URI with an image content type. The hobbies array has three items. Everything else checks out.\n\nOnce the person object is correctly formatted, I'll call the `participate` function with this data. That should successfully submit the participation in the campaign. Let me double-check each parameter against the schema to avoid any errors.\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "call_ozbjani7crt6ff1k0j5dbnly",
+              "type": "function",
+              "function": {
+                "name": "participate",
+                "arguments": "{\n  \"id\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"name\": \"John Doe\",\n  \"thumbnail\": \"https://picsum.photos/200/300?random=1\",\n  \"age\": 28,\n  \"email\": \"john.doe@example.com\",\n  \"hobbies\": [\"reading\", \"hiking\", \"gaming\"],\n  \"isActive\": true,\n  \"created_at\": \"2024-02-05T15:30:00Z\"\n}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "system_fingerprint": "",
+    "usage": {
+      "prompt_tokens": 521,
+      "completion_tokens": 585,
+      "total_tokens": 1106,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 341
+      }
+    }
+  },
+  "started_at": "2025-04-09T04:48:58.141Z",
+  "completed_at": "2025-04-09T04:49:10.969Z",
+  "previous": []
+}

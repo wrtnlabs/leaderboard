@@ -1,0 +1,35 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1744174157-jvAtwp2pkun9YnSoAV0B",
+    "provider": "Lambda",
+    "model": "deepseek/deepseek-r1",
+    "object": "chat.completion",
+    "created": 1744174157,
+    "choices": [
+      {
+        "logprobs": {
+          "content": [],
+          "refusal": []
+        },
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's the JSON Schema representation of the `drawCircle` function's parameters:\n\n```json\n{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\"circle\"],\n      \"description\": \"Type of the shape to draw (must be 'circle')\"\n    },\n    \"center\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"x\": { \n          \"type\": \"number\",\n          \"description\": \"X-coordinate of the circle's center\"\n        },\n        \"y\": { \n          \"type\": \"number\",\n          \"description\": \"Y-coordinate of the circle's center\"\n        }\n      },\n      \"required\": [\"x\", \"y\"],\n      \"additionalProperties\": false,\n      \"description\": \"Coordinates of the circle's center\"\n    },\n    \"radius\": {\n      \"type\": \"number\",\n      \"minimum\": 0,\n      \"description\": \"Radius of the circle (must be non-negative)\"\n    }\n  },\n  \"required\": [\"type\", \"center\", \"radius\"],\n  \"additionalProperties\": false,\n  \"description\": \"Properties to draw a circle with the given center and radius\"\n}\n```\n\nKey characteristics:\n1. Strict validation with `additionalProperties: false` at both root and center object levels\n2. Enforces required properties at all nesting levels\n3. Minimum radius constraint of 0 (non-negative)\n4. Descriptive documentation through `description` properties\n5. Type restriction to exactly \"circle\" using the enum constraint\n\nThis schema ensures payloads exactly match the TypeScript type definition while providing validation and documentation.",
+          "refusal": null,
+          "reasoning": "Okay, let's see. I need to convert this TypeScript function into a JSON schema so that it can be used for enrollment in an application. The function is called drawCircle and it takes a props object with specific properties. The user provided an example of the TypeScript code with JSDoc comments, and they want the schema based on that.\n\nFirst, I need to understand the structure of the props parameter. The props object has three main properties: type, center, and radius. The type is a literal string \"circle\". The center is another object with x and y, both numbers. The radius is a number that must be a minimum of 0. Oh wait, in TypeScript they used a tag called Minimum from tags, which probably enforces that the radius is non-negative.\n\nSo, the goal is to translate this TypeScript interface into a JSON schema. JSON schema uses keywords like \"type\", \"properties\", \"required\", and validation keywords like \"minimum\".\n\nStarting with the schema structure. The root schema would be an object with properties. The function's props parameter is an object, so the schema should define an object type.\n\nLooking at each property:\n\n1. \"type\": The value is the literal \"circle\". So in JSON schema, this would be { \"type\": \"string\", \"enum\": [\"circle\"] }.\n\n2. \"center\": This is an object with \"x\" and \"y\", both numbers. So the schema for center is an object with properties x and y, each of type number. They are required, so \"required\" for the center object would include x and y.\n\n3. \"radius\": This is a number with a minimum of 0. In JSON schema, that's \"type\": \"number\", \"minimum\": 0. However, since in TypeScript there's a tag Minimum<0>, maybe it's ensuring it's a positive number, but since the tag is specified as <0>, maybe the actual constraint is radius must be greater than 0. Wait, no. The tag is \"Minimum<0>\", which likely corresponds to \"minimum\": 0. Because Minimum is often inclusive. But in TypeScript, the & operator here is intersection, so it's adding a constraint that radius must be a number and at least 0. So JSON schema's \"minimum\" is inclusive, so that's correct.\n\nNow, putting it all together. The main object schema would have properties for type, center, and radius. They are all required. So the required array includes \"type\", \"center\", \"radius\".\n\nAny additionalProperties? Since the original function's props parameter is an object with these exact properties, perhaps the schema should disallow additional properties. So set \"additionalProperties\": false. Or maybe not, depending on the application's needs. But since the function is expecting only those three, probably strict.\n\nWait, in JSON schema, \"additionalProperties\" is a keyword that can be set to false to disallow properties not listed in \"properties\". But the original TypeScript type specifies exactly those three. So including additional properties would be invalid. So in the schema, we should set \"additionalProperties\": false.\n\nSo the JSON schema would be:\n\n{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\"circle\"]\n    },\n    \"center\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"x\": { \"type\": \"number\" },\n        \"y\": { \"type\": \"number\" }\n      },\n      \"required\": [\"x\", \"y\"],\n      \"additionalProperties\": false\n    },\n    \"radius\": {\n      \"type\": \"number\",\n      \"minimum\": 0\n    }\n  },\n  \"required\": [\"type\", \"center\", \"radius\"],\n  \"additionalProperties\": false\n}\n\nWait, but for the center object, do we need to set additionalProperties to false? If in the TypeScript interface, the center has only x and y, then yes, otherwise, adding other properties would be invalid. So, including \"additionalProperties\": false in the center's schema.\n\nYes. So the center's schema should not allow extra properties. So the correct schema would include that.\n\nTesting this by example. Let's think of a valid input:\n\n{\n  \"type\": \"circle\",\n  \"center\": { \"x\": 5, \"y\": 10 },\n  \"radius\": 20\n}\n\nThat should be valid. If there's an extra property in the main object or in center, it would be invalid.\n\nAnother example with radius 0 is allowed. Also, negative radius would be invalid, which the schema's minimum of 0 would prevent.\n\nSo this should capture all the constraints from the TypeScript function parameters.\n"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 554,
+      "completion_tokens": 1363,
+      "total_tokens": 1917
+    }
+  },
+  "started_at": "2025-04-09T04:48:58.141Z",
+  "completed_at": "2025-04-09T04:49:59.850Z",
+  "previous": []
+}

@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 9103.8 ms
+    - Average Time: 7673.1 ms
   - Token Usage:
     - Everything
     - Input
@@ -58,13 +58,13 @@ At last, draw a polygon with below points:
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 8,106 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 10,296 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 7,764 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 8,745 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 8,642 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 9,310 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 9,209 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 11,421 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 9,041 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 8,504 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 7,407 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 7,518 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 7,641 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 7,894 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 7,361 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 8,547 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 7,355 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 7,640 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 7,719 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 7,649 ms
