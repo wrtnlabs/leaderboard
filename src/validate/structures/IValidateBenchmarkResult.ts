@@ -2,6 +2,7 @@ import type { ILlmSchema } from "@samchon/openapi";
 import type OpenAI from "openai";
 import type { IValidation } from "typia";
 
+import type { CompletionUsage } from "openai/resources.mjs";
 import type { IValidateBenchmarkScenario } from "./IValidateBenchmarkScenario";
 
 export interface IValidateBenchmarkResult {
@@ -53,6 +54,7 @@ export namespace IValidateBenchmarkResult {
 			started_at: Date;
 			completed_at: Date;
 			previous: IFailure[];
+			usage: CompletionUsage | undefined;
 		}
 	}
 }
