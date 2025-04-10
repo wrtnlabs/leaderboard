@@ -31,13 +31,13 @@ export namespace IValidateBenchmarkResult {
 		| ITrial.IError;
 	export namespace ITrial {
 		export interface ISuccess extends IBase<"success"> {
-			id: string;
+			tool_id: string;
 			arguments: Record<string, unknown>;
 			result: IValidation.ISuccess<unknown>;
 			completion: OpenAI.ChatCompletion;
 		}
 		export interface IFailure extends IBase<"failure"> {
-			id: string;
+			tool_id: string;
 			arguments: Record<string, unknown>;
 			result: IValidation.IFailure;
 			completion: OpenAI.ChatCompletion;
@@ -55,6 +55,7 @@ export namespace IValidateBenchmarkResult {
 			completed_at: Date;
 			previous: IFailure[];
 			usage: CompletionUsage | undefined;
+			id: string;
 		}
 	}
 }

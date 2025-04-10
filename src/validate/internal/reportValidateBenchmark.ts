@@ -83,6 +83,7 @@ const convertToJsonFormat = (result: IValidateBenchmarkResult): JsonReport => {
 				prompts: exp.scenario.prompts,
 			},
 			trials: exp.trials.map((trial) => ({
+				id: trial.id,
 				type: trial.type,
 				status: getTrialStatus(trial),
 				timeMs: getElapsedTime(trial),

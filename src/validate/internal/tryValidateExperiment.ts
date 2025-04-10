@@ -95,7 +95,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 				parallel_tool_calls: false,
 			});
 
-		const { usage, choices } = completion;
+		const { usage, choices, id } = completion;
 
 		const toolCall: OpenAI.ChatCompletionMessageToolCall | undefined = choices
 			.flatMap((choice) => choice.message.tool_calls ?? [])
@@ -110,6 +110,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 			completed_at: new Date(),
 			previous: props.previous,
 			usage,
+			id,
 		} as const;
 		if (toolCall === undefined)
 			return {
@@ -125,14 +126,14 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 		if (result.success === true)
 			return {
 				type: "success",
-				id: toolCall.id,
+				tool_id: toolCall.id,
 				arguments: parameterValues,
 				result,
 				...base,
 			};
 		const output: IValidateBenchmarkResult.ITrial.IFailure = {
 			type: "failure",
-			id: toolCall.id,
+			tool_id: toolCall.id,
 			arguments: parameterValues,
 			result,
 			...base,
@@ -159,6 +160,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 			started_at,
 			completed_at: new Date(),
 			usage: undefined,
+			id: "",
 			previous: props.previous,
 		};
 	}
