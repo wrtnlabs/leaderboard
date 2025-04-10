@@ -10,13 +10,18 @@ import { main } from "./index";
 
 type Model = `${string}/${string}`;
 
-function checkReportAvailable(model: Model): boolean {
+function checkReportAvailable(model: Model): {
+	path: string;
+	available: boolean;
+} {
 	const reportPath = path.join(
 		reportsDir,
 		`${model.replaceAll("/", "-")}.json`,
 	);
-	console.log(reportPath);
-	return fs.existsSync(reportPath);
+	return {
+		available: fs.existsSync(reportPath),
+		path: reportPath,
+	};
 }
 
 const MODELS = [
@@ -92,9 +97,11 @@ if (esMain(import.meta)) {
 		consola.info(`Model: ${model}`);
 		consola.info(`Schema Model: ${schemaModel}`);
 
-		const reportAvailable = checkReportAvailable(model);
-		consola.info(`Report available: ${reportAvailable}`);
+		const { available: reportAvailable, path: reportPath } =
+			checkReportAvailable(model);
+
 		if (reportAvailable) {
+			consola.info(`Report available at ${reportPath}`);
 			const overwrite = await consola.prompt(
 				`Report for ${model} already exists. Do you want to overwrite it?`,
 				{
@@ -106,6 +113,8 @@ if (esMain(import.meta)) {
 				consola.log(`Skipping ${model}...`);
 				continue;
 			}
+		} else {
+			consola.info(`Report not available for ${model}`);
 		}
 
 		// run the benchmark
