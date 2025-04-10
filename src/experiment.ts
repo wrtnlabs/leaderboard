@@ -1,9 +1,9 @@
-import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import type { ILlmSchema } from "@samchon/openapi";
 import { consola } from "consola/basic";
 import esMain from "es-main";
+import * as fs from "fs-extra/esm";
 
 import { reportsDir } from "./constants";
 import { main } from "./index";
@@ -19,7 +19,7 @@ function checkReportAvailable(model: Model): {
 		`${model.replaceAll("/", "-")}.json`,
 	);
 	return {
-		available: fs.existsSync(reportPath),
+		available: fs.pathExistsSync(reportPath),
 		path: reportPath,
 	};
 }

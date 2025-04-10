@@ -1,5 +1,5 @@
-import { existsSync } from "node:fs";
 import { join } from "node:path";
+import * as fs from "fs-extra/esm";
 import { x } from "tinyexec";
 
 export const JS_LIKE_EXTENSIONS = ["js", "mjs", "cjs"].map((ext) => `.${ext}`);
@@ -17,6 +17,6 @@ export const reportsDir = join(gitRoot, "reports");
 
 /** scenarioDir is the directory where the scenarios are stored */
 
-if (!existsSync(reportsDir)) {
+if (!fs.pathExistsSync(reportsDir)) {
 	throw new Error(`reportsDir not found: ${reportsDir}`);
 }

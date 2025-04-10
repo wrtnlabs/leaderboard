@@ -1,5 +1,5 @@
-import path from "node:path";
-import { outputJsonSync } from "fs-extra/esm";
+import * as path from "node:path";
+import * as fs from "fs-extra/esm";
 import { reportsDir } from "../../constants";
 import type { JsonReport, TrialStatus } from "../structures/IReport";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
@@ -61,7 +61,7 @@ export const reportValidateBenchmark = (
 ): void => {
 	const jsonData = convertToJsonFormat(result);
 	const outputFilePath = getOutputFilePath(result.config.vendorModel);
-	outputJsonSync(outputFilePath, jsonData, { spaces: 2 });
+	fs.outputJsonSync(outputFilePath, jsonData, { spaces: 2 });
 };
 
 /**
