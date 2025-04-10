@@ -5,6 +5,9 @@ echo "OPENAI_API_KEY=sk-..." >> .env
 pnpm install
 pnpm run build
 OPENAI_MODEL="openai/gpt-4o" pnpm start
+
+# or auto run
+pnpm run auto
 ```
 
 Benchmark program for Ryoppippi's paper.

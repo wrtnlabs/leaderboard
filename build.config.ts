@@ -4,7 +4,7 @@ import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
 	outDir: "dist",
-	entries: ["./src/index.ts"],
+	entries: ["./src/index.ts", "./src/experiment.ts"],
 	declaration: false,
 	clean: true,
 	sourcemap: true,
