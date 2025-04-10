@@ -2,17 +2,22 @@ import fs from "node:fs";
 import path from "node:path";
 import * as process from "node:process";
 
+import type { ILlmSchema } from "@samchon/openapi";
 import { reportsDir } from "./constants";
 import { openRouterClient } from "./openai";
 import { ValidateBenchmark } from "./validate/ValidateBenchmark";
 
-const main = async (): Promise<void> => {
+const main = async (
+	model: string = process.env.OPENAI_MODEL ?? "gpt-3.5-turbo",
+	schemaModel: ILlmSchema.Model = (process.env.SCHEMA_MODEL as "chatgpt") ??
+		"chatgpt",
+): Promise<void> => {
 	const benchmark: ValidateBenchmark = new ValidateBenchmark({
 		vendor: {
 			api: openRouterClient,
-			model: process.env.OPENAI_MODEL ?? "",
+			model,
 		},
-		schemaModel: (process.env.SCHEMA_MODEL as "chatgpt") ?? "chatgpt",
+		schemaModel,
 		retry: 5, // validation feedback retry count
 		repeat: 10, // how many times to repeat the experiment
 		simultaneous: 100, // multi-threading like
