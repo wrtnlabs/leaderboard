@@ -1,18 +1,22 @@
-import fs from "node:fs";
-import path from "node:path";
 import * as process from "node:process";
 
-import { reportsDir } from "./constants";
+import type { ILlmSchema } from "@samchon/openapi";
+import { consola } from "consola/basic";
+import esMain from "es-main";
+
 import { openRouterClient } from "./openai";
 import { ValidateBenchmark } from "./validate/ValidateBenchmark";
 
-const main = async (): Promise<void> => {
+export const main = async (
+	model: string,
+	schemaModel: ILlmSchema.Model,
+): Promise<void> => {
 	const benchmark: ValidateBenchmark = new ValidateBenchmark({
 		vendor: {
 			api: openRouterClient,
-			model: process.env.OPENAI_MODEL ?? "",
+			model,
 		},
-		schemaModel: (process.env.SCHEMA_MODEL as "chatgpt") ?? "chatgpt",
+		schemaModel,
 		retry: 5, // validation feedback retry count
 		repeat: 10, // how many times to repeat the experiment
 		simultaneous: 100, // multi-threading like
@@ -29,4 +33,12 @@ const main = async (): Promise<void> => {
 	benchmark.report();
 };
 
-await main();
+if (esMain(import.meta)) {
+	const model = process.env.OPENAI_MODEL ?? "gpt-3.5-turbo";
+	const schemaModel: ILlmSchema.Model =
+		(process.env.SCHEMA_MODEL as ILlmSchema.Model) ?? "chatgpt";
+	consola.info(`Model: ${model}`);
+	consola.info(`Schema Model: ${schemaModel}`);
+
+	await main(model, schemaModel);
+}
