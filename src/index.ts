@@ -1,15 +1,13 @@
-import fs from "node:fs";
-import path from "node:path";
 import * as process from "node:process";
 
 import type { ILlmSchema } from "@samchon/openapi";
+import { consola } from "consola/basic";
 import esMain from "es-main";
 
-import { reportsDir } from "./constants";
 import { openRouterClient } from "./openai";
 import { ValidateBenchmark } from "./validate/ValidateBenchmark";
 
-const main = async (
+export const main = async (
 	model: string,
 	schemaModel: ILlmSchema.Model,
 ): Promise<void> => {
@@ -39,8 +37,8 @@ if (esMain(import.meta)) {
 	const model = process.env.OPENAI_MODEL ?? "gpt-3.5-turbo";
 	const schemaModel: ILlmSchema.Model =
 		(process.env.SCHEMA_MODEL as ILlmSchema.Model) ?? "chatgpt";
-	console.log(`Model: ${model}`);
-	console.log(`Schema Model: ${schemaModel}`);
+	consola.info(`Model: ${model}`);
+	consola.info(`Schema Model: ${schemaModel}`);
 
 	await main(model, schemaModel);
 }
