@@ -12,9 +12,8 @@ pnpm run auto
 OPENAI_MODEL="openai/gpt-4o" SCHEMA_MODEL="chatgpt"  pnpm start
 ```
 
-Benchmark program for Ryoppippi's paper.
+You can see which models we tested in [./src/experiment.ts](./src/experiment.ts).
 
-Try editing the properties of the `src/index.ts` file.
 
 Also, benchmark report would be written under the `reports` directory.
 
