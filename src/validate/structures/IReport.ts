@@ -14,6 +14,7 @@ export interface JsonReport {
 			prompts: IValidateBenchmarkPrompt[];
 		};
 		trials: Array<{
+			id: string;
 			type: string;
 			status: TrialStatus;
 			timeMs: number;
