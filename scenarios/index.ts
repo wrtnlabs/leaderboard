@@ -1,3 +1,5 @@
+export { ArrayConstraint } from "./ValidateArrayConstraint";
+export { ArraySimple } from "./ValidateArraySimple";
 export { ObjectConstraint } from "./ValidateObjectConstraint";
 export { ObjectFunctionSchema } from "./ValidateObjectFunctionSchema";
 export { ObjectGeometry } from "./ValidateObjectGeometry";
