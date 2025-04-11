@@ -89,6 +89,7 @@ const convertToJsonFormat = (result: IValidateBenchmarkResult): JsonReport => {
 				timeMs: getElapsedTime(trial),
 				startedAt: trial.started_at,
 				completedAt: trial.completed_at,
+				trial,
 			})),
 		})),
 	};

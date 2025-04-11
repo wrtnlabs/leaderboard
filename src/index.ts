@@ -33,12 +33,10 @@ export const main = async (
 	benchmark.report();
 };
 
-if (esMain(import.meta)) {
-	const model = process.env.OPENAI_MODEL ?? "gpt-3.5-turbo";
-	const schemaModel: ILlmSchema.Model =
-		(process.env.SCHEMA_MODEL as ILlmSchema.Model) ?? "chatgpt";
-	consola.info(`Model: ${model}`);
-	consola.info(`Schema Model: ${schemaModel}`);
+const model = process.env.OPENAI_MODEL ?? "gpt-3.5-turbo";
+const schemaModel: ILlmSchema.Model =
+	(process.env.SCHEMA_MODEL as ILlmSchema.Model) ?? "chatgpt";
+consola.info(`Model: ${model}`);
+consola.info(`Schema Model: ${schemaModel}`);
 
-	await main(model, schemaModel);
-}
+await main(model, schemaModel);
