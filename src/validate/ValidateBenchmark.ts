@@ -20,13 +20,17 @@ export class ValidateBenchmark {
 		listener?: (event: IValidateBenchmarkEvent) => void,
 	): Promise<IValidateBenchmarkResult> {
 		const semaphore: Semaphore = new Semaphore(this.props.simultaneous);
-		const experiments: IValidateBenchmarkResult.IExperiment[] =
+		const baseExperiments: IValidateBenchmarkResult.IExperiment[] =
 			await mountValidateBenchmarkExperiments(this.props.schemaModel);
 
 		const started_at: Date = new Date();
+		const allExperiments: IValidateBenchmarkResult.IExperiment[] = [];
+
+		// Run both original and enhanced versions for each experiment
 		await Promise.all(
-			experiments.map(async (exp) => {
-				exp.trials = await Promise.all(
+			baseExperiments.map(async (exp) => {
+				// Original version
+				const originalTrials = await Promise.all(
 					new Array(this.props.repeat).fill(0).map(async () => {
 						await semaphore.acquire();
 						const trial: IValidateBenchmarkResult.ITrial =
@@ -40,11 +44,47 @@ export class ValidateBenchmark {
 										.functions[0]!,
 								retry: this.props.retry,
 								listener,
+								useEmbeddedJsonDesc: false,
 							});
 						await semaphore.release();
 						return trial;
 					}),
 				);
+
+				// Embedded JSON in descriptions version
+				const embeddedJsonDescTrials = await Promise.all(
+					new Array(this.props.repeat).fill(0).map(async () => {
+						await semaphore.acquire();
+						const trial: IValidateBenchmarkResult.ITrial =
+							await tryValidateExperiment({
+								vendor: this.props.vendor,
+								name: `${exp.name}-embedded-json-desc`,
+								scenario: exp.scenario,
+								function:
+									// biome-ignore lint/style/noNonNullAssertion: <explanation>
+									exp.scenario.application[this.props.schemaModel]!
+										.functions[0]!,
+								retry: this.props.retry,
+								listener,
+								useEmbeddedJsonDesc: true,
+							});
+						await semaphore.release();
+						return trial;
+					}),
+				);
+
+				// Add both experiments to results
+				allExperiments.push({
+					name: exp.name,
+					scenario: exp.scenario,
+					trials: originalTrials,
+				});
+
+				allExperiments.push({
+					name: `${exp.name}-embedded-json-desc`,
+					scenario: exp.scenario,
+					trials: embeddedJsonDescTrials,
+				});
 			}),
 		);
 		this.result_ = {
@@ -55,7 +95,7 @@ export class ValidateBenchmark {
 				retry: this.props.retry,
 				simultaneous: this.props.simultaneous,
 			},
-			experiments,
+			experiments: allExperiments,
 			started_at,
 			completed_at: new Date(),
 		};
