@@ -1,0 +1,95 @@
+{
+  "type": "error",
+  "error": {
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-ray": "94e12844f9016007-MAN",
+      "connection": "keep-alive",
+      "content-length": "294",
+      "content-type": "application/json",
+      "date": "Wed, 11 Jun 2025 12:37:00 GMT",
+      "server": "cloudflare",
+      "vary": "Accept-Encoding",
+      "x-clerk-auth-message": "Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)",
+      "x-clerk-auth-reason": "token-invalid",
+      "x-clerk-auth-status": "signed-out"
+    },
+    "error": {
+      "message": "Provider returned error",
+      "code": 400,
+      "metadata": {
+        "raw": "{\"object\":\"error\",\"message\":\"Unexpected role 'tool' after role 'user'\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":null}",
+        "provider_name": "Mistral"
+      }
+    },
+    "code": 400,
+    "name": "Error",
+    "message": "400 Provider returned error",
+    "stack": "Error: 400 Provider returned error\n    at APIError.generate (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/node_modules/.pnpm/openai@4.91.1/node_modules/openai/error.mjs:41:20)\n    at OpenAI.makeStatusError (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/node_modules/.pnpm/openai@4.91.1/node_modules/openai/core.mjs:295:25)\n    at OpenAI.makeRequest (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/node_modules/.pnpm/openai@4.91.1/node_modules/openai/core.mjs:339:30)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async process (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:329:24)\n    at async tryValidateExperiment (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:313:17)\n    at async file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:1228:23\n    at async Promise.all (index 7)\n    at async file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:1226:38\n    at async Promise.all (index 11)"
+  },
+  "started_at": "2025-06-11T12:37:00.306Z",
+  "completed_at": "2025-06-11T12:37:00.452Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "bhn2pGxkL",
+      "arguments": {
+        "body": null
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": null
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingSale.IRequest",
+            "value": null
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749645419-h5tfcRp5ehq1xZ1T0eK6",
+        "provider": "Mistral",
+        "model": "mistralai/magistral-small-2506",
+        "object": "chat.completion",
+        "created": 1749645419,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": null,
+              "tool_calls": [
+                {
+                  "id": "bhn2pGxkL",
+                  "function": {
+                    "name": "shoppings_customers_sales_index",
+                    "arguments": "{\"body\": null}"
+                  },
+                  "index": 0,
+                  "type": "function"
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 4736,
+          "completion_tokens": 16,
+          "total_tokens": 4752
+        }
+      },
+      "started_at": "2025-06-11T12:36:59.660Z",
+      "completed_at": "2025-06-11T12:37:00.306Z",
+      "previous": []
+    }
+  ]
+}
