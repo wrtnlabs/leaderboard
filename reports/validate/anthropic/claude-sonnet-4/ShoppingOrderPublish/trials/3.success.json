@@ -1,8 +1,8 @@
 {
   "type": "success",
-  "id": "toolu_vrtx_01FKBNX5E5UhxeYoDQExZ8kP",
+  "id": "toolu_vrtx_01N1Z51UwdhsXecxiEha2DGY",
   "arguments": {
-    "orderId": "8ad8b2aa-99c6-4e2c-8e09-09603ae646c4",
+    "orderId": "7f1d9a36-8973-4407-bec1-faeba08cc58c",
     "body": {
       "address": {
         "mobile": "821012345678",
@@ -12,16 +12,19 @@
         "city": "Seoul",
         "department": "Wrtn Apartment",
         "possession": "101-1411",
-        "zip_code": "06292",
+        "zip_code": "12345",
         "special_note": null
       },
-      "vendor": null
+      "vendor": {
+        "code": "cash",
+        "uid": "cash-payment-1638360000000"
+      }
     }
   },
   "result": {
     "success": true,
     "data": {
-      "orderId": "8ad8b2aa-99c6-4e2c-8e09-09603ae646c4",
+      "orderId": "7f1d9a36-8973-4407-bec1-faeba08cc58c",
       "body": {
         "address": {
           "mobile": "821012345678",
@@ -31,19 +34,22 @@
           "city": "Seoul",
           "department": "Wrtn Apartment",
           "possession": "101-1411",
-          "zip_code": "06292",
+          "zip_code": "12345",
           "special_note": null
         },
-        "vendor": null
+        "vendor": {
+          "code": "cash",
+          "uid": "cash-payment-1638360000000"
+        }
       }
     }
   },
   "completion": {
-    "id": "gen-1749637746-eAtyUfpuwMhsmxOsyg6H",
+    "id": "gen-1749643602-nLkMYOlwkstfo0tiEybX",
     "provider": "Google",
     "model": "anthropic/claude-sonnet-4",
     "object": "chat.completion",
-    "created": 1749637747,
+    "created": 1749643603,
     "choices": [
       {
         "logprobs": null,
@@ -57,12 +63,12 @@
           "reasoning": null,
           "tool_calls": [
             {
-              "id": "toolu_vrtx_01FKBNX5E5UhxeYoDQExZ8kP",
+              "id": "toolu_vrtx_01N1Z51UwdhsXecxiEha2DGY",
               "index": 0,
               "type": "function",
               "function": {
                 "name": "shoppings_customers_orders_publish_create",
-                "arguments": "{\"orderId\": \"8ad8b2aa-99c6-4e2c-8e09-09603ae646c4\", \"body\": {\"address\":{\"mobile\":\"821012345678\",\"name\":\"John Doe\",\"country\":\"South Korea\",\"province\":\"Seoul\",\"city\":\"Seoul\",\"department\":\"Wrtn Apartment\",\"possession\":\"101-1411\",\"zip_code\":\"06292\",\"special_note\":null},\"vendor\":null}}"
+                "arguments": "{\"orderId\": \"7f1d9a36-8973-4407-bec1-faeba08cc58c\", \"body\": {\"address\":{\"mobile\":\"821012345678\",\"name\":\"John Doe\",\"country\":\"South Korea\",\"province\":\"Seoul\",\"city\":\"Seoul\",\"department\":\"Wrtn Apartment\",\"possession\":\"101-1411\",\"zip_code\":\"12345\",\"special_note\":null},\"vendor\":{\"code\":\"cash\",\"uid\":\"cash-payment-1638360000000\"}}}"
               }
             }
           ]
@@ -70,12 +76,75 @@
       }
     ],
     "usage": {
-      "prompt_tokens": 73546,
-      "completion_tokens": 193,
-      "total_tokens": 73739
+      "prompt_tokens": 73998,
+      "completion_tokens": 219,
+      "total_tokens": 74217
     }
   },
-  "started_at": "2025-06-11T10:29:05.756Z",
-  "completed_at": "2025-06-11T10:29:18.277Z",
-  "previous": []
+  "started_at": "2025-06-11T12:06:42.125Z",
+  "completed_at": "2025-06-11T12:06:49.601Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "toolu_bdrk_01MdazQVGjedXxqU4mMpkVtD",
+      "arguments": {
+        "orderId": "7f1d9a36-8973-4407-bec1-faeba08cc58c",
+        "body": "{\n  \"address\": {\n    \"mobile\": \"821012345678\",\n    \"name\": \"John Doe\",\n    \"country\": \"South Korea\",\n    \"province\": \"Seoul\",\n    \"city\": \"Seoul\",\n    \"department\": \"Wrtn Apartment\",\n    \"possession\": \"101-1411\",\n    \"zip_code\": \"12345\",\n    \"special_note\": null\n  },\n  \"vendor\": {\n    \"code\": \"cash\",\n    \"uid\": \"cash-payment-\" + Date.now()\n  }\n}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "orderId": "7f1d9a36-8973-4407-bec1-faeba08cc58c",
+          "body": "{\n  \"address\": {\n    \"mobile\": \"821012345678\",\n    \"name\": \"John Doe\",\n    \"country\": \"South Korea\",\n    \"province\": \"Seoul\",\n    \"city\": \"Seoul\",\n    \"department\": \"Wrtn Apartment\",\n    \"possession\": \"101-1411\",\n    \"zip_code\": \"12345\",\n    \"special_note\": null\n  },\n  \"vendor\": {\n    \"code\": \"cash\",\n    \"uid\": \"cash-payment-\" + Date.now()\n  }\n}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingOrderPublish.ICreate",
+            "value": "{\n  \"address\": {\n    \"mobile\": \"821012345678\",\n    \"name\": \"John Doe\",\n    \"country\": \"South Korea\",\n    \"province\": \"Seoul\",\n    \"city\": \"Seoul\",\n    \"department\": \"Wrtn Apartment\",\n    \"possession\": \"101-1411\",\n    \"zip_code\": \"12345\",\n    \"special_note\": null\n  },\n  \"vendor\": {\n    \"code\": \"cash\",\n    \"uid\": \"cash-payment-\" + Date.now()\n  }\n}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749643577-k973BPz536wJ5nss1vXT",
+        "provider": "Amazon Bedrock",
+        "model": "anthropic/claude-sonnet-4",
+        "object": "chat.completion",
+        "created": 1749643578,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": null,
+              "tool_calls": [
+                {
+                  "id": "toolu_bdrk_01MdazQVGjedXxqU4mMpkVtD",
+                  "index": 0,
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_orders_publish_create",
+                    "arguments": "{\"orderId\": \"7f1d9a36-8973-4407-bec1-faeba08cc58c\", \"body\": \"{\\n  \\\"address\\\": {\\n    \\\"mobile\\\": \\\"821012345678\\\",\\n    \\\"name\\\": \\\"John Doe\\\",\\n    \\\"country\\\": \\\"South Korea\\\",\\n    \\\"province\\\": \\\"Seoul\\\",\\n    \\\"city\\\": \\\"Seoul\\\",\\n    \\\"department\\\": \\\"Wrtn Apartment\\\",\\n    \\\"possession\\\": \\\"101-1411\\\",\\n    \\\"zip_code\\\": \\\"12345\\\",\\n    \\\"special_note\\\": null\\n  },\\n  \\\"vendor\\\": {\\n    \\\"code\\\": \\\"cash\\\",\\n    \\\"uid\\\": \\\"cash-payment-\\\" + Date.now()\\n  }\\n}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 73537,
+          "completion_tokens": 218,
+          "total_tokens": 73755
+        }
+      },
+      "started_at": "2025-06-11T12:06:16.200Z",
+      "completed_at": "2025-06-11T12:06:42.124Z",
+      "previous": []
+    }
+  ]
 }
