@@ -1,25 +1,29 @@
 {
   "type": "success",
-  "id": "toolu_01BT2PUUMvQYrHyXwuJXCLm4",
+  "id": "toolu_01ChyKnDkTcARzwPoDuJcwHy",
   "arguments": {
     "schema": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "description": "Unique identifier of the member"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the member"
         },
         "email": {
           "type": "string",
-          "format": "email"
+          "format": "email",
+          "description": "Email address of the member"
         },
         "age": {
           "type": "number",
           "minimum": 20,
-          "exclusiveMaximum": 100
+          "exclusiveMaximum": 100,
+          "description": "Age of the member"
         },
         "hobbies": {
           "type": "array",
@@ -28,36 +32,44 @@
             "properties": {
               "id": {
                 "type": "string",
-                "format": "uuid"
+                "format": "uuid",
+                "description": "Unique identifier of the hobby"
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "Name of the hobby"
               }
             },
             "required": [
               "id",
               "name"
             ]
-          }
+          },
+          "description": "List of member's hobbies"
         },
         "created_at": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Timestamp when the member was created"
         },
         "updated_at": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Timestamp when the member was last updated"
         },
         "deleted_at": {
           "oneOf": [
             {
-              "type": "null"
+              "type": "null",
+              "description": "Member is not deleted"
             },
             {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "description": "Timestamp when the member was deleted"
             }
-          ]
+          ],
+          "description": "Deletion timestamp (null if not deleted)"
         }
       },
       "required": [
@@ -80,19 +92,23 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique identifier of the member"
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of the member"
           },
           "email": {
             "type": "string",
-            "format": "email"
+            "format": "email",
+            "description": "Email address of the member"
           },
           "age": {
             "type": "number",
             "minimum": 20,
-            "exclusiveMaximum": 100
+            "exclusiveMaximum": 100,
+            "description": "Age of the member"
           },
           "hobbies": {
             "type": "array",
@@ -101,36 +117,44 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "format": "uuid"
+                  "format": "uuid",
+                  "description": "Unique identifier of the hobby"
                 },
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Name of the hobby"
                 }
               },
               "required": [
                 "id",
                 "name"
               ]
-            }
+            },
+            "description": "List of member's hobbies"
           },
           "created_at": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Timestamp when the member was created"
           },
           "updated_at": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Timestamp when the member was last updated"
           },
           "deleted_at": {
             "oneOf": [
               {
-                "type": "null"
+                "type": "null",
+                "description": "Member is not deleted"
               },
               {
                 "type": "string",
-                "format": "date-time"
+                "format": "date-time",
+                "description": "Timestamp when the member was deleted"
               }
-            ]
+            ],
+            "description": "Deletion timestamp (null if not deleted)"
           }
         },
         "required": [
@@ -147,11 +171,11 @@
     }
   },
   "completion": {
-    "id": "gen-1749637766-LkbmC0ARNdvqnqmVbNjk",
+    "id": "gen-1749644537-rcEP3HMLzwTyDrnw6gCd",
     "provider": "Anthropic",
     "model": "anthropic/claude-opus-4",
     "object": "chat.completion",
-    "created": 1749637766,
+    "created": 1749644537,
     "choices": [
       {
         "logprobs": null,
@@ -165,12 +189,12 @@
           "reasoning": null,
           "tool_calls": [
             {
-              "id": "toolu_01BT2PUUMvQYrHyXwuJXCLm4",
+              "id": "toolu_01ChyKnDkTcARzwPoDuJcwHy",
               "index": 0,
               "type": "function",
               "function": {
                 "name": "collectSchema",
-                "arguments": "{\"schema\": {\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"},\"email\":{\"type\":\"string\",\"format\":\"email\"},\"age\":{\"type\":\"number\",\"minimum\":20,\"exclusiveMaximum\":100},\"hobbies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"updated_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"deleted_at\":{\"oneOf\":[{\"type\":\"null\"},{\"type\":\"string\",\"format\":\"date-time\"}]}},\"required\":[\"id\",\"name\",\"email\",\"age\",\"hobbies\",\"created_at\",\"updated_at\",\"deleted_at\"]}}"
+                "arguments": "{\"schema\": {\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\",\"description\":\"Unique identifier of the member\"},\"name\":{\"type\":\"string\",\"description\":\"Name of the member\"},\"email\":{\"type\":\"string\",\"format\":\"email\",\"description\":\"Email address of the member\"},\"age\":{\"type\":\"number\",\"minimum\":20,\"exclusiveMaximum\":100,\"description\":\"Age of the member\"},\"hobbies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\",\"description\":\"Unique identifier of the hobby\"},\"name\":{\"type\":\"string\",\"description\":\"Name of the hobby\"}},\"required\":[\"id\",\"name\"]},\"description\":\"List of member's hobbies\"},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"Timestamp when the member was created\"},\"updated_at\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"Timestamp when the member was last updated\"},\"deleted_at\":{\"oneOf\":[{\"type\":\"null\",\"description\":\"Member is not deleted\"},{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"Timestamp when the member was deleted\"}],\"description\":\"Deletion timestamp (null if not deleted)\"}},\"required\":[\"id\",\"name\",\"email\",\"age\",\"hobbies\",\"created_at\",\"updated_at\",\"deleted_at\"]}}"
               }
             }
           ]
@@ -179,11 +203,11 @@
     ],
     "usage": {
       "prompt_tokens": 32073,
-      "completion_tokens": 410,
-      "total_tokens": 32483
+      "completion_tokens": 565,
+      "total_tokens": 32638
     }
   },
-  "started_at": "2025-06-11T10:29:25.941Z",
-  "completed_at": "2025-06-11T10:29:38.112Z",
+  "started_at": "2025-06-11T12:22:16.725Z",
+  "completed_at": "2025-06-11T12:22:31.561Z",
   "previous": []
 }

@@ -2,14 +2,14 @@
 ## Summary
   - Aggregation
     - Trial: #10
-    - Success: #4
-      - 1st: #4
+    - Success: #0
+      - 1st: #0
       - 2nd: #0
       - 3rd: #0
     - Failure: #0
     - Nothing: #0
-    - Error: 6
-    - Average Time: 28502.2 ms
+    - Error: 10
+    - Average Time: 29195.9 ms
   - Token Usage:
     - Everything
     - Input
@@ -46,13 +46,13 @@ export function drawCircle(props: {
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 16,415 ms
-[2. error](./trials/2.error.json) | 😱 | 26,191 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 33,045 ms
-[4. error](./trials/4.error.json) | 😱 | 56,669 ms
-[5. error](./trials/5.error.json) | 😱 | 28,074 ms
-[6. error](./trials/6.error.json) | 😱 | 28,419 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 11,177 ms
-[8. error](./trials/8.error.json) | 😱 | 25,466 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 14,836 ms
-[10. error](./trials/10.error.json) | 😱 | 44,730 ms
+[1. error](./trials/1.error.json) | 😱 | 25,528 ms
+[2. error](./trials/2.error.json) | 😱 | 33,237 ms
+[3. error](./trials/3.error.json) | 😱 | 49,799 ms
+[4. error](./trials/4.error.json) | 😱 | 29,403 ms
+[5. error](./trials/5.error.json) | 😱 | 29,720 ms
+[6. error](./trials/6.error.json) | 😱 | 25,675 ms
+[7. error](./trials/7.error.json) | 😱 | 24,613 ms
+[8. error](./trials/8.error.json) | 😱 | 26,058 ms
+[9. error](./trials/9.error.json) | 😱 | 23,202 ms
+[10. error](./trials/10.error.json) | 😱 | 24,724 ms
