@@ -1,6 +1,6 @@
 {
   "type": "success",
-  "id": "call_fT9ghrUbdFkX9VtJ1xia91Ha",
+  "id": "call_GoeLJrZ5nPzTN6e0JY8ndEjy",
   "arguments": {
     "schema": {
       "type": "object",
@@ -49,9 +49,15 @@
           "format": "date-time"
         },
         "deleted_at": {
-          "type": "string",
-          "format": "date-time",
-          "nullable": true
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
         }
       },
       "required": [
@@ -62,9 +68,7 @@
         "hobbies",
         "created_at",
         "updated_at"
-      ],
-      "title": "IMember",
-      "description": "Member schema for storing user details."
+      ]
     }
   },
   "result": {
@@ -117,9 +121,15 @@
             "format": "date-time"
           },
           "deleted_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
           }
         },
         "required": [
@@ -130,18 +140,16 @@
           "hobbies",
           "created_at",
           "updated_at"
-        ],
-        "title": "IMember",
-        "description": "Member schema for storing user details."
+        ]
       }
     }
   },
   "completion": {
-    "id": "gen-1744174518-kGAH0o0Z4f5bFsqidr16",
+    "id": "gen-1749643830-6tZvkjBeiTHRBEBiiDWm",
     "provider": "OpenAI",
     "model": "openai/gpt-4o-mini-2024-07-18",
     "object": "chat.completion",
-    "created": 1744174518,
+    "created": 1749643830,
     "choices": [
       {
         "logprobs": null,
@@ -156,36 +164,36 @@
           "tool_calls": [
             {
               "index": 0,
-              "id": "call_fT9ghrUbdFkX9VtJ1xia91Ha",
+              "id": "call_GoeLJrZ5nPzTN6e0JY8ndEjy",
               "type": "function",
               "function": {
                 "name": "collectSchema",
-                "arguments": "{\"schema\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"},\"email\":{\"type\":\"string\",\"format\":\"email\"},\"age\":{\"type\":\"number\",\"minimum\":20,\"exclusiveMaximum\":100},\"hobbies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"updated_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"deleted_at\":{\"type\":\"string\",\"format\":\"date-time\",\"nullable\":true}},\"required\":[\"id\",\"name\",\"email\",\"age\",\"hobbies\",\"created_at\",\"updated_at\"],\"title\":\"IMember\",\"description\":\"Member schema for storing user details.\"}}"
+                "arguments": "{\"schema\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"},\"email\":{\"type\":\"string\",\"format\":\"email\"},\"age\":{\"type\":\"number\",\"minimum\":20,\"exclusiveMaximum\":100},\"hobbies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"updated_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"deleted_at\":{\"anyOf\":[{\"type\":\"null\"},{\"type\":\"string\",\"format\":\"date-time\"}]} },\"required\":[\"id\",\"name\",\"email\",\"age\",\"hobbies\",\"created_at\",\"updated_at\"]}}"
               }
             }
           ]
         }
       }
     ],
-    "system_fingerprint": "fp_44added55e",
+    "system_fingerprint": "fp_34a54ae93c",
     "usage": {
-      "prompt_tokens": 52694,
-      "completion_tokens": 182,
-      "total_tokens": 52876,
+      "prompt_tokens": 52796,
+      "completion_tokens": 172,
+      "total_tokens": 52968,
       "prompt_tokens_details": {
-        "cached_tokens": 52352
+        "cached_tokens": 0
       },
       "completion_tokens_details": {
         "reasoning_tokens": 0
       }
     }
   },
-  "started_at": "2025-04-09T04:55:20.017Z",
-  "completed_at": "2025-04-09T04:55:25.378Z",
+  "started_at": "2025-06-11T12:10:30.711Z",
+  "completed_at": "2025-06-11T12:10:38.591Z",
   "previous": [
     {
       "type": "failure",
-      "id": "call_psELQ85LFscBR9ejecC8GoLc",
+      "id": "call_Wol4AR7nt26GQCEVoO1IKi7M",
       "arguments": {
         "schema": {
           "type": "object",
@@ -204,8 +212,7 @@
             "age": {
               "type": "number",
               "minimum": 20,
-              "maximum": 100,
-              "exclusiveMaximum": true
+              "exclusiveMaximum": 100
             },
             "hobbies": {
               "type": "array",
@@ -237,9 +244,11 @@
             "deleted_at": {
               "type": [
                 "null",
-                "string"
-              ],
-              "format": "date-time"
+                {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              ]
             }
           },
           "required": [
@@ -250,25 +259,21 @@
             "hobbies",
             "created_at",
             "updated_at"
-          ],
-          "title": "IMember",
-          "description": "Member schema for storing user details."
+          ]
         }
       },
       "result": {
         "success": false,
         "errors": [
           {
-            "path": "$input.schema.properties.age.exclusiveMaximum",
-            "expected": "(number | undefined)",
-            "value": true
-          },
-          {
             "path": "$input.schema.properties.deleted_at.type",
             "expected": "undefined",
             "value": [
               "null",
-              "string"
+              {
+                "type": "string",
+                "format": "date-time"
+              }
             ]
           }
         ],
@@ -290,8 +295,7 @@
               "age": {
                 "type": "number",
                 "minimum": 20,
-                "maximum": 100,
-                "exclusiveMaximum": true
+                "exclusiveMaximum": 100
               },
               "hobbies": {
                 "type": "array",
@@ -323,9 +327,11 @@
               "deleted_at": {
                 "type": [
                   "null",
-                  "string"
-                ],
-                "format": "date-time"
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
               }
             },
             "required": [
@@ -336,18 +342,16 @@
               "hobbies",
               "created_at",
               "updated_at"
-            ],
-            "title": "IMember",
-            "description": "Member schema for storing user details."
+            ]
           }
         }
       },
       "completion": {
-        "id": "gen-1744174509-bE8Mj9iUa8QWsmXX1WHl",
+        "id": "gen-1749643800-RwPr0sEkvWRUjwt9ptEc",
         "provider": "OpenAI",
         "model": "openai/gpt-4o-mini-2024-07-18",
         "object": "chat.completion",
-        "created": 1744174509,
+        "created": 1749643800,
         "choices": [
           {
             "logprobs": null,
@@ -362,42 +366,543 @@
               "tool_calls": [
                 {
                   "index": 0,
-                  "id": "call_psELQ85LFscBR9ejecC8GoLc",
+                  "id": "call_Wol4AR7nt26GQCEVoO1IKi7M",
                   "type": "function",
                   "function": {
                     "name": "collectSchema",
-                    "arguments": "{\"schema\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"maximum\": 100, \"exclusiveMaximum\": true}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"type\": [\"null\", \"string\"], \"format\": \"date-time\"}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\"], \"title\": \"IMember\", \"description\": \"Member schema for storing user details.\"}}"
+                    "arguments": "{\"schema\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"type\": [\"null\", {\"type\": \"string\", \"format\": \"date-time\"}]}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\"]}}"
                   }
                 },
                 {
                   "index": 1,
-                  "id": "call_TI8OP9dJBDKmhUjeY31QuJs5",
+                  "id": "call_vLelc3M0DZHPUzgbYya7HTTJ",
                   "type": "function",
                   "function": {
                     "name": "collectSchema",
-                    "arguments": "{\"schema\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}}"
+                    "arguments": "{\"schema\": {\"type\": \"string\", \"format\": \"uuid\"}, \"title\": \"UUID as string\", \"description\": \"A string that must be a valid UUID.\"}"
+                  }
+                },
+                {
+                  "index": 2,
+                  "id": "call_oDcPCzfYaRbbHKSNNvXWOwEY",
+                  "type": "function",
+                  "function": {
+                    "name": "collectSchema",
+                    "arguments": "{\"schema\": {\"type\": \"string\", \"format\": \"email\"}, \"title\": \"Email as string\", \"description\": \"A string that must be a valid email address.\"}"
+                  }
+                },
+                {
+                  "index": 3,
+                  "id": "call_EAB9SKE4qXp7O3ZGW49vWg0P",
+                  "type": "function",
+                  "function": {
+                    "name": "collectSchema",
+                    "arguments": "{\"schema\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"title\": \"Age as number\", \"description\": \"A number representing the age, which must be greater than or equal to 20 and less than 100.\"}"
+                  }
+                },
+                {
+                  "index": 4,
+                  "id": "call_lH0N0cAsAWvd9ANk9O9786Bk",
+                  "type": "function",
+                  "function": {
+                    "name": "collectSchema",
+                    "arguments": "{\"schema\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}, \"title\": \"Hobby type\", \"description\": \"An object representing a hobby with an ID (UUID) and a name.\"}"
+                  }
+                },
+                {
+                  "index": 5,
+                  "id": "call_eJF4fUApe2scxcL3gs7cfw0v",
+                  "type": "function",
+                  "function": {
+                    "name": "collectSchema",
+                    "arguments": "{\"schema\": {\"type\": \"string\", \"format\": \"date-time\"}, \"title\": \"Date time format\", \"description\": \"A string representing a date and time in ISO 8601 format.\"}"
                   }
                 }
               ]
             }
           }
         ],
-        "system_fingerprint": "fp_44added55e",
+        "system_fingerprint": "fp_34a54ae93c",
         "usage": {
           "prompt_tokens": 52434,
-          "completion_tokens": 251,
-          "total_tokens": 52685,
+          "completion_tokens": 432,
+          "total_tokens": 52866,
           "prompt_tokens_details": {
-            "cached_tokens": 0
+            "cached_tokens": 9856
           },
           "completion_tokens_details": {
             "reasoning_tokens": 0
           }
         }
       },
-      "started_at": "2025-04-09T04:55:09.638Z",
-      "completed_at": "2025-04-09T04:55:20.015Z",
+      "started_at": "2025-06-11T12:09:59.749Z",
+      "completed_at": "2025-06-11T12:10:24.764Z",
       "previous": []
+    },
+    {
+      "type": "failure",
+      "id": "call_L71knyRIwpXMdI9yjuouS2bf",
+      "arguments": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "age": {
+              "type": "number",
+              "minimum": 20,
+              "exclusiveMaximum": 100
+            },
+            "hobbies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ]
+              }
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "deleted_at": {
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              ]
+            },
+            "required": [
+              "id",
+              "name",
+              "email",
+              "age",
+              "hobbies",
+              "created_at",
+              "updated_at"
+            ]
+          }
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.properties.deleted_at.type",
+            "expected": "undefined",
+            "value": [
+              "null",
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          {
+            "path": "$input.schema.properties.required",
+            "expected": "(OpenApi.IJsonSchema.IArray | OpenApi.IJsonSchema.IBoolean | OpenApi.IJsonSchema.IConstant | OpenApi.IJsonSchema.IInteger | OpenApi.IJsonSchema.INull | OpenApi.IJsonSchema.INumber | OpenApi.IJsonSchema.IObject | OpenApi.IJsonSchema.IOneOf | OpenApi.IJsonSchema.IReference<string> | OpenApi.IJsonSchema.IString | OpenApi.IJsonSchema.ITuple | OpenApi.IJsonSchema.IUnknown)",
+            "value": [
+              "id",
+              "name",
+              "email",
+              "age",
+              "hobbies",
+              "created_at",
+              "updated_at"
+            ]
+          }
+        ],
+        "data": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "age": {
+                "type": "number",
+                "minimum": 20,
+                "exclusiveMaximum": 100
+              },
+              "hobbies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "deleted_at": {
+                "type": [
+                  "null",
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
+              },
+              "required": [
+                "id",
+                "name",
+                "email",
+                "age",
+                "hobbies",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1749643824-MxyJoePCx29o7klQbGKB",
+        "provider": "OpenAI",
+        "model": "openai/gpt-4o-mini-2024-07-18",
+        "object": "chat.completion",
+        "created": 1749643824,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": null,
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "call_L71knyRIwpXMdI9yjuouS2bf",
+                  "type": "function",
+                  "function": {
+                    "name": "collectSchema",
+                    "arguments": "{\"schema\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"},\"email\":{\"type\":\"string\",\"format\":\"email\"},\"age\":{\"type\":\"number\",\"minimum\":20,\"exclusiveMaximum\":100},\"hobbies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"updated_at\":{\"type\":\"string\",\"format\":\"date-time\"},\"deleted_at\":{\"type\":[\"null\",{ \"type\": \"string\", \"format\": \"date-time\" }]},\"required\":[\"id\",\"name\",\"email\",\"age\",\"hobbies\",\"created_at\",\"updated_at\"]}}}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "system_fingerprint": "fp_34a54ae93c",
+        "usage": {
+          "prompt_tokens": 52665,
+          "completion_tokens": 173,
+          "total_tokens": 52838,
+          "prompt_tokens_details": {
+            "cached_tokens": 52352
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "started_at": "2025-06-11T12:10:24.764Z",
+      "completed_at": "2025-06-11T12:10:30.711Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "call_Wol4AR7nt26GQCEVoO1IKi7M",
+          "arguments": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "age": {
+                  "type": "number",
+                  "minimum": 20,
+                  "exclusiveMaximum": 100
+                },
+                "hobbies": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ]
+                  }
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "deleted_at": {
+                  "type": [
+                    "null",
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "email",
+                "age",
+                "hobbies",
+                "created_at",
+                "updated_at"
+              ]
+            }
+          },
+          "result": {
+            "success": false,
+            "errors": [
+              {
+                "path": "$input.schema.properties.deleted_at.type",
+                "expected": "undefined",
+                "value": [
+                  "null",
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
+              }
+            ],
+            "data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "age": {
+                    "type": "number",
+                    "minimum": 20,
+                    "exclusiveMaximum": 100
+                  },
+                  "hobbies": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ]
+                    }
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "deleted_at": {
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "email",
+                  "age",
+                  "hobbies",
+                  "created_at",
+                  "updated_at"
+                ]
+              }
+            }
+          },
+          "completion": {
+            "id": "gen-1749643800-RwPr0sEkvWRUjwt9ptEc",
+            "provider": "OpenAI",
+            "model": "openai/gpt-4o-mini-2024-07-18",
+            "object": "chat.completion",
+            "created": 1749643800,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "tool_calls",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": null,
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "call_Wol4AR7nt26GQCEVoO1IKi7M",
+                      "type": "function",
+                      "function": {
+                        "name": "collectSchema",
+                        "arguments": "{\"schema\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"type\": [\"null\", {\"type\": \"string\", \"format\": \"date-time\"}]}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\"]}}"
+                      }
+                    },
+                    {
+                      "index": 1,
+                      "id": "call_vLelc3M0DZHPUzgbYya7HTTJ",
+                      "type": "function",
+                      "function": {
+                        "name": "collectSchema",
+                        "arguments": "{\"schema\": {\"type\": \"string\", \"format\": \"uuid\"}, \"title\": \"UUID as string\", \"description\": \"A string that must be a valid UUID.\"}"
+                      }
+                    },
+                    {
+                      "index": 2,
+                      "id": "call_oDcPCzfYaRbbHKSNNvXWOwEY",
+                      "type": "function",
+                      "function": {
+                        "name": "collectSchema",
+                        "arguments": "{\"schema\": {\"type\": \"string\", \"format\": \"email\"}, \"title\": \"Email as string\", \"description\": \"A string that must be a valid email address.\"}"
+                      }
+                    },
+                    {
+                      "index": 3,
+                      "id": "call_EAB9SKE4qXp7O3ZGW49vWg0P",
+                      "type": "function",
+                      "function": {
+                        "name": "collectSchema",
+                        "arguments": "{\"schema\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"title\": \"Age as number\", \"description\": \"A number representing the age, which must be greater than or equal to 20 and less than 100.\"}"
+                      }
+                    },
+                    {
+                      "index": 4,
+                      "id": "call_lH0N0cAsAWvd9ANk9O9786Bk",
+                      "type": "function",
+                      "function": {
+                        "name": "collectSchema",
+                        "arguments": "{\"schema\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}, \"title\": \"Hobby type\", \"description\": \"An object representing a hobby with an ID (UUID) and a name.\"}"
+                      }
+                    },
+                    {
+                      "index": 5,
+                      "id": "call_eJF4fUApe2scxcL3gs7cfw0v",
+                      "type": "function",
+                      "function": {
+                        "name": "collectSchema",
+                        "arguments": "{\"schema\": {\"type\": \"string\", \"format\": \"date-time\"}, \"title\": \"Date time format\", \"description\": \"A string representing a date and time in ISO 8601 format.\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "system_fingerprint": "fp_34a54ae93c",
+            "usage": {
+              "prompt_tokens": 52434,
+              "completion_tokens": 432,
+              "total_tokens": 52866,
+              "prompt_tokens_details": {
+                "cached_tokens": 9856
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              }
+            }
+          },
+          "started_at": "2025-06-11T12:09:59.749Z",
+          "completed_at": "2025-06-11T12:10:24.764Z",
+          "previous": []
+        }
+      ]
     }
   ]
 }

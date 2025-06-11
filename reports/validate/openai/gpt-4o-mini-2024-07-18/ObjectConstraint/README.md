@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 3754.3 ms
+    - Average Time: 4398.1 ms
   - Token Usage:
     - Everything
     - Input
@@ -29,13 +29,13 @@ and make it to participate in a campaign.
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 3,172 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 3,509 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 3,148 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 3,803 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 3,116 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 4,612 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 5,530 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 3,771 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 3,069 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 3,813 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 3,691 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 3,639 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 2,733 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 5,005 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 4,258 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 4,422 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 4,160 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 8,201 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 4,327 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 3,545 ms

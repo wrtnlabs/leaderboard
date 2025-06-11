@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 5220.4 ms
+    - Average Time: 4179.5 ms
   - Token Usage:
     - Everything
     - Input
@@ -47,13 +47,13 @@ with "Wrtn Technologies Inc." display name, and it has been created at
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 4,643 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 5,416 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 4,547 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 7,165 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 4,753 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 3,722 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 4,919 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 5,534 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 4,518 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 6,987 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 4,247 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 3,735 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 4,446 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 3,761 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 4,279 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 3,664 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 4,264 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 3,725 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 4,210 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 5,464 ms

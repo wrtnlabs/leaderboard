@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 1994.7 ms
+    - Average Time: 1114.8 ms
   - Token Usage:
     - Everything
     - Input
@@ -28,13 +28,13 @@ Would you show me sales in the market?
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 4,138 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 1,593 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 1,740 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 1,725 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 1,675 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 1,727 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 1,535 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 1,939 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 1,495 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 2,380 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 1,204 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 1,020 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 1,417 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 1,228 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 1,115 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 1,108 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 1,068 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 1,005 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 1,015 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 968 ms

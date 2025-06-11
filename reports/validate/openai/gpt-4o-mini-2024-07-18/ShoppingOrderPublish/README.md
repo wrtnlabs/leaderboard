@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 11288.7 ms
+    - Average Time: 10128.8 ms
   - Token Usage:
     - Everything
     - Input
@@ -85,7 +85,7 @@ Take the shopping cart to the order
   "body": {
     "goods": [
       {
-        "commodity_id": "73a0b951-4b3a-4364-912b-bd7c5586b02a",
+        "commodity_id": "41c404a1-15e5-43bf-b3b6-277634f8d35b",
         "volume": 1
       }
     ]
@@ -104,13 +104,13 @@ I'll pay it with cash, and my address is:
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 14,166 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 9,071 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 11,162 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 14,703 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 11,311 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 7,766 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 13,464 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 9,024 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 13,044 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 9,176 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 11,356 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 10,499 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 9,783 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 10,929 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 11,412 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 8,970 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 8,838 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 7,827 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 11,562 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 10,112 ms
