@@ -1,0 +1,245 @@
+{
+  "type": "success",
+  "id": "toolu_vrtx_01Egz3tBKxFDGwJzC7JBXaL1",
+  "arguments": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "title": "Member ID",
+          "description": "Unique identifier for the member"
+        },
+        "name": {
+          "type": "string",
+          "title": "Member Name",
+          "description": "Name of the member"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "title": "Email Address",
+          "description": "Email address of the member"
+        },
+        "age": {
+          "type": "number",
+          "minimum": 20,
+          "exclusiveMaximum": 100,
+          "title": "Age",
+          "description": "Age of the member (must be at least 20 and less than 100)"
+        },
+        "hobbies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "title": "Hobby ID",
+                "description": "Unique identifier for the hobby"
+              },
+              "name": {
+                "type": "string",
+                "title": "Hobby Name",
+                "description": "Name of the hobby"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "title": "Hobby",
+            "description": "A hobby object with ID and name"
+          },
+          "title": "Hobbies",
+          "description": "Array of hobbies associated with the member"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Created At",
+          "description": "Timestamp when the member was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Updated At",
+          "description": "Timestamp when the member was last updated"
+        },
+        "deleted_at": {
+          "oneOf": [
+            {
+              "type": "null",
+              "title": "No deletion date",
+              "description": "Member is not deleted"
+            },
+            {
+              "type": "string",
+              "format": "date-time",
+              "title": "Deleted At",
+              "description": "Timestamp when the member was deleted"
+            }
+          ],
+          "title": "Deleted At",
+          "description": "Timestamp when the member was deleted, or null if not deleted"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "age",
+        "hobbies",
+        "created_at",
+        "updated_at",
+        "deleted_at"
+      ],
+      "title": "IMember",
+      "description": "Member interface representing a user with personal information and hobbies"
+    }
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Member ID",
+            "description": "Unique identifier for the member"
+          },
+          "name": {
+            "type": "string",
+            "title": "Member Name",
+            "description": "Name of the member"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email Address",
+            "description": "Email address of the member"
+          },
+          "age": {
+            "type": "number",
+            "minimum": 20,
+            "exclusiveMaximum": 100,
+            "title": "Age",
+            "description": "Age of the member (must be at least 20 and less than 100)"
+          },
+          "hobbies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "title": "Hobby ID",
+                  "description": "Unique identifier for the hobby"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "Hobby Name",
+                  "description": "Name of the hobby"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "title": "Hobby",
+              "description": "A hobby object with ID and name"
+            },
+            "title": "Hobbies",
+            "description": "Array of hobbies associated with the member"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Timestamp when the member was created"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "Timestamp when the member was last updated"
+          },
+          "deleted_at": {
+            "oneOf": [
+              {
+                "type": "null",
+                "title": "No deletion date",
+                "description": "Member is not deleted"
+              },
+              {
+                "type": "string",
+                "format": "date-time",
+                "title": "Deleted At",
+                "description": "Timestamp when the member was deleted"
+              }
+            ],
+            "title": "Deleted At",
+            "description": "Timestamp when the member was deleted, or null if not deleted"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "email",
+          "age",
+          "hobbies",
+          "created_at",
+          "updated_at",
+          "deleted_at"
+        ],
+        "title": "IMember",
+        "description": "Member interface representing a user with personal information and hobbies"
+      }
+    }
+  },
+  "completion": {
+    "id": "gen-1749637746-ngRySR84dfECyT2FkTSz",
+    "provider": "Google",
+    "model": "anthropic/claude-sonnet-4",
+    "object": "chat.completion",
+    "created": 1749637747,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": null,
+          "tool_calls": [
+            {
+              "id": "toolu_vrtx_01Egz3tBKxFDGwJzC7JBXaL1",
+              "index": 0,
+              "type": "function",
+              "function": {
+                "name": "collectSchema",
+                "arguments": "{\"schema\": {\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\",\"title\":\"Member ID\",\"description\":\"Unique identifier for the member\"},\"name\":{\"type\":\"string\",\"title\":\"Member Name\",\"description\":\"Name of the member\"},\"email\":{\"type\":\"string\",\"format\":\"email\",\"title\":\"Email Address\",\"description\":\"Email address of the member\"},\"age\":{\"type\":\"number\",\"minimum\":20,\"exclusiveMaximum\":100,\"title\":\"Age\",\"description\":\"Age of the member (must be at least 20 and less than 100)\"},\"hobbies\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"format\":\"uuid\",\"title\":\"Hobby ID\",\"description\":\"Unique identifier for the hobby\"},\"name\":{\"type\":\"string\",\"title\":\"Hobby Name\",\"description\":\"Name of the hobby\"}},\"required\":[\"id\",\"name\"],\"title\":\"Hobby\",\"description\":\"A hobby object with ID and name\"},\"title\":\"Hobbies\",\"description\":\"Array of hobbies associated with the member\"},\"created_at\":{\"type\":\"string\",\"format\":\"date-time\",\"title\":\"Created At\",\"description\":\"Timestamp when the member was created\"},\"updated_at\":{\"type\":\"string\",\"format\":\"date-time\",\"title\":\"Updated At\",\"description\":\"Timestamp when the member was last updated\"},\"deleted_at\":{\"oneOf\":[{\"type\":\"null\",\"title\":\"No deletion date\",\"description\":\"Member is not deleted\"},{\"type\":\"string\",\"format\":\"date-time\",\"title\":\"Deleted At\",\"description\":\"Timestamp when the member was deleted\"}],\"title\":\"Deleted At\",\"description\":\"Timestamp when the member was deleted, or null if not deleted\"}},\"required\":[\"id\",\"name\",\"email\",\"age\",\"hobbies\",\"created_at\",\"updated_at\",\"deleted_at\"],\"title\":\"IMember\",\"description\":\"Member interface representing a user with personal information and hobbies\"}}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 32073,
+      "completion_tokens": 750,
+      "total_tokens": 32823
+    }
+  },
+  "started_at": "2025-06-11T10:29:05.743Z",
+  "completed_at": "2025-06-11T10:29:18.834Z",
+  "previous": []
+}
