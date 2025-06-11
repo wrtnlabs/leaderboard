@@ -2,6 +2,7 @@ import type { ILlmFunction, ILlmSchema, IValidation } from "@samchon/openapi";
 import type OpenAI from "openai";
 
 import type { IBenchmarkVendor } from "../../common/IBenchmarkVendor";
+import { enhanceSchema } from "../../utils/embeddedJsonDescSchema";
 import { trim } from "../../utils/trim";
 import type { IValidateBenchmarkEvent } from "../structures/IValidateBenchmarkEvent";
 import type { IValidateBenchmarkResult } from "../structures/IValidateBenchmarkResult";
@@ -17,6 +18,7 @@ export const tryValidateExperiment = async <
 	function: ILlmFunction<Model>;
 	retry: number;
 	listener?: undefined | ((event: IValidateBenchmarkEvent) => void);
+	useEmbeddedJsonDesc?: boolean;
 }): Promise<IValidateBenchmarkResult.ITrial> => {
 	const trial: IValidateBenchmarkResult.ITrial = await process({
 		...props,
@@ -37,6 +39,7 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 	function: ILlmFunction<Model>;
 	retry: number;
 	previous: IValidateBenchmarkResult.ITrial.IFailure[];
+	useEmbeddedJsonDesc?: boolean;
 }): Promise<IValidateBenchmarkResult.ITrial> => {
 	const started_at: Date = new Date();
 	const failure: IValidateBenchmarkResult.ITrial.IFailure | null =
@@ -86,8 +89,10 @@ const process = async <Model extends ILlmSchema.Model>(props: {
 						function: {
 							name: props.function.name,
 							description: props.function.description as string,
-							parameters: props.function
-								.parameters as unknown as OpenAI.FunctionParameters,
+							parameters: (props.useEmbeddedJsonDesc
+								? enhanceSchema(props.function.parameters)
+								: props.function
+										.parameters) as unknown as OpenAI.FunctionParameters,
 						},
 					},
 				],

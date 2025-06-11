@@ -172,6 +172,19 @@ function generateMarkdownTable(results: AllResults): string {
     'ShoppingOrderPublish': 'ShoppingOrderPublish',
     'ShoppingSaleDetail': 'ShoppingSaleDetail',
     'ShoppingSalePage': 'ShoppingSalePage',
+    // Embedded JSON in descriptions (Mastra technique)
+    'ObjectConstraint-embedded-json-desc': 'ObjConstraint-JSON',
+    'ObjectFunctionSchema-embedded-json-desc': 'ObjFunctionSchema-JSON',
+    'ObjectHierarchical-embedded-json-desc': 'ObjHierarchical-JSON',
+    'ObjectJsonSchema-embedded-json-desc': 'ObjJsonSchema-JSON',
+    'ObjectSimple-embedded-json-desc': 'ObjSimple-JSON',
+    'ObjectUnionExplicit-embedded-json-desc': 'ObjUnionExp-JSON',
+    'ObjectUnionImplicit-embedded-json-desc': 'ObjUnionImpl-JSON',
+    'ShoppingCartCommodity-embedded-json-desc': 'ShoppingCartComm-JSON',
+    'ShoppingOrderCreate-embedded-json-desc': 'ShoppingOrderCreate-JSON',
+    'ShoppingOrderPublish-embedded-json-desc': 'ShoppingOrderPublish-JSON',
+    'ShoppingSaleDetail-embedded-json-desc': 'ShoppingSaleDetail-JSON',
+    'ShoppingSalePage-embedded-json-desc': 'ShoppingSalePage-JSON',
     // Google/Mistral variations
     'ValidateObjectConstraint': 'ObjConstraint',
     'ValidateObjectFunctionSchema': 'ObjFunctionSchema',
@@ -266,6 +279,7 @@ console.log('# Test Report for Validate\n');
 console.log('- Each test is run 10 times.');
 console.log('- The first attempt is the first try of the test, which uses tool calling without any validation feedback. We pass schema and prompt to the model.');
 console.log('- The second and later attempts are the same as the first attempt, but with type validation feedback.');
-console.log('- The maximum number of attempts is 5.\n');
+console.log('- The maximum number of attempts is 5.');
+console.log('- Tests with "-JSON" suffix use schemas with embedded JSON constraints in descriptions ([Mastra technique](https://mastra.ai/blog/mcp-tool-compatibility-layer)).\n');
 console.log('We call each model with [OpenRouter.ai](https://openrouter.ai/).\n');
 console.log(markdownTables);

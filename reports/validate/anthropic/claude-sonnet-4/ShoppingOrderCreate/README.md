@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 8032.6 ms
+    - Average Time: 11362.9 ms
   - Token Usage:
     - Everything
     - Input
@@ -82,13 +82,13 @@ Take the shopping cart to the order
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 7,720 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 8,657 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 8,961 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 6,986 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 10,552 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 9,430 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 6,387 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 8,035 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 6,286 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 7,312 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 8,193 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 9,582 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 17,809 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 6,749 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 11,031 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 10,709 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 15,432 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 7,268 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 15,968 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 10,888 ms
