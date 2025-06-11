@@ -9,7 +9,7 @@
     - Failure: #0
     - Nothing: #0
     - Error: 0
-    - Average Time: 2197.2 ms
+    - Average Time: 2068.6 ms
   - Token Usage:
     - Everything
     - Input
@@ -31,13 +31,13 @@ and his name is "Eulchan Kim". His age is 20.
 ## Trials
 No | Status | Time
 ---:|:-------|------:
-[1. success](./trials/1.success.json) | 1️⃣ | 1,962 ms
-[2. success](./trials/2.success.json) | 1️⃣ | 2,480 ms
-[3. success](./trials/3.success.json) | 1️⃣ | 1,936 ms
-[4. success](./trials/4.success.json) | 1️⃣ | 2,551 ms
-[5. success](./trials/5.success.json) | 1️⃣ | 2,167 ms
-[6. success](./trials/6.success.json) | 1️⃣ | 2,127 ms
-[7. success](./trials/7.success.json) | 1️⃣ | 2,173 ms
-[8. success](./trials/8.success.json) | 1️⃣ | 2,823 ms
-[9. success](./trials/9.success.json) | 1️⃣ | 1,890 ms
-[10. success](./trials/10.success.json) | 1️⃣ | 1,863 ms
+[1. success](./trials/1.success.json) | 1️⃣ | 1,470 ms
+[2. success](./trials/2.success.json) | 1️⃣ | 1,327 ms
+[3. success](./trials/3.success.json) | 1️⃣ | 1,179 ms
+[4. success](./trials/4.success.json) | 1️⃣ | 1,340 ms
+[5. success](./trials/5.success.json) | 1️⃣ | 1,559 ms
+[6. success](./trials/6.success.json) | 1️⃣ | 1,188 ms
+[7. success](./trials/7.success.json) | 1️⃣ | 1,225 ms
+[8. success](./trials/8.success.json) | 1️⃣ | 8,795 ms
+[9. success](./trials/9.success.json) | 1️⃣ | 1,182 ms
+[10. success](./trials/10.success.json) | 1️⃣ | 1,421 ms

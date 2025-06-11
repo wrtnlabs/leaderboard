@@ -1,6 +1,6 @@
 {
   "type": "success",
-  "id": "call_vHkPlqLEIGb7aUSgw63frPaB",
+  "id": "call_Cfsvbs7W6Ew8v2Zot9chCef5",
   "arguments": {
     "schema": {
       "name": "drawCircle",
@@ -8,44 +8,52 @@
         "$defs": {},
         "additionalProperties": false,
         "properties": {
-          "type": {
-            "enum": [
-              "circle"
-            ],
-            "type": "string"
-          },
-          "center": {
-            "$defs": {},
-            "additionalProperties": false,
+          "props": {
+            "type": "object",
             "properties": {
-              "x": {
-                "type": "number"
+              "type": {
+                "type": "string",
+                "enum": [
+                  "circle"
+                ]
               },
-              "y": {
-                "type": "number"
+              "center": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "radius": {
+                "type": "number",
+                "description": "@minimum 0"
               }
             },
             "required": [
-              "x",
-              "y"
-            ],
-            "type": "object"
-          },
-          "radius": {
-            "type": "number"
+              "type",
+              "center",
+              "radius"
+            ]
           }
         },
         "required": [
-          "type",
-          "center",
-          "radius"
+          "props"
         ],
-        "type": "object"
+        "type": "object",
+        "description": "Draw a circle with the given center and radius.",
+        "title": "DrawCircleFunction"
       },
-      "output": {
-        "type": "null"
-      },
-      "description": "Draw a circle with the given center and radius."
+      "output": {},
+      "description": "Draw a circle with the given center and radius.",
+      "tags": []
     }
   },
   "result": {
@@ -57,53 +65,61 @@
           "$defs": {},
           "additionalProperties": false,
           "properties": {
-            "type": {
-              "enum": [
-                "circle"
-              ],
-              "type": "string"
-            },
-            "center": {
-              "$defs": {},
-              "additionalProperties": false,
+            "props": {
+              "type": "object",
               "properties": {
-                "x": {
-                  "type": "number"
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "circle"
+                  ]
                 },
-                "y": {
-                  "type": "number"
+                "center": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y"
+                  ]
+                },
+                "radius": {
+                  "type": "number",
+                  "description": "@minimum 0"
                 }
               },
               "required": [
-                "x",
-                "y"
-              ],
-              "type": "object"
-            },
-            "radius": {
-              "type": "number"
+                "type",
+                "center",
+                "radius"
+              ]
             }
           },
           "required": [
-            "type",
-            "center",
-            "radius"
+            "props"
           ],
-          "type": "object"
+          "type": "object",
+          "description": "Draw a circle with the given center and radius.",
+          "title": "DrawCircleFunction"
         },
-        "output": {
-          "type": "null"
-        },
-        "description": "Draw a circle with the given center and radius."
+        "output": {},
+        "description": "Draw a circle with the given center and radius.",
+        "tags": []
       }
     }
   },
   "completion": {
-    "id": "gen-1744174551-Fpd8OzuIhOTyBUI5MIcv",
+    "id": "gen-1749644969-rGOoqtJzImKcKMo6kyWz",
     "provider": "OpenAI",
     "model": "openai/gpt-4o-2024-11-20",
     "object": "chat.completion",
-    "created": 1744174551,
+    "created": 1749644969,
     "choices": [
       {
         "logprobs": null,
@@ -118,31 +134,31 @@
           "tool_calls": [
             {
               "index": 0,
-              "id": "call_vHkPlqLEIGb7aUSgw63frPaB",
+              "id": "call_Cfsvbs7W6Ew8v2Zot9chCef5",
               "type": "function",
               "function": {
                 "name": "enrollFunction",
-                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{},\"additionalProperties\":false,\"properties\":{\"type\":{\"enum\":[\"circle\"],\"type\":\"string\"},\"center\":{\"$defs\":{},\"additionalProperties\":false,\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"type\":\"object\"},\"radius\":{\"type\":\"number\"}},\"required\":[\"type\",\"center\",\"radius\"],\"type\":\"object\"},\"output\":{\"type\":\"null\"},\"description\":\"Draw a circle with the given center and radius.\"}}"
+                "arguments": "{\"schema\":{\"name\":\"drawCircle\",\"parameters\":{\"$defs\":{},\"additionalProperties\":false,\"properties\":{\"props\":{\"type\":\"object\",\"properties\":{\"type\":{\"type\":\"string\",\"enum\":[\"circle\"]},\"center\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"]},\"radius\":{\"type\":\"number\",\"description\":\"@minimum 0\"}},\"required\":[\"type\",\"center\",\"radius\"]}},\"required\":[\"props\"],\"type\":\"object\",\"description\":\"Draw a circle with the given center and radius.\",\"title\":\"DrawCircleFunction\"},\"output\":{},\"description\":\"Draw a circle with the given center and radius.\",\"tags\":[]} \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \t\t\t\t\t\t\t\t \t\t\t\t  \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t  \t\t\t\t \t\t\t\t \t\t\t\t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t  \t\t\t\t \t\t\t\t \t\t\t\t\t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t\t\t\t\t \t\t\t\t  \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t\t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \t\t \t  \t\t\t\t\t  \t\t\t\t\t  \t\t\t\t\t  \t\t\t\t\t \t\t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t  \t\t\t\t\t  \t\t\t\t\t  \t\t\t\t\t  \t\t\t\t\t  \t\t\t\t\t  \t\t\t\t  \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t\t \t\t\t \t  \t      \t   \t   \t   \t   \t  \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t   \t\t\t\t\t\t\t  }"
               }
             }
           ]
         }
       }
     ],
-    "system_fingerprint": "fp_54a7450dfc",
+    "system_fingerprint": "fp_5bf33c1ec4",
     "usage": {
       "prompt_tokens": 59404,
-      "completion_tokens": 126,
-      "total_tokens": 59530,
+      "completion_tokens": 837,
+      "total_tokens": 60241,
       "prompt_tokens_details": {
-        "cached_tokens": 26240
+        "cached_tokens": 0
       },
       "completion_tokens_details": {
         "reasoning_tokens": 0
       }
     }
   },
-  "started_at": "2025-04-09T04:55:52.395Z",
-  "completed_at": "2025-04-09T04:56:03.745Z",
+  "started_at": "2025-06-11T12:29:28.367Z",
+  "completed_at": "2025-06-11T12:29:51.194Z",
   "previous": []
 }
