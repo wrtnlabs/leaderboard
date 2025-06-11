@@ -1,0 +1,945 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1749644171-ZCmgP2ZhQhCT1ibvwjV2",
+    "provider": "Google",
+    "model": "google/gemini-2.5-pro-preview",
+    "object": "chat.completion",
+    "created": 1749644171,
+    "choices": [
+      {
+        "error": {
+          "message": "Error processing stream",
+          "code": 502,
+          "metadata": {
+            "provider_name": "Google",
+            "raw": {
+              "retryable": true
+            }
+          }
+        },
+        "logprobs": null,
+        "finish_reason": "error",
+        "native_finish_reason": "error",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "**Understanding the Goal**\n\nI'm focused on understanding the user's primary objective: adding a MacBook Pro configuration to their cart. The prior attempt to use `shoppings_customers_carts_commodities_create` failed because the JSON wasn't formatted correctly. I need to ensure I'm working with valid JSON for this operation.\n\n\n"
+        }
+      }
+    ]
+  },
+  "started_at": "2025-06-11T12:16:11.302Z",
+  "completed_at": "2025-06-11T12:16:16.268Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644111,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34055,
+          "completion_tokens": 1572,
+          "total_tokens": 35627
+        }
+      },
+      "started_at": "2025-06-11T12:15:10.908Z",
+      "completed_at": "2025-06-11T12:15:26.467Z",
+      "previous": []
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644126-rlYGaIHREaaJDszGMddW",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644126,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Understanding the Request**\n\nI'm zeroing in on the user's goal: adding a MacBook configuration. A previous operation failed, and the likely culprit seems to be incorrect data formatting, specifically the `body` parameter passed to the `shoppings_customers_carts_commodities_create` function. It looks like I need to ensure the body is a valid JSON object, not a string.\n\n\n**Reconstructing the Body**\n\nI'm now meticulously reconstructing the `body` object.  I'm focusing on extracting the necessary IDs: `sale_id`, `snapshot_id`, `unit_id`, and `stock_id`, which are crucial for the `shoppings_customers_carts_commodities_create` call. I am currently parsing the product data from a previous response. My goal is to populate the `body` of my next function call.\n\n\n**Building the Payload**\n\nI'm now focused on meticulously crafting the `body` payload, ensuring it conforms precisely to the `IShoppingCartCommodity.ICreate` schema. I'm extracting the necessary IDs, sale and snapshot IDs, the unit and stock IDs, the quantity, and, finally, the product options. I have already determined the correct `sale_id`, `snapshot_id`, and `unit_id`. I've located the stock ID corresponding to \"silver, 16GB, 1TB, English\" configuration. I'm creating the Python dictionary to reflect the JSON requirements of the function. I'll set the quantity to 1 and the options array to an empty array, given that the selected options are captured by the `stock_id`.\n\n\n**Refining the Approach**\n\nI've now fully identified the error: the function expected a JSON object for the `body`, not a string. I'm constructing the Python dictionary payload now, based on the schema, to pass to the function. I've gathered the IDs from previous API calls. I'm generating the final call, ensuring the dictionary structure is correct. The next step is the function call, which should succeed this time.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\n    \\\"commodities\\\":[\\n        {\\n            \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n            \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n            \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n            \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n            \\\"quantity\\\": 1,\\n            \\\"options\\\": []\\n        }\\n    ]\\n}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34469,
+          "completion_tokens": 1486,
+          "total_tokens": 35955
+        }
+      },
+      "started_at": "2025-06-11T12:15:26.467Z",
+      "completed_at": "2025-06-11T12:15:39.899Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644111,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34055,
+              "completion_tokens": 1572,
+              "total_tokens": 35627
+            }
+          },
+          "started_at": "2025-06-11T12:15:10.908Z",
+          "completed_at": "2025-06-11T12:15:26.467Z",
+          "previous": []
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644139-n9YBvpWI4hjwpZnMFZt0",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644139,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Analyzing User Intent**\n\nI've focused on the user's clear desire: adding a specific MacBook Pro configuration to their cart. My current understanding is that I've successfully retrieved all pertinent details for the \"Apple MacBook Pro\", specifically the item with ID \"7212bc44-31f8-4571-b3e9-5362040a\". The next step involves confirming the exact configuration before adding it.\n\n\n**Confirming Configuration Details**\n\nI've identified the stock ID matching the user's desired configuration: silver color, 16GB RAM, 1TB SSD, and an English keyboard. This corresponds directly to a pre-configured stock option within the \"MacBook M3 Pro 14inch Entity\". My next action involves verifying stock availability before finalizing the cart addition.\n\n\n**Verifying Cart Addition**\n\nI've identified the `stock_id` as \"3746725f-e367-46f7-ac7b-118f8ff57180\", which corresponds to the desired configuration. However, the previous attempt to add it to the cart failed due to a formatting error: I incorrectly constructed the `body` argument for the API call. I'm now refactoring my approach to match the expected `IShoppingCartCommodity.ICreate` format for the cart addition.\n\n\n**Correcting the Payload**\n\nI've identified the error in the previous API call: I was sending a JSON string *containing* a commodity list, when only a single commodity object was expected. I'm now reconstructing the body payload for `shoppings_customers_carts_commodities_create` to match the `IShoppingCartCommodity.ICreate` structure, using the correct `stock_id`, `sale_id`, `snapshot_id`, and `unit_id` values. I will send the commodity object directly in the body, fixing the root issue.\n\n\n**Constructing Cart Addition Request**\n\nI've determined the correct `stock_id` and other required details. I'm now refactoring my approach to provide the `shoppings_customers_carts_commodities_create` API the single commodity object directly, addressing the previous error with the incorrect JSON payload.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\n    \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n    \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n    \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1,\\n    \\\"options\\\": []\\n}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34519,
+          "completion_tokens": 2074,
+          "total_tokens": 36593
+        }
+      },
+      "started_at": "2025-06-11T12:15:39.899Z",
+      "completed_at": "2025-06-11T12:15:57.320Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644111,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34055,
+              "completion_tokens": 1572,
+              "total_tokens": 35627
+            }
+          },
+          "started_at": "2025-06-11T12:15:10.908Z",
+          "completed_at": "2025-06-11T12:15:26.467Z",
+          "previous": []
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644126-rlYGaIHREaaJDszGMddW",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644126,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Understanding the Request**\n\nI'm zeroing in on the user's goal: adding a MacBook configuration. A previous operation failed, and the likely culprit seems to be incorrect data formatting, specifically the `body` parameter passed to the `shoppings_customers_carts_commodities_create` function. It looks like I need to ensure the body is a valid JSON object, not a string.\n\n\n**Reconstructing the Body**\n\nI'm now meticulously reconstructing the `body` object.  I'm focusing on extracting the necessary IDs: `sale_id`, `snapshot_id`, `unit_id`, and `stock_id`, which are crucial for the `shoppings_customers_carts_commodities_create` call. I am currently parsing the product data from a previous response. My goal is to populate the `body` of my next function call.\n\n\n**Building the Payload**\n\nI'm now focused on meticulously crafting the `body` payload, ensuring it conforms precisely to the `IShoppingCartCommodity.ICreate` schema. I'm extracting the necessary IDs, sale and snapshot IDs, the unit and stock IDs, the quantity, and, finally, the product options. I have already determined the correct `sale_id`, `snapshot_id`, and `unit_id`. I've located the stock ID corresponding to \"silver, 16GB, 1TB, English\" configuration. I'm creating the Python dictionary to reflect the JSON requirements of the function. I'll set the quantity to 1 and the options array to an empty array, given that the selected options are captured by the `stock_id`.\n\n\n**Refining the Approach**\n\nI've now fully identified the error: the function expected a JSON object for the `body`, not a string. I'm constructing the Python dictionary payload now, based on the schema, to pass to the function. I've gathered the IDs from previous API calls. I'm generating the final call, ensuring the dictionary structure is correct. The next step is the function call, which should succeed this time.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\n    \\\"commodities\\\":[\\n        {\\n            \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n            \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n            \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n            \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n            \\\"quantity\\\": 1,\\n            \\\"options\\\": []\\n        }\\n    ]\\n}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34469,
+              "completion_tokens": 1486,
+              "total_tokens": 35955
+            }
+          },
+          "started_at": "2025-06-11T12:15:26.467Z",
+          "completed_at": "2025-06-11T12:15:39.899Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644111,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34055,
+                  "completion_tokens": 1572,
+                  "total_tokens": 35627
+                }
+              },
+              "started_at": "2025-06-11T12:15:10.908Z",
+              "completed_at": "2025-06-11T12:15:26.467Z",
+              "previous": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644157-ScYaUSoz8YozqgZk7dOF",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644157,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Understanding the User's Goal**\n\nI'm focusing on the user's objective: adding a MacBook Pro configuration to their cart. I've identified a previous error related to the API call `shoppings_customers_carts_commodities_create`. The mistake was providing a stringified JSON in the `body` parameter instead of a proper JSON object. I'm now considering how to ensure the correct formatting of the JSON object.\n\n\n**Refining the Data Structure**\n\nI'm concentrating on the data formatting for the `shoppings_customers_carts_commodities_create` call, specifically the `body` parameter. I'm building the required JSON object, pulling `sale_id`, `snapshot_id`, `unit_id`, and `stock_id` from the user's previous selection to construct the proper request body. I'm meticulously checking that each ID is accurately included.\n\n\n**Structuring the API Call**\n\nI'm now constructing the correct JSON object for the `shoppings_customers_carts_commodities_create` API. I've identified the necessary fields: `sale_id`, `snapshot_id`, `unit_id`, `stock_id`, `quantity`, and `options`. The previous attempt failed because the `body` was stringified incorrectly; now, I'm making sure the object is constructed properly before serializing to JSON for the request.\n\n\n**Formulating the JSON Payload**\n\nI'm now making sure the `body` parameter is a properly formatted JSON object. I've reconstructed the necessary data, including `sale_id`, `snapshot_id`, `unit_id`, `stock_id`, `quantity`, and an empty `options` array. The crucial part now is to ensure this is correctly passed to the API call as a valid JSON object, which was the source of the original issue.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\n    \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n    \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n    \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1,\\n    \\\"options\\\": []\\n}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34488,
+          "completion_tokens": 1589,
+          "total_tokens": 36077
+        }
+      },
+      "started_at": "2025-06-11T12:15:57.320Z",
+      "completed_at": "2025-06-11T12:16:11.302Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644111,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34055,
+              "completion_tokens": 1572,
+              "total_tokens": 35627
+            }
+          },
+          "started_at": "2025-06-11T12:15:10.908Z",
+          "completed_at": "2025-06-11T12:15:26.467Z",
+          "previous": []
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644126-rlYGaIHREaaJDszGMddW",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644126,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Understanding the Request**\n\nI'm zeroing in on the user's goal: adding a MacBook configuration. A previous operation failed, and the likely culprit seems to be incorrect data formatting, specifically the `body` parameter passed to the `shoppings_customers_carts_commodities_create` function. It looks like I need to ensure the body is a valid JSON object, not a string.\n\n\n**Reconstructing the Body**\n\nI'm now meticulously reconstructing the `body` object.  I'm focusing on extracting the necessary IDs: `sale_id`, `snapshot_id`, `unit_id`, and `stock_id`, which are crucial for the `shoppings_customers_carts_commodities_create` call. I am currently parsing the product data from a previous response. My goal is to populate the `body` of my next function call.\n\n\n**Building the Payload**\n\nI'm now focused on meticulously crafting the `body` payload, ensuring it conforms precisely to the `IShoppingCartCommodity.ICreate` schema. I'm extracting the necessary IDs, sale and snapshot IDs, the unit and stock IDs, the quantity, and, finally, the product options. I have already determined the correct `sale_id`, `snapshot_id`, and `unit_id`. I've located the stock ID corresponding to \"silver, 16GB, 1TB, English\" configuration. I'm creating the Python dictionary to reflect the JSON requirements of the function. I'll set the quantity to 1 and the options array to an empty array, given that the selected options are captured by the `stock_id`.\n\n\n**Refining the Approach**\n\nI've now fully identified the error: the function expected a JSON object for the `body`, not a string. I'm constructing the Python dictionary payload now, based on the schema, to pass to the function. I've gathered the IDs from previous API calls. I'm generating the final call, ensuring the dictionary structure is correct. The next step is the function call, which should succeed this time.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\n    \\\"commodities\\\":[\\n        {\\n            \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n            \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n            \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n            \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n            \\\"quantity\\\": 1,\\n            \\\"options\\\": []\\n        }\\n    ]\\n}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34469,
+              "completion_tokens": 1486,
+              "total_tokens": 35955
+            }
+          },
+          "started_at": "2025-06-11T12:15:26.467Z",
+          "completed_at": "2025-06-11T12:15:39.899Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644111,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34055,
+                  "completion_tokens": 1572,
+                  "total_tokens": 35627
+                }
+              },
+              "started_at": "2025-06-11T12:15:10.908Z",
+              "completed_at": "2025-06-11T12:15:26.467Z",
+              "previous": []
+            }
+          ]
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\n    \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n    \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n    \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1,\n    \"options\": []\n}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644139-n9YBvpWI4hjwpZnMFZt0",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644139,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Analyzing User Intent**\n\nI've focused on the user's clear desire: adding a specific MacBook Pro configuration to their cart. My current understanding is that I've successfully retrieved all pertinent details for the \"Apple MacBook Pro\", specifically the item with ID \"7212bc44-31f8-4571-b3e9-5362040a\". The next step involves confirming the exact configuration before adding it.\n\n\n**Confirming Configuration Details**\n\nI've identified the stock ID matching the user's desired configuration: silver color, 16GB RAM, 1TB SSD, and an English keyboard. This corresponds directly to a pre-configured stock option within the \"MacBook M3 Pro 14inch Entity\". My next action involves verifying stock availability before finalizing the cart addition.\n\n\n**Verifying Cart Addition**\n\nI've identified the `stock_id` as \"3746725f-e367-46f7-ac7b-118f8ff57180\", which corresponds to the desired configuration. However, the previous attempt to add it to the cart failed due to a formatting error: I incorrectly constructed the `body` argument for the API call. I'm now refactoring my approach to match the expected `IShoppingCartCommodity.ICreate` format for the cart addition.\n\n\n**Correcting the Payload**\n\nI've identified the error in the previous API call: I was sending a JSON string *containing* a commodity list, when only a single commodity object was expected. I'm now reconstructing the body payload for `shoppings_customers_carts_commodities_create` to match the `IShoppingCartCommodity.ICreate` structure, using the correct `stock_id`, `sale_id`, `snapshot_id`, and `unit_id` values. I will send the commodity object directly in the body, fixing the root issue.\n\n\n**Constructing Cart Addition Request**\n\nI've determined the correct `stock_id` and other required details. I'm now refactoring my approach to provide the `shoppings_customers_carts_commodities_create` API the single commodity object directly, addressing the previous error with the incorrect JSON payload.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\n    \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n    \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n    \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1,\\n    \\\"options\\\": []\\n}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34519,
+              "completion_tokens": 2074,
+              "total_tokens": 36593
+            }
+          },
+          "started_at": "2025-06-11T12:15:39.899Z",
+          "completed_at": "2025-06-11T12:15:57.320Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644111,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34055,
+                  "completion_tokens": 1572,
+                  "total_tokens": 35627
+                }
+              },
+              "started_at": "2025-06-11T12:15:10.908Z",
+              "completed_at": "2025-06-11T12:15:26.467Z",
+              "previous": []
+            },
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\n    \"commodities\":[\n        {\n            \"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\",\n            \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\",\n            \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\",\n            \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n            \"quantity\": 1,\n            \"options\": []\n        }\n    ]\n}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644126-rlYGaIHREaaJDszGMddW",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644126,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": "**Understanding the Request**\n\nI'm zeroing in on the user's goal: adding a MacBook configuration. A previous operation failed, and the likely culprit seems to be incorrect data formatting, specifically the `body` parameter passed to the `shoppings_customers_carts_commodities_create` function. It looks like I need to ensure the body is a valid JSON object, not a string.\n\n\n**Reconstructing the Body**\n\nI'm now meticulously reconstructing the `body` object.  I'm focusing on extracting the necessary IDs: `sale_id`, `snapshot_id`, `unit_id`, and `stock_id`, which are crucial for the `shoppings_customers_carts_commodities_create` call. I am currently parsing the product data from a previous response. My goal is to populate the `body` of my next function call.\n\n\n**Building the Payload**\n\nI'm now focused on meticulously crafting the `body` payload, ensuring it conforms precisely to the `IShoppingCartCommodity.ICreate` schema. I'm extracting the necessary IDs, sale and snapshot IDs, the unit and stock IDs, the quantity, and, finally, the product options. I have already determined the correct `sale_id`, `snapshot_id`, and `unit_id`. I've located the stock ID corresponding to \"silver, 16GB, 1TB, English\" configuration. I'm creating the Python dictionary to reflect the JSON requirements of the function. I'll set the quantity to 1 and the options array to an empty array, given that the selected options are captured by the `stock_id`.\n\n\n**Refining the Approach**\n\nI've now fully identified the error: the function expected a JSON object for the `body`, not a string. I'm constructing the Python dictionary payload now, based on the schema, to pass to the function. I've gathered the IDs from previous API calls. I'm generating the final call, ensuring the dictionary structure is correct. The next step is the function call, which should succeed this time.\n\n\n",
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\n    \\\"commodities\\\":[\\n        {\\n            \\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\",\\n            \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\",\\n            \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\",\\n            \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n            \\\"quantity\\\": 1,\\n            \\\"options\\\": []\\n        }\\n    ]\\n}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34469,
+                  "completion_tokens": 1486,
+                  "total_tokens": 35955
+                }
+              },
+              "started_at": "2025-06-11T12:15:26.467Z",
+              "completed_at": "2025-06-11T12:15:39.899Z",
+              "previous": [
+                {
+                  "type": "failure",
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "arguments": {
+                    "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                  },
+                  "result": {
+                    "success": false,
+                    "data": {
+                      "body": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                    },
+                    "errors": [
+                      {
+                        "path": "$input.body",
+                        "expected": "IShoppingCartCommodity.ICreate",
+                        "value": "{\"commodities\": [{\"sale_id\": \"7212bc44-31f8-4571-b3e9-5362040aee50\", \"snapshot_id\": \"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\", \"unit_id\": \"2e217919-45f4-45f3-9712-d535b7efa7b3\", \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1, \"options\": []}]}"
+                      }
+                    ]
+                  },
+                  "completion": {
+                    "id": "gen-1749644111-ga6B6QUKcH00CQYB6Acj",
+                    "provider": "Google",
+                    "model": "google/gemini-2.5-pro-preview",
+                    "object": "chat.completion",
+                    "created": 1749644111,
+                    "choices": [
+                      {
+                        "logprobs": null,
+                        "finish_reason": "tool_calls",
+                        "native_finish_reason": "STOP",
+                        "index": 0,
+                        "message": {
+                          "role": "assistant",
+                          "content": "",
+                          "refusal": null,
+                          "reasoning": "**Considering the Specs**\n\nI'm zeroing in on the user's MacBook Pro desires. Silver, 16GB, 1TB, and English are the key parameters. Next, I'll cross-reference this against the available configurations to ensure a match and efficiently add it to the cart. The plan is solid.\n\n\n**Confirming the Match**\n\nI've identified the configuration details and have gone through the `stock` list to find a match. After cross-referencing, I've pinpointed a stock item with the correct color, RAM, SSD, and keyboard language. The focus now is to retrieve this specific stock's ID for cart addition.\n\n\n**Verifying the Match**\n\nI've now validated the stock match using the provided IDs, and confirmation shows the correct stock item. The plan is to construct a tool call using the `shoppings_customers_carts_commodities_create` function. I'm prepping the JSON body now, and assembling the required parameters: sale, snapshot, unit, and stock IDs along with the quantity, defaulting to one.\n\n\n**Identifying the Stock**\n\nI've successfully parsed the output from the previous tool call to isolate the exact MacBook Pro configuration the user wants. The core task now involves extracting the stock ID from the available options. I've meticulously cross-referenced the user's specifications (silver, 16GB, 1TB, English keyboard) against the `candidate_id`s, leading me to a single, correct stock ID.\n\n\n",
+                          "tool_calls": [
+                            {
+                              "index": 0,
+                              "id": "tool_0_shoppings_customers_carts_commodities_create",
+                              "type": "function",
+                              "function": {
+                                "name": "shoppings_customers_carts_commodities_create",
+                                "arguments": "{\"body\":\"{\\\"commodities\\\": [{\\\"sale_id\\\": \\\"7212bc44-31f8-4571-b3e9-5362040aee50\\\", \\\"snapshot_id\\\": \\\"3fb4895a-6ac1-4abf-b94d-28945bab2c0c\\\", \\\"unit_id\\\": \\\"2e217919-45f4-45f3-9712-d535b7efa7b3\\\", \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1, \\\"options\\\": []}]}\"}"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "usage": {
+                      "prompt_tokens": 34055,
+                      "completion_tokens": 1572,
+                      "total_tokens": 35627
+                    }
+                  },
+                  "started_at": "2025-06-11T12:15:10.908Z",
+                  "completed_at": "2025-06-11T12:15:26.467Z",
+                  "previous": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

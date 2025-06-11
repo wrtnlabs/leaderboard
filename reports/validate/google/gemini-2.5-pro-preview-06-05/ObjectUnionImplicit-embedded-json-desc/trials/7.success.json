@@ -1,0 +1,541 @@
+{
+  "type": "success",
+  "id": "tool_0_drawShape",
+  "arguments": {
+    "shapes": [
+      {
+        "points": [
+          {
+            "y": 0,
+            "x": 0
+          },
+          {
+            "x": 100,
+            "y": 50
+          },
+          {
+            "y": 100,
+            "x": 200
+          },
+          {
+            "y": 150,
+            "x": 300
+          },
+          {
+            "x": 400,
+            "y": 200
+          }
+        ]
+      }
+    ],
+    "filename": "shape"
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "shapes": [
+        {
+          "points": [
+            {
+              "y": 0,
+              "x": 0
+            },
+            {
+              "x": 100,
+              "y": 50
+            },
+            {
+              "y": 100,
+              "x": 200
+            },
+            {
+              "y": 150,
+              "x": 300
+            },
+            {
+              "x": 400,
+              "y": 200
+            }
+          ]
+        }
+      ],
+      "filename": "shape"
+    }
+  },
+  "completion": {
+    "id": "gen-1749644360-J5UWcavGk2ODkwZ5a996",
+    "provider": "Google",
+    "model": "google/gemini-2.5-pro-preview",
+    "object": "chat.completion",
+    "created": 1749644360,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "**Examining User's Intent**\n\nI'm focused on deconstructing the user's request. My current assessment pinpoints the core need: drawing shapes on a canvas, with particular ordering constraints. I'm now cross-referencing that with the previous tool's approach, which appears to have failed by drawing everything at once rather than methodically.\n\n\n**Decoding Shape Structures**\n\nI've dug deeper into the `drawShape` function. It's a union type, critical for each shape. The error stems from the incorrect interpretation of a line's two points as a shape requiring more points. I'm now reviewing the individual schema types for each shape to match the user's request and the intended visual output.\n\n\n**Clarifying Schema Types**\n\nI'm now pinpointing the structure of each shape. Specifically, I need to differentiate \"line\" from \"triangle\" and \"rectangle,\" and map the correct schema to each. The `drawShape` function utilizes a union type, and the earlier error was because a line's two points were being misidentified. I will now review the individual schemas in detail, and map them to the user's request.\n\n\n**Formulating a Shape Schema**\n\nI'm now building a new, more explicit shape schema. For \"lines,\" I'll add `\"shape\": \"line\"` and for circles, `\"shape\": \"circle\"`. For triangles and rectangles, the existing \"points\" arrays, will likely remain as is. With the more explicit \"shape\" key, there should be no ambiguity when interpreting the shapes parameter.\n\n\n**Defining Explicit Shape Types**\n\nI'm now making further refinements to the shape definitions. The core is now clear - lines and other shapes need an explicit `\"shape\"` key, to avoid any misinterpretation. Therefore, my immediate task is to construct the corrected tool call, by creating a dictionary, that I can pass to the tool, that contains the `\"shape\"` key for each type. I am also validating the correct order of the request.\n\n\n**Correcting Shape Types**\n\nI'm now confident in the approach of adding a `\"shape\"` key to the dictionary for each shape. This resolves the ambiguity that caused the initial error. My next step is to create a detailed list of the corrected tool calls, ensuring each shape's structure and ordering precisely reflects the user's intent and avoids any further interpretation issues.\n\n\n",
+          "tool_calls": [
+            {
+              "index": 0,
+              "id": "tool_0_drawShape",
+              "type": "function",
+              "function": {
+                "name": "drawShape",
+                "arguments": "{\"shapes\":[{\"points\":[{\"y\":0,\"x\":0},{\"x\":100,\"y\":50},{\"y\":100,\"x\":200},{\"y\":150,\"x\":300},{\"x\":400,\"y\":200}]}],\"filename\":\"shape\"}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1058,
+      "completion_tokens": 1739,
+      "total_tokens": 2797
+    }
+  },
+  "started_at": "2025-06-11T12:19:19.940Z",
+  "completed_at": "2025-06-11T12:19:37.426Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "tool_0_drawShape",
+      "arguments": {
+        "filename": "shape",
+        "shapes": [
+          {
+            "points": [
+              {
+                "x": 0,
+                "y": 0
+              },
+              {
+                "y": 50,
+                "x": 100
+              },
+              {
+                "x": 200,
+                "y": 100
+              },
+              {
+                "y": 150,
+                "x": 300
+              },
+              {
+                "y": 200,
+                "x": 400
+              }
+            ]
+          },
+          {
+            "points": [
+              {
+                "y": 0,
+                "x": 0
+              },
+              {
+                "y": 200,
+                "x": 400
+              }
+            ]
+          },
+          {
+            "center": {
+              "y": 50,
+              "x": 100
+            },
+            "radius": 50
+          },
+          {
+            "radius": 100,
+            "center": {
+              "y": 100,
+              "x": 200
+            }
+          },
+          {
+            "center": {
+              "y": 150,
+              "x": 300
+            },
+            "radius": 150
+          },
+          {
+            "points": [
+              {
+                "y": 0,
+                "x": 0
+              },
+              {
+                "y": 50,
+                "x": 100
+              },
+              {
+                "y": 100,
+                "x": 200
+              }
+            ]
+          },
+          {
+            "points": [
+              {
+                "y": 0,
+                "x": 0
+              },
+              {
+                "y": 50,
+                "x": 100
+              },
+              {
+                "x": 200,
+                "y": 100
+              },
+              {
+                "y": 150,
+                "x": 300
+              }
+            ]
+          },
+          {
+            "points": [
+              {
+                "y": 50,
+                "x": 100
+              },
+              {
+                "y": 100,
+                "x": 200
+              },
+              {
+                "x": 300,
+                "y": 150
+              },
+              {
+                "x": 400,
+                "y": 200
+              }
+            ]
+          },
+          {
+            "inner": [
+              {
+                "points": [
+                  {
+                    "x": 50,
+                    "y": 25
+                  },
+                  {
+                    "x": 150,
+                    "y": 75
+                  },
+                  {
+                    "y": 125,
+                    "x": 250
+                  },
+                  {
+                    "x": 350,
+                    "y": 175
+                  }
+                ]
+              },
+              {
+                "points": [
+                  {
+                    "y": 37,
+                    "x": 75
+                  },
+                  {
+                    "y": 87,
+                    "x": 175
+                  },
+                  {
+                    "x": 275,
+                    "y": 137
+                  },
+                  {
+                    "y": 187,
+                    "x": 375
+                  }
+                ]
+              }
+            ],
+            "outer": {
+              "points": [
+                {
+                  "y": 0,
+                  "x": 0
+                },
+                {
+                  "x": 100,
+                  "y": 50
+                },
+                {
+                  "x": 200,
+                  "y": 100
+                },
+                {
+                  "y": 150,
+                  "x": 300
+                },
+                {
+                  "y": 200,
+                  "x": 400
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.shapes[1].points",
+            "expected": "Array<> & MinItems<3>",
+            "value": [
+              {
+                "y": 0,
+                "x": 0
+              },
+              {
+                "y": 200,
+                "x": 400
+              }
+            ]
+          }
+        ],
+        "data": {
+          "filename": "shape",
+          "shapes": [
+            {
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "y": 50,
+                  "x": 100
+                },
+                {
+                  "x": 200,
+                  "y": 100
+                },
+                {
+                  "y": 150,
+                  "x": 300
+                },
+                {
+                  "y": 200,
+                  "x": 400
+                }
+              ]
+            },
+            {
+              "points": [
+                {
+                  "y": 0,
+                  "x": 0
+                },
+                {
+                  "y": 200,
+                  "x": 400
+                }
+              ]
+            },
+            {
+              "center": {
+                "y": 50,
+                "x": 100
+              },
+              "radius": 50
+            },
+            {
+              "radius": 100,
+              "center": {
+                "y": 100,
+                "x": 200
+              }
+            },
+            {
+              "center": {
+                "y": 150,
+                "x": 300
+              },
+              "radius": 150
+            },
+            {
+              "points": [
+                {
+                  "y": 0,
+                  "x": 0
+                },
+                {
+                  "y": 50,
+                  "x": 100
+                },
+                {
+                  "y": 100,
+                  "x": 200
+                }
+              ]
+            },
+            {
+              "points": [
+                {
+                  "y": 0,
+                  "x": 0
+                },
+                {
+                  "y": 50,
+                  "x": 100
+                },
+                {
+                  "x": 200,
+                  "y": 100
+                },
+                {
+                  "y": 150,
+                  "x": 300
+                }
+              ]
+            },
+            {
+              "points": [
+                {
+                  "y": 50,
+                  "x": 100
+                },
+                {
+                  "y": 100,
+                  "x": 200
+                },
+                {
+                  "x": 300,
+                  "y": 150
+                },
+                {
+                  "x": 400,
+                  "y": 200
+                }
+              ]
+            },
+            {
+              "inner": [
+                {
+                  "points": [
+                    {
+                      "x": 50,
+                      "y": 25
+                    },
+                    {
+                      "x": 150,
+                      "y": 75
+                    },
+                    {
+                      "y": 125,
+                      "x": 250
+                    },
+                    {
+                      "x": 350,
+                      "y": 175
+                    }
+                  ]
+                },
+                {
+                  "points": [
+                    {
+                      "y": 37,
+                      "x": 75
+                    },
+                    {
+                      "y": 87,
+                      "x": 175
+                    },
+                    {
+                      "x": 275,
+                      "y": 137
+                    },
+                    {
+                      "y": 187,
+                      "x": 375
+                    }
+                  ]
+                }
+              ],
+              "outer": {
+                "points": [
+                  {
+                    "y": 0,
+                    "x": 0
+                  },
+                  {
+                    "x": 100,
+                    "y": 50
+                  },
+                  {
+                    "x": 200,
+                    "y": 100
+                  },
+                  {
+                    "y": 150,
+                    "x": 300
+                  },
+                  {
+                    "y": 200,
+                    "x": 400
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "completion": {
+        "id": "gen-1749644339-Zrk6VhIGJ6iRdWPF5utj",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644339,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Contemplating Shape Creation**\n\nI'm now considering how to interpret the user's instructions. They want a canvas with shapes, specifically using a filename \"shape\" and a points-based definition. I'll need to parse the point coordinates and then determine the best approach for drawing both a single line and a set of connected points, probably using the same method.\n\n\n**Structuring the Shape Data**\n\nI'm now focusing on how to format the shape data for the `drawShape` tool. I'm envisioning a structured approach using `DrawshapeShapes` objects, specific to the shape types. I plan to create instances for points, lines, circles, triangles, rectangles, and the polygon, carefully organizing the coordinates and radii within each object for accurate rendering by the tool.\n\n\n**Formulating Function Arguments**\n\nI'm now working on how to format the arguments for the `drawShape` call. I've determined each shape type and its corresponding object. I am now preparing the JSON-like data structure for the function, ensuring each shape is described precisely with its attributes: points, center, radius, or endpoints, making sure it will be correctly interpreted and drawn by the `drawShape` tool.\n\n\n**Mapping the Shapes Data**\n\nI'm now translating the user's shape definitions into the specific argument structures required by the `drawShape` tool. I am meticulously constructing a list of shape objects, each carefully representing the user's instructions, ensuring correct data types and format. I will create an object for each shape, defining points, radii, and coordinates.\n\n\n**Compiling the Shape List**\n\nI'm now converting the user's shape instructions into a single `shapes` list. I've detailed each shape's representation (points, lines, etc.) as `DrawshapeShapes` objects and will create the necessary dictionaries based on the coordinates and dimensions provided. Each shape is now a distinct dictionary, ready for the `drawShape` function.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_drawShape",
+                  "type": "function",
+                  "function": {
+                    "name": "drawShape",
+                    "arguments": "{\"filename\":\"shape\",\"shapes\":[{\"points\":[{\"x\":0,\"y\":0},{\"y\":50,\"x\":100},{\"x\":200,\"y\":100},{\"y\":150,\"x\":300},{\"y\":200,\"x\":400}]},{\"points\":[{\"y\":0,\"x\":0},{\"y\":200,\"x\":400}]},{\"center\":{\"y\":50,\"x\":100},\"radius\":50},{\"radius\":100,\"center\":{\"y\":100,\"x\":200}},{\"center\":{\"y\":150,\"x\":300},\"radius\":150},{\"points\":[{\"y\":0,\"x\":0},{\"y\":50,\"x\":100},{\"y\":100,\"x\":200}]},{\"points\":[{\"y\":0,\"x\":0},{\"y\":50,\"x\":100},{\"x\":200,\"y\":100},{\"y\":150,\"x\":300}]},{\"points\":[{\"y\":50,\"x\":100},{\"y\":100,\"x\":200},{\"x\":300,\"y\":150},{\"x\":400,\"y\":200}]},{\"inner\":[{\"points\":[{\"x\":50,\"y\":25},{\"x\":150,\"y\":75},{\"y\":125,\"x\":250},{\"x\":350,\"y\":175}]},{\"points\":[{\"y\":37,\"x\":75},{\"y\":87,\"x\":175},{\"x\":275,\"y\":137},{\"y\":187,\"x\":375}]}],\"outer\":{\"points\":[{\"y\":0,\"x\":0},{\"x\":100,\"y\":50},{\"x\":200,\"y\":100},{\"y\":150,\"x\":300},{\"y\":200,\"x\":400}]}}]}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 844,
+          "completion_tokens": 1666,
+          "total_tokens": 2510
+        }
+      },
+      "started_at": "2025-06-11T12:18:59.107Z",
+      "completed_at": "2025-06-11T12:19:19.940Z",
+      "previous": []
+    }
+  ]
+}

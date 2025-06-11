@@ -1,0 +1,37 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1749644508-ihoT3XN1DrYKIyDII6d3",
+    "provider": "Google",
+    "model": "google/gemini-2.5-pro-preview",
+    "object": "chat.completion",
+    "created": 1749644508,
+    "choices": [
+      {
+        "error": {
+          "message": "Error processing stream",
+          "code": 502,
+          "metadata": {
+            "provider_name": "Google",
+            "raw": {
+              "retryable": true
+            }
+          }
+        },
+        "logprobs": null,
+        "finish_reason": "error",
+        "native_finish_reason": "error",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "**Analyzing Interface Structure**\n\nI've started by analyzing the `IMember` interface. It seems straightforward so far. I'm focusing on how to represent each field's type and constraints in the JSON schema. Specifically, I'm considering how to handle the \"uuid\" and \"email\" formats for `id` and `email` respectively, as well as the `age` field which is not yet fully defined.\n\n\n**Defining Field Properties**\n\nI'm now deep in defining the `IMember`'s fields for the JSON schema. I'm leaning towards using the \"format\" keyword for `id`, `email`, `created_at`, and `updated_at`. I'm also thinking about specifying \"minimum\" and \"exclusiveMaximum\" for the `age` field. I need to figure out the correct representation for the `hobbies` array of objects next.\n\n\n**Constructing the Schema Structure**\n\nI'm now composing the main body of the JSON schema for `IMember`. I'm carefully defining each field's properties. For `deleted_at`, I'll explore both the `oneOf` approach and the `type: ['null', 'string']` option to represent the nullable nature of the field. I'm considering the best practice here, to maintain the cleanest representation.\n\n\n**Constructing Schema Elements**\n\nI'm now focused on the structure of the JSON schema, starting with the `IMember` object. The `id`, `name`, `email`, and date-time fields are relatively straightforward to define. However, I'm still determining how to best incorporate the `hobbies` array of objects, and the `deleted_at` field using either `oneOf` or `type: ['null', 'string']`. The lack of explicit object and array schema types in the tool definitions presents a challenge, so I will be testing whether the tool can recognize such schema.\n\n\n**Defining the Root Structure**\n\nI'm now attempting to construct the entire `IMember` schema as a Python dictionary, given the tool limitations. I'll start with the root object, then define each property based on the TypeScript interface. This approach seems to be the only possibility given the limited `collectSchema` function. I am unsure how the tool can handle a nested object.\n\n\n**Addressing Tool Constraints**\n\nI'm facing a hurdle: the `collectSchema` tool doesn't explicitly define object or array schema types, yet the `IMember` interface heavily relies on them. I'm going to construct the schema using a Python dictionary, hoping the tool can handle a general JSON schema structure despite its limited class definitions, and will try to define the schema in this manner. I'm still evaluating the best approach for `deleted_at`, weighing the options of `oneOf` vs. `type: ['null', 'string']`.\n\n\n**Schema Definition Strategy**\n\nI'm now attempting to reconcile the constraints of the `collectSchema` tool with the need to define a complex `IMember` schema. While the tool's type hints suggest a limited scope, I'm hopeful I can construct a complete schema by passing a Python dictionary, as a comprehensive JSON schema, to `collectSchema` and that the tool can then register this. I'm going to focus on the core schema first, then evaluate how the tool handles object and array definitions.\n\n\n**Refining the Strategy**\n\nI'm still unsure how to define nested objects and arrays within the `collectSchema` tool's constraints. Despite the lack of explicit object/array types in the tool's dataclasses, I'm going to try passing a complete JSON schema dictionary directly to the function. I'm focusing on defining each field's properties within the dictionary. If this fails, I'll need to re-evaluate my approach, likely trying to define each primitive type schema element.\n\n\n**Constructing the Dictionary**\n\nI'm now constructing the Python dictionary representing the `IMember` schema. I'm meticulously defining each field's properties within the dictionary structure, carefully following JSON schema conventions. I am unsure whether the tool supports nested objects and arrays, but I'll build out the whole schema and then test it out.\n\n\n**Defining the Schema's Core**\n\nI'm re-evaluating my strategy, and the dictionary seems like the only plausible approach. Given the tool's limitations, I'll attempt to pass a complete JSON schema in dictionary form. This means I'll define each field's properties and hope the tool can interpret the nested structure, since the object and array types are absent from the known types.\n\n\n**Generating the Core Structure**\n\nI'm now focused on defining the main structure. Given the tool's constraints, I'm preparing to pass a complete schema as a Python dictionary. My current approach involves representing primitive types using the available dataclasses and relying on the tool to interpret the overall dictionary as a JSON schema. I'll define `id`, `name`, `email`, `age`, and the date-time fields, as well as consider approaches for the hobbies array and the `deleted_at` field.\n\n\n**Navigating the Schema Constraints**\n\nI'm now building the entire schema as a dictionary, hoping the tool can parse it. I'll handle the `oneOf` structure for `deleted_at` within the main definition and hope the tool correctly interprets the JSON schema's structure, given the tool's limitations.\n\n\n**Constructing Final Schema**\n\nI'm now preparing to construct the schema dictionary, accounting for the core requirements and constraints. I'll leverage the `oneOf` construct for the `deleted_at` field. The schema's structure should reflect the TypeScript interface, using primitives and dictionaries, to provide the expected JSON schema.\n\n\n**Formulating Tool Usage**\n\nI'm now trying to use the Python dictionary representing the complete JSON schema to define the `IMember` object in the tool, despite concerns about the tool's type hints. I will attempt a direct pass to the `collectSchema` function and check the tool's response. I am defining `IMember` as an object.\n\n\n**Implementing the Dictionary**\n\nI'm now ready to provide the schema as a dictionary. I'm cautiously hopeful that the tool will interpret this, despite the limited type hints. I'll focus on the `collectSchema` tool call and will aim to pass the complete schema, ready to go.\n\n\n**Forming the Tool Call**\n\nI'm ready to execute the `collectSchema` tool call with the JSON schema dictionary. I've structured the dictionary according to the `IMember` interface, and I'll pass this dictionary directly into the function. I'm expecting the tool to register the schema.\n\n\n"
+        }
+      }
+    ]
+  },
+  "started_at": "2025-06-11T12:21:48.090Z",
+  "completed_at": "2025-06-11T12:24:10.805Z",
+  "previous": []
+}

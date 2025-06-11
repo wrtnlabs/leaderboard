@@ -1,0 +1,940 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1749644220-lRVWj0N2JghnLiav9aQD",
+    "provider": "Google",
+    "model": "google/gemini-2.5-pro-preview",
+    "object": "chat.completion",
+    "created": 1749644220,
+    "choices": [
+      {
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "**Understanding the Intent**\n\nI've successfully identified the user's clear intent: adding a specific MacBook Pro configuration. My focus is now on understanding the error from the previous call. It looks like the `body` parameter was formatted incorrectly, as a JSON string instead of a Python dictionary. I need to ensure the next call uses the proper format.\n\n\n**Confirming the Call**\n\nI'm now certain of the required tool call and its parameters. Based on the error, I'll build a Python dictionary for the `body` parameter containing the `stock_id` and a `quantity` of 1. I need to ensure the function call receives this dictionary, not a string representation of it, this time.\n\n\n**Rectifying the Approach**\n\nI've reviewed the issue and confirmed the crucial error: the `body` parameter was incorrectly formatted as a JSON string instead of a Python dictionary. I've now constructed the correct dictionary, using the `stock_id` and `quantity` correctly. The upcoming call should utilize this dictionary directly, rectifying the previous mistake, and I'm prepared to proceed with confidence.\n\n\n"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 34210,
+      "completion_tokens": 964,
+      "total_tokens": 35174
+    }
+  },
+  "started_at": "2025-06-11T12:17:00.219Z",
+  "completed_at": "2025-06-11T12:17:10.446Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644111,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": null,
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34054,
+          "completion_tokens": 56,
+          "total_tokens": 34110
+        }
+      },
+      "started_at": "2025-06-11T12:15:10.910Z",
+      "completed_at": "2025-06-11T12:15:14.233Z",
+      "previous": []
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644114-btmHO1bkhWb8CbuqtaK7",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644114,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Processing Configuration Requests**\n\nI've successfully parsed the user's specified MacBook Pro configuration. The parameters, including silver color, 16GB RAM, a 1TB SSD, and an English keyboard, are now isolated. I'm now working to ensure these choices are valid against the product's available options before proceeding to the next step.\n\n\n**Mapping Product Specifications**\n\nI'm currently mapping the user's configuration choices—silver color, 16GB RAM, 1TB SSD, and an English keyboard—to the appropriate `candidate_id` values within the product's available options. I've pinpointed the required identifiers, now poised to cross-reference these against the available stock items to identify the specific `stock_id`. Next, I'll invoke `shoppings_customers_carts_commodities_create`.\n\n\n**Verifying Cart Addition**\n\nI've successfully identified the correct `stock_id` (\"3746725f-e367-46f7-ac7b-118f8ff57180\") for the specified MacBook Pro configuration. I'm now addressing the prior error with `shoppings_customers_carts_commodities_create`. The problem was a malformed `body` argument. I will now ensure the call includes a correctly formatted JSON object with the `stock_id` and the `quantity` as 1.\n\n\n**Verifying Cart Addition**\n\nI've identified the correct `stock_id` and addressed the previously failed attempt to add the item to the cart. The issue was a formatting error in the JSON object for the `body` argument. I am now revising the call to `shoppings_customers_carts_commodities_create`, making sure the argument is a properly formatted string or dictionary based on the underlying implementation's requirements.\n\n\n**Finalizing Cart Addition**\n\nI've confirmed that the `shoppings_customers_carts_commodities_create` function expects a dictionary for the `body`. I've also verified the correct `stock_id`, and I am now ready to execute the function call with a properly formatted dictionary. I will include the correct stock ID and a quantity of 1.\n\n\n**Correcting the Function Call**\n\nI've re-examined the function's expected input format, including the `IShoppingCartCommodity.ICreate` schema. Despite the function definition specifying a string for `body`, the underlying implementation seems to expect a JSON object. I will now call the function with a stringified JSON object as `body`.\n\n\n**Final Cart Addition Attempt**\n\nI've reviewed the failing function call to add the item to the cart. It seems the system expects a string as the `body`, containing a JSON object. I will now execute `shoppings_customers_carts_commodities_create` with the stock ID and quantity, formatted within a correctly formed JSON string.\n\n\n**Resolving the Argument Mismatch**\n\nI've reached a point of conflict. The function definition suggests a string for the `body` argument of `shoppings_customers_carts_commodities_create`. However, the error message clearly indicates it expects an object or dictionary, specifically matching the `IShoppingCartCommodity.ICreate` schema. I've decided to proceed with passing a dictionary as the `body` argument, hoping the tool handles the conversion to JSON internally, as it is the common practice in HTTP APIs.\n\n\n**Adjusting Argument Types**\n\nI'm now directly addressing the core issue: the function expects a `string` for the `body` parameter, yet the error indicates it's expecting a dictionary conforming to `IShoppingCartCommodity.ICreate`. I'm going to ignore the string declaration. I will supply a dictionary as `body`, betting that this will resolve the conflict, despite the type definition.\n\n\n**Adjusting Parameter Formatting**\n\nI'm now acting on the feedback to add the item to the cart by passing a dictionary, not a string. The function's input format is contradictory; the definition says `body` must be a string, but the error indicates an object is expected. Given prior failures, I'll supply a dictionary, hoping the underlying system handles the conversion to the expected string.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1\\n}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34200,
+          "completion_tokens": 3604,
+          "total_tokens": 37804
+        }
+      },
+      "started_at": "2025-06-11T12:15:14.233Z",
+      "completed_at": "2025-06-11T12:15:44.113Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644111,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": null,
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34054,
+              "completion_tokens": 56,
+              "total_tokens": 34110
+            }
+          },
+          "started_at": "2025-06-11T12:15:10.910Z",
+          "completed_at": "2025-06-11T12:15:14.233Z",
+          "previous": []
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644144-qWD7a8wIEDIBzheeeP4p",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644144,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Contemplating Configuration**\n\nI'm currently focusing on the desired MacBook Pro configuration. I've parsed the user's specifications: silver, 16GB RAM, 1TB SSD, and an English keyboard. I'm ready to construct the appropriate tool call to add this exact model to the shopping cart.\n\n\n**Pinpointing Stock IDs**\n\nI've reviewed the response from the API call. I now have the specific IDs for the color, RAM, SSD, and keyboard options. My next step is to construct a tool call that adds this exact configuration to the cart, using the obtained `stock_id` associated with the user's choices. I'm almost ready to execute the cart update.\n\n\n**Locating the Right Stock**\n\nI've now analyzed the API response containing the product's configuration options and their respective IDs. After cross-referencing these with the user's desired specifications, I've pinpointed the correct `stock_id`: `3746725f-e367-46f7-ac7b-118f8ff57180`. This ID precisely matches the desired Silver, 16GB RAM, 1TB SSD, and English keyboard configuration. I'm now ready to add this configuration to the cart.\n\n\n**Refining Cart Update**\n\nI've identified the correct `stock_id`, which is `3746725f-e367-46f7-ac7b-118f8ff57180`. I have identified that the previous call to add the item to the cart failed because the JSON was improperly formatted. The body was sent as a string instead of a valid JSON object. I'm now confident I have all the parameters for a successful tool call.\n\n\n**Analyzing Failed Cart Updates**\n\nI'm now re-evaluating the previous failed cart update attempts. The API expects a JSON string for the `body` parameter, which I provided. The error indicates a JSON parsing problem with the provided body. I'll try to address the stringification problem in the next tool call, ensuring proper formatting and escaping.\n\n\n**Rectifying the Cart Update**\n\nI've re-examined the failed `shoppings_customers_carts_commodities_create` calls. The issue appears to stem from improperly sending a stringified JSON for the `body` parameter. Despite the type hint, the tool likely expects a dictionary. I will now attempt the tool call using a dictionary, which should be serialized internally.\n\n\n**Reformatting the Tool Call**\n\nI'm re-evaluating the failed tool call and the structure of the expected `body` parameter, which accepts a string. I have identified that I was passing the argument with extra spacing. I will attempt a more compact JSON string now.\n\n\n**Formulating Final Call**\n\nI'm now preparing to execute the `shoppings_customers_carts_commodities_create` call, and I have identified the error. The API expects a compact, single-line JSON string for the `body` parameter. The correctly formatted string for adding the selected MacBook Pro configuration to the cart will be: '{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}'.\n\n\n**Confirming Correctness**\n\nI'm now certain that the previous failures stemmed from incorrect string formatting in the `body` parameter. I will construct a dictionary with the correct parameters and then execute the tool call, expecting it to handle the JSON serialization internally. The correct `stock_id` and `quantity` are confirmed.\n\n\n**Revisiting Tool Call**\n\nI've re-examined the `shoppings_customers_carts_commodities_create` tool, and the `body` parameter. The documentation indicates a string, but previous successful API calls used a dictionary for the `body`. Now, I believe passing a dictionary will work.\n\n\n**Adding the Correct Item**\n\nI've reviewed the information and am now certain that passing a dictionary, and not a JSON string, to the `body` parameter is the correct approach. I'm ready to add the specified item to the cart.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34223,
+          "completion_tokens": 4333,
+          "total_tokens": 38556
+        }
+      },
+      "started_at": "2025-06-11T12:15:44.113Z",
+      "completed_at": "2025-06-11T12:16:21.107Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644111,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": null,
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34054,
+              "completion_tokens": 56,
+              "total_tokens": 34110
+            }
+          },
+          "started_at": "2025-06-11T12:15:10.910Z",
+          "completed_at": "2025-06-11T12:15:14.233Z",
+          "previous": []
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644114-btmHO1bkhWb8CbuqtaK7",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644114,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Processing Configuration Requests**\n\nI've successfully parsed the user's specified MacBook Pro configuration. The parameters, including silver color, 16GB RAM, a 1TB SSD, and an English keyboard, are now isolated. I'm now working to ensure these choices are valid against the product's available options before proceeding to the next step.\n\n\n**Mapping Product Specifications**\n\nI'm currently mapping the user's configuration choices—silver color, 16GB RAM, 1TB SSD, and an English keyboard—to the appropriate `candidate_id` values within the product's available options. I've pinpointed the required identifiers, now poised to cross-reference these against the available stock items to identify the specific `stock_id`. Next, I'll invoke `shoppings_customers_carts_commodities_create`.\n\n\n**Verifying Cart Addition**\n\nI've successfully identified the correct `stock_id` (\"3746725f-e367-46f7-ac7b-118f8ff57180\") for the specified MacBook Pro configuration. I'm now addressing the prior error with `shoppings_customers_carts_commodities_create`. The problem was a malformed `body` argument. I will now ensure the call includes a correctly formatted JSON object with the `stock_id` and the `quantity` as 1.\n\n\n**Verifying Cart Addition**\n\nI've identified the correct `stock_id` and addressed the previously failed attempt to add the item to the cart. The issue was a formatting error in the JSON object for the `body` argument. I am now revising the call to `shoppings_customers_carts_commodities_create`, making sure the argument is a properly formatted string or dictionary based on the underlying implementation's requirements.\n\n\n**Finalizing Cart Addition**\n\nI've confirmed that the `shoppings_customers_carts_commodities_create` function expects a dictionary for the `body`. I've also verified the correct `stock_id`, and I am now ready to execute the function call with a properly formatted dictionary. I will include the correct stock ID and a quantity of 1.\n\n\n**Correcting the Function Call**\n\nI've re-examined the function's expected input format, including the `IShoppingCartCommodity.ICreate` schema. Despite the function definition specifying a string for `body`, the underlying implementation seems to expect a JSON object. I will now call the function with a stringified JSON object as `body`.\n\n\n**Final Cart Addition Attempt**\n\nI've reviewed the failing function call to add the item to the cart. It seems the system expects a string as the `body`, containing a JSON object. I will now execute `shoppings_customers_carts_commodities_create` with the stock ID and quantity, formatted within a correctly formed JSON string.\n\n\n**Resolving the Argument Mismatch**\n\nI've reached a point of conflict. The function definition suggests a string for the `body` argument of `shoppings_customers_carts_commodities_create`. However, the error message clearly indicates it expects an object or dictionary, specifically matching the `IShoppingCartCommodity.ICreate` schema. I've decided to proceed with passing a dictionary as the `body` argument, hoping the tool handles the conversion to JSON internally, as it is the common practice in HTTP APIs.\n\n\n**Adjusting Argument Types**\n\nI'm now directly addressing the core issue: the function expects a `string` for the `body` parameter, yet the error indicates it's expecting a dictionary conforming to `IShoppingCartCommodity.ICreate`. I'm going to ignore the string declaration. I will supply a dictionary as `body`, betting that this will resolve the conflict, despite the type definition.\n\n\n**Adjusting Parameter Formatting**\n\nI'm now acting on the feedback to add the item to the cart by passing a dictionary, not a string. The function's input format is contradictory; the definition says `body` must be a string, but the error indicates an object is expected. Given prior failures, I'll supply a dictionary, hoping the underlying system handles the conversion to the expected string.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1\\n}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34200,
+              "completion_tokens": 3604,
+              "total_tokens": 37804
+            }
+          },
+          "started_at": "2025-06-11T12:15:14.233Z",
+          "completed_at": "2025-06-11T12:15:44.113Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644111,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": null,
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34054,
+                  "completion_tokens": 56,
+                  "total_tokens": 34110
+                }
+              },
+              "started_at": "2025-06-11T12:15:10.910Z",
+              "completed_at": "2025-06-11T12:15:14.233Z",
+              "previous": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_carts_commodities_create",
+      "arguments": {
+        "body": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingCartCommodity.ICreate",
+            "value": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644181-nkvHzkZ3JM8pmHIO3gtM",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644181,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Defining the Configuration**\n\nI'm narrowing down the options. The user's request to add a MacBook Pro to their cart is clear. I'm focused on pinpointing the exact model: silver, 16GB RAM, 1TB SSD, and an English keyboard. This involves matching the user's specs to the detailed product information I have.\n\n\n**Finalizing the Cart Addition**\n\nI've identified the correct `stock_id` based on the user's specifications. I'm now preparing the JSON object for the `shoppings_customers_carts_commodities_create` call. The `body` needs to be formatted as a JSON string, containing the `stock_id` and a quantity of 1. My goal is to make this call and successfully add the MacBook Pro to their cart.\n\n\n**Rectifying the JSON Format**\n\nI've identified the correct `stock_id` and the appropriate format for the JSON payload. The error persists, indicating an issue with how the body is being interpreted. Despite passing a stringified JSON object, the tool still flags an \"IShoppingCartCommodity.ICreate\" mismatch. I suspect there's a deeper issue with how the model processes the tool's string argument.\n\n\n**Revisiting the Payload**\n\nI'm rethinking the approach. Given the error, it seems the API might not be correctly parsing the stringified JSON I'm providing. I'm now considering if a different approach to constructing the `body` parameter is needed. Analyzing the function's expected input is key. I'm trying a dictionary instead of a string, hoping the internal processing will manage the format conversion.\n\n\n**Debugging the String Conversion**\n\nI'm now focusing on the precise formatting of the JSON string. The API's insistence on a string `body` while expecting JSON is tricky. I tried different quoting styles, but I still see the \"IShoppingCartCommodity.ICreate\" mismatch. Given the model's feedback, I will re-examine the JSON string construction and the tool's interaction.\n\n\n**Addressing Body Parameter Issues**\n\nI'm now focusing on the correct formatting for the `body` parameter, given the persistent \"IShoppingCartCommodity.ICreate\" error. I'm revisiting the function's documentation to ensure I haven't missed any required fields beyond `stock_id` and `quantity`. The API expects a JSON object, which I've been providing as a string, so I'm exploring alternate string formatting or potential model interpretation issues with the tool.\n\n\n**Analyzing Request Parameters**\n\nI'm revisiting the structure of the `body` parameter, focusing on the string representation of the JSON object. I've tried various formatting styles, including multi-line strings, to ensure correct interpretation by the API. Despite these attempts, the \"IShoppingCartCommodity.ICreate\" mismatch persists, which leads me to suspect a deeper issue with how the tool processes and sends the string data. The core problem seems to be related to the internal serialization or the interaction between the tool and the API.\n\n\n**Examining Parameter Assumptions**\n\nI'm re-examining the assumption that the tool needs a string input for `body`. While the API defines it as such, the persistent errors suggest this might not be correct. The model may be misinterpreting the string, or there's an issue with how the tool handles the string.\n\n\n**Addressing the Root Cause**\n\nI'm now focused on the root of the problem: the API not recognizing the JSON string within the `body`. I'm considering potential issues with the underlying tool's serialization and the API's expected data format. I'm looking to see if an issue exists with the function call itself or if there is a mismatch between the tool's interpretation and the server's requirements.\n\n\n**Analyzing Possible Causes**\n\nI'm focusing on the cause of the recurring \"IShoppingCartCommodity.ICreate\" error. The tool requires a string, which I've provided containing valid JSON. I'm considering that perhaps the tool isn't correctly interpreting the string as JSON or, conversely, that the server isn't receiving the request with the correct `Content-Type` header. The developer feedback indicates an argument error, which is guiding my re-evaluation.\n\n\n**Refining Parameter Understanding**\n\nI'm still focused on the format of the `body` parameter for `shoppings_customers_carts_commodities_create`. Given the tool expects a string, but the API wants an `IShoppingCartCommodity.ICreate` object, the core of the problem rests in the tool’s interpretation of the `body` string. It must contain correctly formed JSON. I'm now going to closely scrutinize the function calls to see if any pattern for successful JSON calls can be identified.\n\n\n**Re-evaluating the Core Issue**\n\nI've re-examined the situation, and the issue remains with the `body` parameter of `shoppings_customers_carts_commodities_create`. Although I'm providing a valid JSON string, the API consistently flags an \"IShoppingCartCommodity.ICreate\" mismatch, indicating a problem with how the tool handles or serializes the `body` argument. I'm now testing different parameter constructions based on the tool's apparent handling of the `body` argument.\n\n\n**Addressing the Root Cause**\n\nI'm now convinced that the `body` parameter for `shoppings_customers_carts_commodities_create` should be a dictionary, despite the tool's definition as `str`. The error consistently points to an issue with the way the JSON string is being processed. I'm currently focused on how the underlying tool is handling the serialization from a dictionary, hoping this resolves the issue and avoids the \"IShoppingCartCommodity.ICreate\" mismatch.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_carts_commodities_create",
+                    "arguments": "{\"body\":\"{\\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 34215,
+          "completion_tokens": 4601,
+          "total_tokens": 38816
+        }
+      },
+      "started_at": "2025-06-11T12:16:21.107Z",
+      "completed_at": "2025-06-11T12:17:00.219Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644111,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": null,
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34054,
+              "completion_tokens": 56,
+              "total_tokens": 34110
+            }
+          },
+          "started_at": "2025-06-11T12:15:10.910Z",
+          "completed_at": "2025-06-11T12:15:14.233Z",
+          "previous": []
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644114-btmHO1bkhWb8CbuqtaK7",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644114,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Processing Configuration Requests**\n\nI've successfully parsed the user's specified MacBook Pro configuration. The parameters, including silver color, 16GB RAM, a 1TB SSD, and an English keyboard, are now isolated. I'm now working to ensure these choices are valid against the product's available options before proceeding to the next step.\n\n\n**Mapping Product Specifications**\n\nI'm currently mapping the user's configuration choices—silver color, 16GB RAM, 1TB SSD, and an English keyboard—to the appropriate `candidate_id` values within the product's available options. I've pinpointed the required identifiers, now poised to cross-reference these against the available stock items to identify the specific `stock_id`. Next, I'll invoke `shoppings_customers_carts_commodities_create`.\n\n\n**Verifying Cart Addition**\n\nI've successfully identified the correct `stock_id` (\"3746725f-e367-46f7-ac7b-118f8ff57180\") for the specified MacBook Pro configuration. I'm now addressing the prior error with `shoppings_customers_carts_commodities_create`. The problem was a malformed `body` argument. I will now ensure the call includes a correctly formatted JSON object with the `stock_id` and the `quantity` as 1.\n\n\n**Verifying Cart Addition**\n\nI've identified the correct `stock_id` and addressed the previously failed attempt to add the item to the cart. The issue was a formatting error in the JSON object for the `body` argument. I am now revising the call to `shoppings_customers_carts_commodities_create`, making sure the argument is a properly formatted string or dictionary based on the underlying implementation's requirements.\n\n\n**Finalizing Cart Addition**\n\nI've confirmed that the `shoppings_customers_carts_commodities_create` function expects a dictionary for the `body`. I've also verified the correct `stock_id`, and I am now ready to execute the function call with a properly formatted dictionary. I will include the correct stock ID and a quantity of 1.\n\n\n**Correcting the Function Call**\n\nI've re-examined the function's expected input format, including the `IShoppingCartCommodity.ICreate` schema. Despite the function definition specifying a string for `body`, the underlying implementation seems to expect a JSON object. I will now call the function with a stringified JSON object as `body`.\n\n\n**Final Cart Addition Attempt**\n\nI've reviewed the failing function call to add the item to the cart. It seems the system expects a string as the `body`, containing a JSON object. I will now execute `shoppings_customers_carts_commodities_create` with the stock ID and quantity, formatted within a correctly formed JSON string.\n\n\n**Resolving the Argument Mismatch**\n\nI've reached a point of conflict. The function definition suggests a string for the `body` argument of `shoppings_customers_carts_commodities_create`. However, the error message clearly indicates it expects an object or dictionary, specifically matching the `IShoppingCartCommodity.ICreate` schema. I've decided to proceed with passing a dictionary as the `body` argument, hoping the tool handles the conversion to JSON internally, as it is the common practice in HTTP APIs.\n\n\n**Adjusting Argument Types**\n\nI'm now directly addressing the core issue: the function expects a `string` for the `body` parameter, yet the error indicates it's expecting a dictionary conforming to `IShoppingCartCommodity.ICreate`. I'm going to ignore the string declaration. I will supply a dictionary as `body`, betting that this will resolve the conflict, despite the type definition.\n\n\n**Adjusting Parameter Formatting**\n\nI'm now acting on the feedback to add the item to the cart by passing a dictionary, not a string. The function's input format is contradictory; the definition says `body` must be a string, but the error indicates an object is expected. Given prior failures, I'll supply a dictionary, hoping the underlying system handles the conversion to the expected string.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1\\n}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34200,
+              "completion_tokens": 3604,
+              "total_tokens": 37804
+            }
+          },
+          "started_at": "2025-06-11T12:15:14.233Z",
+          "completed_at": "2025-06-11T12:15:44.113Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644111,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": null,
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34054,
+                  "completion_tokens": 56,
+                  "total_tokens": 34110
+                }
+              },
+              "started_at": "2025-06-11T12:15:10.910Z",
+              "completed_at": "2025-06-11T12:15:14.233Z",
+              "previous": []
+            }
+          ]
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_carts_commodities_create",
+          "arguments": {
+            "body": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingCartCommodity.ICreate",
+                "value": "{\"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\", \"quantity\": 1}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644144-qWD7a8wIEDIBzheeeP4p",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644144,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Contemplating Configuration**\n\nI'm currently focusing on the desired MacBook Pro configuration. I've parsed the user's specifications: silver, 16GB RAM, 1TB SSD, and an English keyboard. I'm ready to construct the appropriate tool call to add this exact model to the shopping cart.\n\n\n**Pinpointing Stock IDs**\n\nI've reviewed the response from the API call. I now have the specific IDs for the color, RAM, SSD, and keyboard options. My next step is to construct a tool call that adds this exact configuration to the cart, using the obtained `stock_id` associated with the user's choices. I'm almost ready to execute the cart update.\n\n\n**Locating the Right Stock**\n\nI've now analyzed the API response containing the product's configuration options and their respective IDs. After cross-referencing these with the user's desired specifications, I've pinpointed the correct `stock_id`: `3746725f-e367-46f7-ac7b-118f8ff57180`. This ID precisely matches the desired Silver, 16GB RAM, 1TB SSD, and English keyboard configuration. I'm now ready to add this configuration to the cart.\n\n\n**Refining Cart Update**\n\nI've identified the correct `stock_id`, which is `3746725f-e367-46f7-ac7b-118f8ff57180`. I have identified that the previous call to add the item to the cart failed because the JSON was improperly formatted. The body was sent as a string instead of a valid JSON object. I'm now confident I have all the parameters for a successful tool call.\n\n\n**Analyzing Failed Cart Updates**\n\nI'm now re-evaluating the previous failed cart update attempts. The API expects a JSON string for the `body` parameter, which I provided. The error indicates a JSON parsing problem with the provided body. I'll try to address the stringification problem in the next tool call, ensuring proper formatting and escaping.\n\n\n**Rectifying the Cart Update**\n\nI've re-examined the failed `shoppings_customers_carts_commodities_create` calls. The issue appears to stem from improperly sending a stringified JSON for the `body` parameter. Despite the type hint, the tool likely expects a dictionary. I will now attempt the tool call using a dictionary, which should be serialized internally.\n\n\n**Reformatting the Tool Call**\n\nI'm re-evaluating the failed tool call and the structure of the expected `body` parameter, which accepts a string. I have identified that I was passing the argument with extra spacing. I will attempt a more compact JSON string now.\n\n\n**Formulating Final Call**\n\nI'm now preparing to execute the `shoppings_customers_carts_commodities_create` call, and I have identified the error. The API expects a compact, single-line JSON string for the `body` parameter. The correctly formatted string for adding the selected MacBook Pro configuration to the cart will be: '{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}'.\n\n\n**Confirming Correctness**\n\nI'm now certain that the previous failures stemmed from incorrect string formatting in the `body` parameter. I will construct a dictionary with the correct parameters and then execute the tool call, expecting it to handle the JSON serialization internally. The correct `stock_id` and `quantity` are confirmed.\n\n\n**Revisiting Tool Call**\n\nI've re-examined the `shoppings_customers_carts_commodities_create` tool, and the `body` parameter. The documentation indicates a string, but previous successful API calls used a dictionary for the `body`. Now, I believe passing a dictionary will work.\n\n\n**Adding the Correct Item**\n\nI've reviewed the information and am now certain that passing a dictionary, and not a JSON string, to the `body` parameter is the correct approach. I'm ready to add the specified item to the cart.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_carts_commodities_create",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_carts_commodities_create",
+                        "arguments": "{\"body\":\"{\\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\", \\\"quantity\\\": 1}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 34223,
+              "completion_tokens": 4333,
+              "total_tokens": 38556
+            }
+          },
+          "started_at": "2025-06-11T12:15:44.113Z",
+          "completed_at": "2025-06-11T12:16:21.107Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644111,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": null,
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34054,
+                  "completion_tokens": 56,
+                  "total_tokens": 34110
+                }
+              },
+              "started_at": "2025-06-11T12:15:10.910Z",
+              "completed_at": "2025-06-11T12:15:14.233Z",
+              "previous": []
+            },
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_carts_commodities_create",
+              "arguments": {
+                "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingCartCommodity.ICreate",
+                    "value": "{\n    \"stock_id\": \"3746725f-e367-46f7-ac7b-118f8ff57180\",\n    \"quantity\": 1\n}"
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644114-btmHO1bkhWb8CbuqtaK7",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644114,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": "**Processing Configuration Requests**\n\nI've successfully parsed the user's specified MacBook Pro configuration. The parameters, including silver color, 16GB RAM, a 1TB SSD, and an English keyboard, are now isolated. I'm now working to ensure these choices are valid against the product's available options before proceeding to the next step.\n\n\n**Mapping Product Specifications**\n\nI'm currently mapping the user's configuration choices—silver color, 16GB RAM, 1TB SSD, and an English keyboard—to the appropriate `candidate_id` values within the product's available options. I've pinpointed the required identifiers, now poised to cross-reference these against the available stock items to identify the specific `stock_id`. Next, I'll invoke `shoppings_customers_carts_commodities_create`.\n\n\n**Verifying Cart Addition**\n\nI've successfully identified the correct `stock_id` (\"3746725f-e367-46f7-ac7b-118f8ff57180\") for the specified MacBook Pro configuration. I'm now addressing the prior error with `shoppings_customers_carts_commodities_create`. The problem was a malformed `body` argument. I will now ensure the call includes a correctly formatted JSON object with the `stock_id` and the `quantity` as 1.\n\n\n**Verifying Cart Addition**\n\nI've identified the correct `stock_id` and addressed the previously failed attempt to add the item to the cart. The issue was a formatting error in the JSON object for the `body` argument. I am now revising the call to `shoppings_customers_carts_commodities_create`, making sure the argument is a properly formatted string or dictionary based on the underlying implementation's requirements.\n\n\n**Finalizing Cart Addition**\n\nI've confirmed that the `shoppings_customers_carts_commodities_create` function expects a dictionary for the `body`. I've also verified the correct `stock_id`, and I am now ready to execute the function call with a properly formatted dictionary. I will include the correct stock ID and a quantity of 1.\n\n\n**Correcting the Function Call**\n\nI've re-examined the function's expected input format, including the `IShoppingCartCommodity.ICreate` schema. Despite the function definition specifying a string for `body`, the underlying implementation seems to expect a JSON object. I will now call the function with a stringified JSON object as `body`.\n\n\n**Final Cart Addition Attempt**\n\nI've reviewed the failing function call to add the item to the cart. It seems the system expects a string as the `body`, containing a JSON object. I will now execute `shoppings_customers_carts_commodities_create` with the stock ID and quantity, formatted within a correctly formed JSON string.\n\n\n**Resolving the Argument Mismatch**\n\nI've reached a point of conflict. The function definition suggests a string for the `body` argument of `shoppings_customers_carts_commodities_create`. However, the error message clearly indicates it expects an object or dictionary, specifically matching the `IShoppingCartCommodity.ICreate` schema. I've decided to proceed with passing a dictionary as the `body` argument, hoping the tool handles the conversion to JSON internally, as it is the common practice in HTTP APIs.\n\n\n**Adjusting Argument Types**\n\nI'm now directly addressing the core issue: the function expects a `string` for the `body` parameter, yet the error indicates it's expecting a dictionary conforming to `IShoppingCartCommodity.ICreate`. I'm going to ignore the string declaration. I will supply a dictionary as `body`, betting that this will resolve the conflict, despite the type definition.\n\n\n**Adjusting Parameter Formatting**\n\nI'm now acting on the feedback to add the item to the cart by passing a dictionary, not a string. The function's input format is contradictory; the definition says `body` must be a string, but the error indicates an object is expected. Given prior failures, I'll supply a dictionary, hoping the underlying system handles the conversion to the expected string.\n\n\n",
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_carts_commodities_create",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_carts_commodities_create",
+                            "arguments": "{\"body\":\"{\\n    \\\"stock_id\\\": \\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\n    \\\"quantity\\\": 1\\n}\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 34200,
+                  "completion_tokens": 3604,
+                  "total_tokens": 37804
+                }
+              },
+              "started_at": "2025-06-11T12:15:14.233Z",
+              "completed_at": "2025-06-11T12:15:44.113Z",
+              "previous": [
+                {
+                  "type": "failure",
+                  "id": "tool_0_shoppings_customers_carts_commodities_create",
+                  "arguments": {
+                    "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                  },
+                  "result": {
+                    "success": false,
+                    "data": {
+                      "body": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                    },
+                    "errors": [
+                      {
+                        "path": "$input.body",
+                        "expected": "IShoppingCartCommodity.ICreate",
+                        "value": "{\"stock_id\":\"3746725f-e367-46f7-ac7b-118f8ff57180\",\"quantity\":1}"
+                      }
+                    ]
+                  },
+                  "completion": {
+                    "id": "gen-1749644111-C0msWz3nN4aWmwPzuTNh",
+                    "provider": "Google",
+                    "model": "google/gemini-2.5-pro-preview",
+                    "object": "chat.completion",
+                    "created": 1749644111,
+                    "choices": [
+                      {
+                        "logprobs": null,
+                        "finish_reason": "tool_calls",
+                        "native_finish_reason": "STOP",
+                        "index": 0,
+                        "message": {
+                          "role": "assistant",
+                          "content": "",
+                          "refusal": null,
+                          "reasoning": null,
+                          "tool_calls": [
+                            {
+                              "index": 0,
+                              "id": "tool_0_shoppings_customers_carts_commodities_create",
+                              "type": "function",
+                              "function": {
+                                "name": "shoppings_customers_carts_commodities_create",
+                                "arguments": "{\"body\":\"{\\\"stock_id\\\":\\\"3746725f-e367-46f7-ac7b-118f8ff57180\\\",\\\"quantity\\\":1}\"}"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "usage": {
+                      "prompt_tokens": 34054,
+                      "completion_tokens": 56,
+                      "total_tokens": 34110
+                    }
+                  },
+                  "started_at": "2025-06-11T12:15:10.910Z",
+                  "completed_at": "2025-06-11T12:15:14.233Z",
+                  "previous": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

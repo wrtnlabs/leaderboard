@@ -1,0 +1,455 @@
+{
+  "type": "nothing",
+  "completion": {
+    "id": "gen-1749644150-0VDg1LntOy4VgrfWZiTK",
+    "provider": "Google",
+    "model": "google/gemini-2.5-pro-preview",
+    "object": "chat.completion",
+    "created": 1749644150,
+    "choices": [
+      {
+        "error": {
+          "message": "Internal Server Error",
+          "code": 500
+        },
+        "logprobs": null,
+        "finish_reason": "error",
+        "native_finish_reason": "error",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "refusal": null,
+          "reasoning": "**Investigating User's Request**\n\nI've honed in on the user's desire to view sales figures. My initial step was analyzing the request, and now I'm exploring tools. The `default_api.sh oppings_customers_sales_index` function seems like a strong candidate, especially given its description. Next up: a closer look at its parameters to ensure a good match!\n\n\n**Defining Data Structure Requirements**\n\nI've reviewed the user's needs and verified that the `default_api.sh oppings_customers_sales_index` function seems appropriate. Examining its signature, I found it expects a `body` argument of type `str`. Further, the feedback confirms an empty string failed. I am now assuming the `body` requires a JSON object adhering to the  `IShoppingSale.IRequest` format, perhaps `{}`. I will refine this, for the first attempt.\n\n\n"
+        }
+      }
+    ]
+  },
+  "started_at": "2025-06-11T12:15:50.899Z",
+  "completed_at": "2025-06-11T12:15:56.633Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_sales_index",
+      "arguments": {
+        "body": ""
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": ""
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingSale.IRequest",
+            "value": ""
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644116-Uy8FzJ1L24lzFCNkrqqc",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644116,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Investigating Relevant Tools**\n\nI'm currently examining the `shoppings_customers_sales_index` tool. It looks promising for the user's request since it lists \"every summarized sale\". I've confirmed it needs a `body` parameter, which is a string, before it can be used. My next step will be to determine the appropriate content for this `body`.\n\n\n**Formulating a Query**\n\nI've decided the best approach is to get more information from the user before using the tool. The goal is to refine the `body` parameter for `shoppings_customers_sales_index`. I will now ask the user for clarification to determine specific preferences regarding sales, such as products or brands, so I can provide a more relevant response.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_sales_index",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_sales_index",
+                    "arguments": "{\"body\":\"\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 232,
+          "completion_tokens": 218,
+          "total_tokens": 450
+        }
+      },
+      "started_at": "2025-06-11T12:15:16.525Z",
+      "completed_at": "2025-06-11T12:15:20.623Z",
+      "previous": []
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_sales_index",
+      "arguments": {
+        "body": "{}"
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": "{}"
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingSale.IRequest",
+            "value": "{}"
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644120-sBHzhFjv9JjgXyqS1bNt",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644120,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Reviewing Sales Data**\n\nI'm focusing on how to get the user the sales data they requested. I've identified the `shoppings_customers_sales_index` tool as promising, as it provides summarized sales information. My next step is to figure out how to format the output for the user.\n\n\n**Testing API Calls**\n\nI've attempted to call `shoppings_customers_sales_index` with an empty JSON object `{}` to satisfy the API's requirement for a JSON body. I am expecting to receive some sales data in return. The previous attempt with an empty string yielded an error.\n\n\n**Implementing the Tool Call**\n\nI've decided to try calling `shoppings_customers_sales_index` again. Based on the previous error, an empty string is not acceptable as the `body`. Therefore, I am now calling the tool with an empty JSON object `{}` in the body, in the hope of retrieving the requested sales data. I'm expecting the tool to execute without error this time.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_sales_index",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_sales_index",
+                    "arguments": "{\"body\":\"{}\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 287,
+          "completion_tokens": 484,
+          "total_tokens": 771
+        }
+      },
+      "started_at": "2025-06-11T12:15:20.623Z",
+      "completed_at": "2025-06-11T12:15:27.233Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_sales_index",
+          "arguments": {
+            "body": ""
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": ""
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingSale.IRequest",
+                "value": ""
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644116-Uy8FzJ1L24lzFCNkrqqc",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644116,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Investigating Relevant Tools**\n\nI'm currently examining the `shoppings_customers_sales_index` tool. It looks promising for the user's request since it lists \"every summarized sale\". I've confirmed it needs a `body` parameter, which is a string, before it can be used. My next step will be to determine the appropriate content for this `body`.\n\n\n**Formulating a Query**\n\nI've decided the best approach is to get more information from the user before using the tool. The goal is to refine the `body` parameter for `shoppings_customers_sales_index`. I will now ask the user for clarification to determine specific preferences regarding sales, such as products or brands, so I can provide a more relevant response.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_sales_index",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_sales_index",
+                        "arguments": "{\"body\":\"\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 232,
+              "completion_tokens": 218,
+              "total_tokens": 450
+            }
+          },
+          "started_at": "2025-06-11T12:15:16.525Z",
+          "completed_at": "2025-06-11T12:15:20.623Z",
+          "previous": []
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "id": "tool_0_shoppings_customers_sales_index",
+      "arguments": {
+        "body": ""
+      },
+      "result": {
+        "success": false,
+        "data": {
+          "body": ""
+        },
+        "errors": [
+          {
+            "path": "$input.body",
+            "expected": "IShoppingSale.IRequest",
+            "value": ""
+          }
+        ]
+      },
+      "completion": {
+        "id": "gen-1749644127-A5XZbpo3AnnDyx7NHhV8",
+        "provider": "Google",
+        "model": "google/gemini-2.5-pro-preview",
+        "object": "chat.completion",
+        "created": 1749644127,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "STOP",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": "**Evaluating User Intent**\n\nI'm currently focused on the user's request, specifically, understanding the user's need for \"sales in the market.\" My next step will be to determine if the available `default_api.shoppings_customers_sales_index` tool can satisfy the user's need. I am also reviewing the tool's documentation to ensure I understand how to best utilize it.\n\n\n**Deconstructing the Error**\n\nI've analyzed the tool output and pinpointed the error. The validation error reveals that the empty JSON object I submitted isn't a valid `IShoppingSale.IRequest`. Now I must delve deeper into the documentation to understand the required structure of this `IShoppingSale.IRequest` object, as it's the key to getting the desired sales data. I am hoping to find its required fields.\n\n\n**Defining Request Parameters**\n\nI'm currently reviewing the error message closely. It states the tool expects an `IShoppingSale.IRequest`, not just a string. My current understanding is that I need to consult the API documentation for the structure of `IShoppingSale.IRequest`. The previous approach of an empty JSON string was clearly wrong, and now I'm focused on crafting a valid `body` based on the data model's specifications.\n\n\n**Debugging the Input**\n\nI'm circling back to the initial failed attempt. The error message is my guide: it expects an `IShoppingSale.IRequest`. The `body` needs content, not just to be of string type. Given the error, I'll test providing an empty, but valid, `IShoppingSale.IRequest` as a string. I am also re-examining the documentation and the prompt itself.\n\n\n**Iterating on Body Structure**\n\nI'm revisiting the error from the previous tool call. The main takeaway is that an empty JSON object isn't a valid `IShoppingSale.IRequest`. I'm considering whether to provide an empty string, as the `body` parameter is type hinted as `str`. I'm reevaluating the error message and the documentation.\n\n\n**Refining the Input Strategy**\n\nI'm currently evaluating the previous failed attempt and the error message once again. The error states that the provided `{}` doesn't conform to `IShoppingSale.IRequest`. Since the `body` argument is a string, I will test omitting the body, as I consider the current failed approach to have been a misuse of the `body` parameter, which may not be needed, based on what I have seen and inferred from prior tool use.\n\n\n**Rethinking the Body's Contents**\n\nI'm analyzing the last failed attempt and the surrounding clues. The critical part is the validation error: the API expects an `IShoppingSale.IRequest`, but the empty JSON object was invalid. I'm now re-evaluating how the API might handle a request for a simple list of sales and considering whether an empty `body` (empty string) could be accepted as a valid, if potentially non-ideal, request.\n\n\n**Addressing the Core Error**\n\nI'm now focusing on the most recent error message, and the implications for my next action. The \"IShoppingSale.IRequest\" expectation is key. Given the error I am now focused on correcting the input. I'm going to now try a simpler JSON structure, based on the assumption the simplest possible valid request should be accepted.\n\n\n**Probing for a Simpler Solution**\n\nI've been wrestling with the error and the documentation. Given that an empty JSON object failed validation, I'll try an empty string for the `body` argument in my next attempt. This approach aims to bypass the JSON parsing, or, more simply, signify an empty request. The prompt directs me to correct the previous attempt.\n\n\n",
+              "tool_calls": [
+                {
+                  "index": 0,
+                  "id": "tool_0_shoppings_customers_sales_index",
+                  "type": "function",
+                  "function": {
+                    "name": "shoppings_customers_sales_index",
+                    "arguments": "{\"body\":\"\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 289,
+          "completion_tokens": 2145,
+          "total_tokens": 2434
+        }
+      },
+      "started_at": "2025-06-11T12:15:27.233Z",
+      "completed_at": "2025-06-11T12:15:50.899Z",
+      "previous": [
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_sales_index",
+          "arguments": {
+            "body": ""
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": ""
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingSale.IRequest",
+                "value": ""
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644116-Uy8FzJ1L24lzFCNkrqqc",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644116,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Investigating Relevant Tools**\n\nI'm currently examining the `shoppings_customers_sales_index` tool. It looks promising for the user's request since it lists \"every summarized sale\". I've confirmed it needs a `body` parameter, which is a string, before it can be used. My next step will be to determine the appropriate content for this `body`.\n\n\n**Formulating a Query**\n\nI've decided the best approach is to get more information from the user before using the tool. The goal is to refine the `body` parameter for `shoppings_customers_sales_index`. I will now ask the user for clarification to determine specific preferences regarding sales, such as products or brands, so I can provide a more relevant response.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_sales_index",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_sales_index",
+                        "arguments": "{\"body\":\"\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 232,
+              "completion_tokens": 218,
+              "total_tokens": 450
+            }
+          },
+          "started_at": "2025-06-11T12:15:16.525Z",
+          "completed_at": "2025-06-11T12:15:20.623Z",
+          "previous": []
+        },
+        {
+          "type": "failure",
+          "id": "tool_0_shoppings_customers_sales_index",
+          "arguments": {
+            "body": "{}"
+          },
+          "result": {
+            "success": false,
+            "data": {
+              "body": "{}"
+            },
+            "errors": [
+              {
+                "path": "$input.body",
+                "expected": "IShoppingSale.IRequest",
+                "value": "{}"
+              }
+            ]
+          },
+          "completion": {
+            "id": "gen-1749644120-sBHzhFjv9JjgXyqS1bNt",
+            "provider": "Google",
+            "model": "google/gemini-2.5-pro-preview",
+            "object": "chat.completion",
+            "created": 1749644120,
+            "choices": [
+              {
+                "logprobs": null,
+                "finish_reason": "tool_calls",
+                "native_finish_reason": "STOP",
+                "index": 0,
+                "message": {
+                  "role": "assistant",
+                  "content": "",
+                  "refusal": null,
+                  "reasoning": "**Reviewing Sales Data**\n\nI'm focusing on how to get the user the sales data they requested. I've identified the `shoppings_customers_sales_index` tool as promising, as it provides summarized sales information. My next step is to figure out how to format the output for the user.\n\n\n**Testing API Calls**\n\nI've attempted to call `shoppings_customers_sales_index` with an empty JSON object `{}` to satisfy the API's requirement for a JSON body. I am expecting to receive some sales data in return. The previous attempt with an empty string yielded an error.\n\n\n**Implementing the Tool Call**\n\nI've decided to try calling `shoppings_customers_sales_index` again. Based on the previous error, an empty string is not acceptable as the `body`. Therefore, I am now calling the tool with an empty JSON object `{}` in the body, in the hope of retrieving the requested sales data. I'm expecting the tool to execute without error this time.\n\n\n",
+                  "tool_calls": [
+                    {
+                      "index": 0,
+                      "id": "tool_0_shoppings_customers_sales_index",
+                      "type": "function",
+                      "function": {
+                        "name": "shoppings_customers_sales_index",
+                        "arguments": "{\"body\":\"{}\"}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "usage": {
+              "prompt_tokens": 287,
+              "completion_tokens": 484,
+              "total_tokens": 771
+            }
+          },
+          "started_at": "2025-06-11T12:15:20.623Z",
+          "completed_at": "2025-06-11T12:15:27.233Z",
+          "previous": [
+            {
+              "type": "failure",
+              "id": "tool_0_shoppings_customers_sales_index",
+              "arguments": {
+                "body": ""
+              },
+              "result": {
+                "success": false,
+                "data": {
+                  "body": ""
+                },
+                "errors": [
+                  {
+                    "path": "$input.body",
+                    "expected": "IShoppingSale.IRequest",
+                    "value": ""
+                  }
+                ]
+              },
+              "completion": {
+                "id": "gen-1749644116-Uy8FzJ1L24lzFCNkrqqc",
+                "provider": "Google",
+                "model": "google/gemini-2.5-pro-preview",
+                "object": "chat.completion",
+                "created": 1749644116,
+                "choices": [
+                  {
+                    "logprobs": null,
+                    "finish_reason": "tool_calls",
+                    "native_finish_reason": "STOP",
+                    "index": 0,
+                    "message": {
+                      "role": "assistant",
+                      "content": "",
+                      "refusal": null,
+                      "reasoning": "**Investigating Relevant Tools**\n\nI'm currently examining the `shoppings_customers_sales_index` tool. It looks promising for the user's request since it lists \"every summarized sale\". I've confirmed it needs a `body` parameter, which is a string, before it can be used. My next step will be to determine the appropriate content for this `body`.\n\n\n**Formulating a Query**\n\nI've decided the best approach is to get more information from the user before using the tool. The goal is to refine the `body` parameter for `shoppings_customers_sales_index`. I will now ask the user for clarification to determine specific preferences regarding sales, such as products or brands, so I can provide a more relevant response.\n\n\n",
+                      "tool_calls": [
+                        {
+                          "index": 0,
+                          "id": "tool_0_shoppings_customers_sales_index",
+                          "type": "function",
+                          "function": {
+                            "name": "shoppings_customers_sales_index",
+                            "arguments": "{\"body\":\"\"}"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 232,
+                  "completion_tokens": 218,
+                  "total_tokens": 450
+                }
+              },
+              "started_at": "2025-06-11T12:15:16.525Z",
+              "completed_at": "2025-06-11T12:15:20.623Z",
+              "previous": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
