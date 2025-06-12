@@ -1,0 +1,228 @@
+{
+  "type": "error",
+  "error": {
+    "status": 400,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "cf-ray": "94e12a4e0ef92b11-MAN",
+      "connection": "keep-alive",
+      "content-length": "294",
+      "content-type": "application/json",
+      "date": "Wed, 11 Jun 2025 12:38:23 GMT",
+      "server": "cloudflare",
+      "vary": "Accept-Encoding",
+      "x-clerk-auth-message": "Invalid JWT form. A JWT consists of three parts separated by dots. (reason=token-invalid, token-carrier=header)",
+      "x-clerk-auth-reason": "token-invalid",
+      "x-clerk-auth-status": "signed-out"
+    },
+    "error": {
+      "message": "Provider returned error",
+      "code": 400,
+      "metadata": {
+        "raw": "{\"object\":\"error\",\"message\":\"Unexpected role 'tool' after role 'user'\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":null}",
+        "provider_name": "Mistral"
+      }
+    },
+    "code": 400,
+    "name": "Error",
+    "message": "400 Provider returned error",
+    "stack": "Error: 400 Provider returned error\n    at APIError.generate (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/node_modules/.pnpm/openai@4.91.1/node_modules/openai/error.mjs:41:20)\n    at OpenAI.makeStatusError (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/node_modules/.pnpm/openai@4.91.1/node_modules/openai/core.mjs:295:25)\n    at OpenAI.makeRequest (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/node_modules/.pnpm/openai@4.91.1/node_modules/openai/core.mjs:339:30)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async process (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:329:24)\n    at async tryValidateExperiment (file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:313:17)\n    at async file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:1211:23\n    at async Promise.all (index 0)\n    at async file:///Users/ryoppippi/ghq/github.com/wrtnlabs/benchmark/dist/index.mjs:1209:30\n    at async Promise.all (index 3)"
+  },
+  "started_at": "2025-06-11T12:38:23.665Z",
+  "completed_at": "2025-06-11T12:38:23.926Z",
+  "previous": [
+    {
+      "type": "failure",
+      "id": "VnIm5I4LK",
+      "arguments": {
+        "schema": {
+          "title": "IMember",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "age": {
+              "type": "number",
+              "minimum": 20,
+              "exclusiveMaximum": 100
+            },
+            "hobbies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ]
+              }
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "deleted_at": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "email",
+            "age",
+            "hobbies",
+            "created_at",
+            "updated_at",
+            "deleted_at"
+          ]
+        }
+      },
+      "result": {
+        "success": false,
+        "errors": [
+          {
+            "path": "$input.schema.properties.deleted_at.type",
+            "expected": "undefined",
+            "value": [
+              "null",
+              "string"
+            ]
+          }
+        ],
+        "data": {
+          "schema": {
+            "title": "IMember",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "age": {
+                "type": "number",
+                "minimum": 20,
+                "exclusiveMaximum": 100
+              },
+              "hobbies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                }
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "deleted_at": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "email",
+              "age",
+              "hobbies",
+              "created_at",
+              "updated_at",
+              "deleted_at"
+            ]
+          }
+        }
+      },
+      "completion": {
+        "id": "gen-1749645490-mrvGEaTeO74lOSd7b3Sz",
+        "provider": "Mistral",
+        "model": "mistralai/magistral-medium-2506",
+        "object": "chat.completion",
+        "created": 1749645490,
+        "choices": [
+          {
+            "logprobs": null,
+            "finish_reason": "tool_calls",
+            "native_finish_reason": "tool_calls",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "",
+              "refusal": null,
+              "reasoning": null,
+              "tool_calls": [
+                {
+                  "id": "VnIm5I4LK",
+                  "function": {
+                    "name": "collectSchema",
+                    "arguments": "{\"schema\": {\"title\": \"IMember\", \"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}, \"email\": {\"type\": \"string\", \"format\": \"email\"}, \"age\": {\"type\": \"number\", \"minimum\": 20, \"exclusiveMaximum\": 100}, \"hobbies\": {\"type\": \"array\", \"items\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"string\", \"format\": \"uuid\"}, \"name\": {\"type\": \"string\"}}, \"required\": [\"id\", \"name\"]}}, \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}, \"deleted_at\": {\"type\": [\"null\", \"string\"], \"format\": \"date-time\"}}, \"required\": [\"id\", \"name\", \"email\", \"age\", \"hobbies\", \"created_at\", \"updated_at\", \"deleted_at\"]}}"
+                  },
+                  "index": 0,
+                  "type": "function"
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 29078,
+          "completion_tokens": 235,
+          "total_tokens": 29313
+        }
+      },
+      "started_at": "2025-06-11T12:38:09.647Z",
+      "completed_at": "2025-06-11T12:38:23.665Z",
+      "previous": []
+    }
+  ]
+}
